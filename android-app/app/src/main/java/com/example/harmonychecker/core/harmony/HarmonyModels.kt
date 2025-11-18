@@ -1,4 +1,4 @@
-package com.example.harmony.core.harmony
+package com.example.harmonychecker.core.harmony
 
 /**
  * 資料模型與規則引擎進入點骨架。

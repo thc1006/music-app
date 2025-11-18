@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App 名稱 -->
+    <string name="app_name">四部和聲助教</string>
+
+    <!-- 主畫面 -->
+    <string name="main_title">四部和聲檢查</string>
+    <string name="main_subtitle">拍照或選擇樂譜，自動檢查和聲錯誤</string>
+    <string name="btn_take_photo">拍攝樂譜</string>
+    <string name="btn_choose_photo">選擇照片</string>
+    <string name="btn_use_sample">使用範例</string>
+
+    <!-- 相機畫面 -->
+    <string name="camera_title">拍攝樂譜</string>
+    <string name="camera_hint">請將樂譜完整置於畫面中</string>
+    <string name="btn_capture">拍攝</string>
+    <string name="btn_cancel">取消</string>
+
+    <!-- 分析畫面 -->
+    <string name="analyzing_title">分析中</string>
+    <string name="analyzing_message">正在辨識樂譜並檢查和聲規則…</string>
+    <string name="analyzing_step_omr">樂譜辨識中…</string>
+    <string name="analyzing_step_rules">規則檢查中…</string>
+
+    <!-- 結果畫面 -->
+    <string name="result_title">檢查結果</string>
+    <string name="result_no_issues">太棒了！未發現任何和聲錯誤。</string>
+    <string name="result_issues_found">發現 %d 個問題</string>
+    <string name="btn_show_details">查看詳情</string>
+    <string name="btn_check_another">檢查另一份作業</string>
+
+    <!-- 錯誤詳情 -->
+    <string name="issue_severity_error">錯誤</string>
+    <string name="issue_severity_warning">警告</string>
+    <string name="issue_location">位置：第 %1$d 小節，第 %2$.1f 拍</string>
+    <string name="issue_voices">聲部：%s</string>
+
+    <!-- 權限相關 -->
+    <string name="permission_camera_title">需要相機權限</string>
+    <string name="permission_camera_rationale">此應用需要相機權限以拍攝樂譜照片</string>
+    <string name="permission_storage_title">需要儲存空間權限</string>
+    <string name="permission_storage_rationale">此應用需要存取照片以選擇樂譜圖片</string>
+    <string name="permission_denied">權限被拒絕，某些功能將無法使用</string>
+    <string name="btn_grant_permission">授予權限</string>
+
+    <!-- 錯誤訊息 -->
+    <string name="error_generic">發生錯誤，請稍後再試</string>
+    <string name="error_network">網路連線失敗，請檢查網路設定</string>
+    <string name="error_omr_failed">樂譜辨識失敗，請確保照片清晰完整</string>
+    <string name="error_no_image">未選擇圖片</string>
+
+    <!-- 通用 -->
+    <string name="btn_ok">確定</string>
+    <string name="btn_retry">重試</string>
+    <string name="btn_back">返回</string>
+    <string name="loading">載入中…</string>
+</resources>

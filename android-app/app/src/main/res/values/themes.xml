@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material 3 Light Theme -->
+    <style name="Theme.HarmonyChecker" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/md_theme_light_primary</item>
+    </style>
+</resources>

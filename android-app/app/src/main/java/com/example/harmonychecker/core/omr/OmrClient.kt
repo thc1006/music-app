@@ -1,6 +1,6 @@
-package com.example.harmony.core.omr
+package com.example.harmonychecker.core.omr
 
-import com.example.harmony.core.harmony.ChordSnapshot
+import com.example.harmonychecker.core.harmony.ChordSnapshot
 
 /**
  * OMR / 多模態 LLM 代理 API 介面與 HTTP client 骨架。
