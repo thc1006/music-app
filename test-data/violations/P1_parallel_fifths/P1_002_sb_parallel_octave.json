@@ -1,0 +1,53 @@
+{
+  "test_id": "P1_002",
+  "description": "S-B 外聲部平行八度",
+  "category": "P1_parallel_intervals",
+  "severity_expected": "error",
+
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 60, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 74, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 65, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 62, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 62, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "P1",
+        "severity": "error",
+        "voices_involved": ["SOPRANO", "BASS"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "平行"
+      }
+    ],
+    "cadence": null
+  },
+
+  "notes": "S-B 外聲部從八度 (72-60) 同向移動到八度 (74-62)，嚴重錯誤"
+}

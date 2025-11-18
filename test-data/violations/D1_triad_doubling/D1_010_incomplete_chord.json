@@ -1,0 +1,36 @@
+{
+  "test_id": "D1_010",
+  "description": "只有兩個不同音高（錯誤）",
+  "category": "D1_triad_doubling",
+  "severity_expected": "error",
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 60, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "D1",
+        "severity": "error",
+        "voices_involved": null,
+        "location": {"chord_index": 0},
+        "message_zh_contains": "不完整"
+      }
+    ],
+    "cadence": null
+  },
+  "notes": "只有 C (48,60,60,72) 兩個音高類別，無法構成三和弦"
+}

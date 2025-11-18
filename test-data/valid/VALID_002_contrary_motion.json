@@ -1,0 +1,39 @@
+{
+  "test_id": "VALID_002",
+  "description": "反向進行避免平行五度",
+  "category": "valid",
+  "severity_expected": null,
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 76, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 64, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 52, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 64, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 60, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 0,
+    "violations": [],
+    "cadence": null
+  },
+  "notes": "S 下行 B 上行，反向進行，避免平行音程"
+}

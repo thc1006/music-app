@@ -1,0 +1,28 @@
+{
+  "test_id": "D1_008",
+  "description": "減三和弦配置",
+  "category": "D1_triad_doubling",
+  "severity_expected": null,
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 71, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 65, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 59, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 59, "measure": 1, "beat": 1.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 0,
+    "violations": [],
+    "cadence": null
+  },
+  "notes": "VII 級減三和弦 B-D-F (71-59-65)，根音 B 重複"
+}

@@ -1,0 +1,36 @@
+{
+  "test_id": "D1_003",
+  "description": "省略五音但根音數量不足",
+  "category": "D1_triad_doubling",
+  "severity_expected": "error",
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 64, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "D1",
+        "severity": "error",
+        "voices_involved": null,
+        "location": {"chord_index": 0},
+        "message_zh_contains": "省略五音"
+      }
+    ],
+    "cadence": null
+  },
+  "notes": "省略五音 G (67)，但根音 C 只有 2 個 (48,72)，應至少 3 個"
+}

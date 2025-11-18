@@ -1,0 +1,53 @@
+{
+  "test_id": "V1_006",
+  "description": "Tenor-Bass 連續和弦超越（Overlap）",
+  "category": "V1_voice_crossing",
+  "severity_expected": "error",
+
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 55, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 47, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 43, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "V1",
+        "severity": "error",
+        "voices_involved": ["TENOR", "BASS"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "超越"
+      }
+    ],
+    "cadence": null
+  },
+
+  "notes": "T 從 G3 (55) 移到 B2 (47)，低於前一和弦 B 的 C3 (48)，產生超越"
+}

@@ -1,0 +1,53 @@
+{
+  "test_id": "P1_006",
+  "description": "A-B 平行五度",
+  "category": "P1_parallel_intervals",
+  "severity_expected": "error",
+
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 55, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 52, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 74, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 57, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 53, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 50, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "P1",
+        "severity": "error",
+        "voices_involved": ["ALTO", "BASS"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "平行"
+      }
+    ],
+    "cadence": null
+  },
+
+  "notes": "A-B 從五度 (55-48=7) 同向移動到五度 (57-50=7)"
+}
