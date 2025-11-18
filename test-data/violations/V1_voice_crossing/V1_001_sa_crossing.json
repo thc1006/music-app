@@ -1,0 +1,41 @@
+{
+  "test_id": "V1_001",
+  "description": "Soprano 低於 Alto 產生聲部交錯",
+  "category": "V1_voice_crossing",
+  "severity_expected": "error",
+
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 64, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      }
+    ]
+  },
+
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "V1",
+        "severity": "error",
+        "voices_involved": ["SOPRANO", "ALTO"],
+        "location": {
+          "chord_index": 0
+        },
+        "message_zh_contains": "交錯"
+      }
+    ],
+    "cadence": null
+  },
+
+  "notes": "S (E4=64) 低於 A (G4=67)，明顯的聲部交錯錯誤"
+}
