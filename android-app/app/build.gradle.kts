@@ -106,6 +106,14 @@ dependencies {
     // Permissions
     implementation("com.google.accompanist:accompanist-permissions:0.32.0")
 
+    // ========== TensorFlow Lite (YOLO12 端側 OMR) ==========
+    implementation("org.tensorflow:tensorflow-lite:2.14.0")
+    implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
+    implementation("org.tensorflow:tensorflow-lite-gpu:2.14.0")  // GPU 加速
+    implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")  // 視覺任務工具
+    // NNAPI Delegate for NPU acceleration
+    implementation("org.tensorflow:tensorflow-lite-select-tf-ops:2.14.0")
+
     // Testing - JUnit 5 (Jupiter)
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")

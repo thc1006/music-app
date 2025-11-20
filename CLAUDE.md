@@ -6,8 +6,14 @@
 ---
 ## 0. 專案一句話
 
-開發一個給音樂班／音樂系學生使用的 Android APP：  
-拍照或上傳四部和聲作業 → 雲端 OMR / 多模態模型解讀樂譜 → 手機端規則引擎檢查 → 在樂譜上標出錯誤並給中文解釋。
+開發一個給音樂班／音樂系學生使用的 Android APP：
+拍照或上傳四部和聲作業 → **端側 YOLO12 深度學習模型解讀樂譜** → 手機端規則引擎檢查 → 在樂譜上標出錯誤並給中文解釋。
+
+**🔥 重要架構決策（2025-11-20）**：採用 **完全端側運算** 架構
+- OMR 辨識：使用 YOLO12s/n + TensorFlow Lite INT8 量化，完全在手機上運行
+- 無雲端依賴：無需後端伺服器，完全離線運作
+- 訓練資源：使用 RTX 5060 GPU 訓練自定義 YOLO12 模型
+- 目標裝置：支援 2025 年所有等級 Android 手機（含平價機）
 
 ---
 ## 1. 目前重要檔案
@@ -31,42 +37,77 @@
 
 docs 資料夾：
 
-- docs/omr_proxy_api.md  
-  雲端 OMR / Vision 代理 API 的 JSON 結構與端點設計。
+- docs/yolo12_omr_implementation.md ⭐ **NEW**
+  YOLO12 端側 OMR 完整實作規劃：訓練、量化、Android 部署、多裝置適配策略。
 
-- docs/omr_prompt_gemini.md  
-  針對多模態 LLM（例如 Gemini）設計的 prompt 草稿，讓模型輸出結構化 JSON。
+- docs/omr_proxy_api.md ⚠️ **DEPRECATED**
+  （已棄用）原雲端 API 設計，保留作為參考。
 
-Android skeleton：
+- docs/omr_prompt_gemini.md ⚠️ **DEPRECATED**
+  （已棄用）原 LLM prompt 設計，保留作為參考。
 
-- android-app/README.md  
+訓練資料與腳本：
+
+- training/
+  - yolo12_train.py ⭐ **NEW** - YOLO12 訓練主腳本（RTX 5060）
+  - omr_harmony.yaml ⭐ **NEW** - 資料集配置
+  - export_models.py ⭐ **NEW** - 模型匯出與量化腳本
+  - requirements-train.txt ⭐ **NEW** - 訓練環境依賴
+
+Android 核心：
+
+- android-app/README.md
   Android 子專案結構說明與建置方向。
 
-- android-app/core/harmony/HarmonyModels.kt  
-  Kotlin 版資料模型與規則引擎進入點骨架。
+- android-app/core/harmony/HarmonyModels.kt
+  Kotlin 版資料模型與規則引擎（已完成 2000+ 行）。
 
-- android-app/core/omr/OmrClient.kt  
-  OMR 雲端 API 介面與 HTTP client 骨架。
+- android-app/core/omr/OmrClient.kt
+  OMR 介面定義（端側推論）。
+
+- android-app/core/omr/Yolo12OmrClient.kt ⭐ **NEW**
+  YOLO12 TFLite 推論實作。
+
+- android-app/core/omr/SymbolAssembler.kt ⭐ **NEW**
+  符號檢測結果組裝成 ChordSnapshot 的邏輯。
 
 ---
 ## 2. 目標架構與流程
 
-### 2.1 資料流
+### 2.1 資料流（端側運算架構）
 
 1. 使用者在 Android APP：拍照或選擇一張樂譜圖片（四部和聲作業）。
-2. APP 將圖片壓縮後打到「雲端 OMR / Vision 代理 API」（serverless endpoint）：
-   - 由後端呼叫多模態 LLM（例如 Gemini）或其他 OMR 服務。
-   - 產生「調號、拍號、每一拍的 S/A/T/B 音高與時值」的 JSON 或 MusicXML。
-3. APP 收到 JSON，轉成 Kotlin 的 `ChordSnapshot` / `NoteEvent` 等資料結構。
-4. 手機端 Kotlin 規則引擎執行所有和聲規則檢查，產生 `HarmonyIssue` 列表。
-5. UI 將錯誤位置 overlay 在樂譜畫面上，並顯示中文說明與簡短建議。
+2. **圖像預處理**（手機端）：
+   - 調整解析度至 640x640
+   - 灰階化與對比增強
+   - 透視矯正（可選）
+3. **YOLO12 推論**（手機端 TFLite）：
+   - 使用 INT8 量化模型進行符號檢測
+   - 偵測音符頭、譜號、調號、拍號、升降記號等
+   - 輸出 bounding boxes + 類別 + 信心度
+4. **符號組裝**（手機端）：
+   - 根據檢測結果的空間位置排序
+   - 組合成 ChordSnapshot 列表（小節、拍點、SATB 音高）
+   - 處理特殊情況（連結線、延音線等）
+5. **規則引擎檢查**（手機端）：
+   - Kotlin HarmonyRuleEngine 執行所有和聲規則
+   - 產生 HarmonyIssue 列表
+6. **UI 顯示**：
+   - 錯誤位置 overlay 在原始樂譜上
+   - 顯示中文錯誤說明與建議
 
-### 2.2 設計原則
+**關鍵優勢**：完全離線、無網路延遲、保護隱私、無雲端成本。
 
-- 重運算（OMR / 圖像 → 樂譜）在雲端完成。  
-- 輕運算（和聲規則檢查）在手機端本地完成。  
-- Android 專案中不得硬編碼 API key 或敏感憑證。  
-- 音樂規則以 `harmony_rules.py` + `harmony_rules_zh.md` 的內容為準。
+### 2.2 設計原則（更新）
+
+- **完全端側運算**：所有運算（OMR + 規則檢查）在手機上完成，無雲端依賴。
+- **多裝置適配**：
+  - 使用 INT8 量化確保低階手機可運行
+  - 準備 YOLO12n（極輕量）和 YOLO12s（高準確度）雙模型
+  - 根據裝置效能動態選擇模型
+- **無敏感資訊**：所有資料留在本地，無 API key 或網路傳輸。
+- **音樂規則權威性**：規則以 `harmony_rules.py` + `harmony_rules_zh.md` 為準。
+- **模型可更新性**：TFLite 模型可透過 App 更新機制升級，無需重裝 App。
 
 ---
 ## 3. 預期目錄結構
@@ -169,21 +210,74 @@ Android skeleton：
 5. 重要行為變更時，更新 README.md 與本 CLAUDE.md。
 
 ---
-## 8. Roadmap（優先順序參考）
+## 8. Roadmap（更新為端側 YOLO12 架構）
 
-1. MVP：
-   - Kotlin 版規則引擎骨架完成，支援基礎規則（平行八／五度、導音處理、聲部交錯等）。
-   - Android APP 串接假資料（不依賴實際 OMR），跑完整錯誤檢查流程。
+### Phase 1: YOLO12 訓練與基礎整合（Week 1-3）✅ **當前階段**
 
-2. 雲端 OMR 整合（路線 A）：
-   - 根據 docs/omr_prompt_gemini.md 設計 prompt，與多模態 LLM 串接。
-   - 在後端實作 serverless OMR proxy，提供穩定 JSON 輸出。
+1. **資料準備** (Week 1, Day 1-2):
+   - 下載 MUSCIMA++, DeepScoresV2 資料集
+   - 準備標註格式轉換（YOLO format）
+   - 建立訓練/驗證/測試集分割
 
-3. 規則與教材覆蓋率：
-   - 擴充更多和聲規則與例外情況。
-   - 蒐集實際作業作為測試集，持續修正與補強。
+2. **模型訓練** (Week 1, Day 3-7):
+   - RTX 5060 訓練 YOLO12s (200-250 epochs)
+   - 同步訓練 YOLO12n 作為備援 (150-200 epochs)
+   - 驗證準確度與調參
 
-4. 中長期：
-   - 研究專用 OMR 模型（Roboflow、自建或商業 SDK），逐步減少對雲端 LLM 依賴。
+3. **模型匯出與量化** (Week 2, Day 1-2):
+   - 匯出 TFLite INT8 量化模型（YOLO12s, YOLO12n）
+   - 驗證量化後準確度損失 < 2%
+   - 測試模型大小與推論速度
+
+4. **Android TFLite 整合** (Week 2, Day 3-7):
+   - 建立 Yolo12OmrClient.kt
+   - 整合 TensorFlow Lite Interpreter
+   - 實作推論 pipeline（前處理 + 推論 + 後處理）
+
+5. **符號組裝邏輯** (Week 3, Day 1-5):
+   - 實作 SymbolAssembler.kt
+   - 空間位置排序與五線譜解析
+   - 生成 ChordSnapshot 列表
+
+6. **UI 整合與測試** (Week 3, Day 6-7):
+   - 串接 CameraX + YOLO12 + HarmonyRuleEngine
+   - 初步多裝置測試
+
+### Phase 2: 多裝置優化與降級策略（Week 4-5）
+
+1. **裝置效能分析**:
+   - 在低階（SD 6 Gen 1）、中階（SD 7 Gen 3）、高階手機上實測
+   - 收集推論時間、記憶體使用、準確度數據
+
+2. **動態模型選擇**:
+   - 實作裝置檢測與效能評分
+   - 低階機自動降級到 YOLO12n
+   - 中高階機使用 YOLO12s
+
+3. **準確度提升**:
+   - 根據實測結果 fine-tuning 模型
+   - 收集錯誤案例重新訓練
+   - 提升符號組裝邏輯健壯性
+
+### Phase 3: 規則覆蓋與教材整合（Week 6+）
+
+1. **規則引擎擴充**:
+   - 補齊剩餘和聲規則
+   - 處理更多音樂記號（表情、力度等）
+   - 實際作業測試集驗證
+
+2. **使用者體驗優化**:
+   - 錯誤標記 UI 精緻化
+   - 中文說明文字優化
+   - 互動式教學功能
+
+3. **模型持續改進**:
+   - 建立使用者反饋機制
+   - 定期更新模型（透過 App 更新）
+   - 擴充訓練資料集
+
+---
+
+**當前進度**：Phase 1 啟動，正在建立訓練腳本與資料集配置。
 
 若此檔案與實際專案結構不一致，以使用者指示為準，並在後續修改中更新本檔內容。

@@ -1,0 +1,43 @@
+# ============================================
+# YOLO12 四部和聲資料集配置
+# ============================================
+
+# 資料集根路徑（相對於此 yaml 檔案）
+path: ./datasets/yolo_harmony
+
+# 訓練/驗證/測試集路徑
+train: images/train
+val: images/val
+test: images/test  # 可選
+
+# 類別數量
+nc: 20
+
+# 類別名稱（索引 0-19）
+# 這些類別專為四部和聲樂譜辨識設計
+names:
+  0: notehead_filled    # 實心符頭（四分音符、八分音符等）
+  1: notehead_hollow    # 空心符頭（二分音符、全音符）
+  2: stem_up            # 向上符幹
+  3: stem_down          # 向下符幹
+  4: beam               # 連音線
+  5: flag               # 符尾
+  6: clef_treble        # 高音譜號（G clef）
+  7: clef_bass          # 低音譜號（F clef）
+  8: clef_alto          # 中音譜號（C clef alto）
+  9: clef_tenor         # 次中音譜號（C clef tenor）
+  10: accidental_sharp   # 升記號（♯）
+  11: accidental_flat    # 降記號（♭）
+  12: accidental_natural # 還原記號（♮）
+  13: rest_quarter       # 四分休止符
+  14: rest_half          # 二分休止符
+  15: rest_whole         # 全休止符
+  16: barline            # 小節線
+  17: time_signature     # 拍號（如 4/4, 3/4）
+  18: key_signature      # 調號
+  19: staffline          # 五線譜線
+
+# 資料集統計（訓練前填寫）
+# total_images: TBD
+# total_annotations: TBD
+# avg_annotations_per_image: TBD
