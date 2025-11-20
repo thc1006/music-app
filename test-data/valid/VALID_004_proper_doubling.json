@@ -1,0 +1,28 @@
+{
+  "test_id": "VALID_004",
+  "description": "正確的三和弦配置與重複",
+  "category": "valid",
+  "severity_expected": null,
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 64, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 0,
+    "violations": [],
+    "cadence": null
+  },
+  "notes": "C 大三和弦，根音 C 重複在 S 和 B，三音 E 在 T，五音 G 在 A"
+}

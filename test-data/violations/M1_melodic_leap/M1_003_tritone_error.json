@@ -1,0 +1,53 @@
+{
+  "test_id": "M1_003",
+  "description": "旋律中出現增四度（三全音）",
+  "category": "M1_melodic_intervals",
+  "severity_expected": "error",
+
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 60, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 57, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 52, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 66, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 57, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 52, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "M1",
+        "severity": "error",
+        "voices_involved": ["SOPRANO"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "增四度"
+      }
+    ],
+    "cadence": null
+  },
+
+  "notes": "C4 (60) 到 F# (66) 為增四度（6 半音），禁止的旋律音程"
+}

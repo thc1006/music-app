@@ -1,0 +1,53 @@
+{
+  "test_id": "V1_004",
+  "description": "Soprano-Alto 連續和弦超越（Overlap）",
+  "category": "V1_voice_crossing",
+  "severity_expected": "error",
+
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 65, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "V1",
+        "severity": "error",
+        "voices_involved": ["SOPRANO", "ALTO"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "超越"
+      }
+    ],
+    "cadence": null
+  },
+
+  "notes": "S 從 C5 (72) 移到 F4 (65)，低於前一和弦 A 的 G4 (67)，產生超越"
+}

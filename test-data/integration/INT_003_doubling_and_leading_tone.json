@@ -1,0 +1,59 @@
+{
+  "test_id": "INT_003",
+  "description": "導音重複 + 導音未解決",
+  "category": "integration",
+  "severity_expected": "error",
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 71, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 59, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 59, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 67, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 2,
+    "violations": [
+      {
+        "rule_id": "D1",
+        "severity": "error",
+        "voices_involved": null,
+        "location": {
+          "chord_index": 0
+        },
+        "message_zh_contains": "導音"
+      },
+      {
+        "rule_id": "L1",
+        "severity": "error",
+        "voices_involved": ["SOPRANO"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "導音"
+      }
+    ],
+    "cadence": null
+  },
+  "notes": "V 級和弦導音 B (71, 59) 重複，且 S 聲部導音下行到 G 而非上行到 C"
+}

@@ -1,0 +1,39 @@
+{
+  "test_id": "L1_004",
+  "description": "導音正確向上解決（允許）",
+  "category": "L1_leading_tone",
+  "severity_expected": null,
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 71, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 65, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 59, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 47, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 0,
+    "violations": [],
+    "cadence": null
+  },
+  "notes": "S 聲部導音 B (71) 向上解決到 C (72)，正確"
+}

@@ -1,0 +1,39 @@
+{
+  "test_id": "L1_005",
+  "description": "內聲部導音（不檢查）",
+  "category": "L1_leading_tone",
+  "severity_expected": null,
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 67, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 59, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 59, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 47, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 67, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 55, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 0,
+    "violations": [],
+    "cadence": null
+  },
+  "notes": "A 聲部導音 B (59) 下行，但導音規則只檢查外聲部 (S & B)"
+}

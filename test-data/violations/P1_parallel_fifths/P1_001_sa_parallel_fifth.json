@@ -1,0 +1,56 @@
+{
+  "test_id": "P1_001",
+  "description": "S-A 聲部連續平行完全五度",
+  "category": "P1_parallel_intervals",
+  "severity_expected": "error",
+
+  "input": {
+    "key_signature": {
+      "tonic_midi": 60,
+      "mode": "major"
+    },
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 65, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 74, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 62, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 50, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "P1",
+        "severity": "error",
+        "voices_involved": ["SOPRANO", "ALTO"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "平行"
+      }
+    ],
+    "cadence": null
+  },
+
+  "notes": "教科書經典錯誤範例：外聲部 S-A 同向移動形成連續完全五度 (C5-F4 → D5-G4)"
+}

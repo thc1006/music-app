@@ -1,0 +1,28 @@
+{
+  "test_id": "D1_007",
+  "description": "三音重複（某些情況允許）",
+  "category": "D1_triad_doubling",
+  "severity_expected": null,
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 76, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 64, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 0,
+    "violations": [],
+    "cadence": null
+  },
+  "notes": "C 大三和弦，三音 E (64) 重複，根音和五音各一，在某些情況下允許"
+}

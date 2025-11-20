@@ -1,0 +1,60 @@
+{
+  "test_id": "INT_001",
+  "description": "混合違規：平行五度 + 旋律跳進",
+  "category": "integration",
+  "severity_expected": "error",
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 60, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 65, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 58, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 76, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 50, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 2,
+    "violations": [
+      {
+        "rule_id": "M1",
+        "severity": "error",
+        "voices_involved": ["SOPRANO"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "超過八度"
+      },
+      {
+        "rule_id": "P1",
+        "severity": "error",
+        "voices_involved": ["ALTO", "TENOR"],
+        "location": {
+          "from_index": 0,
+          "to_index": 1
+        },
+        "message_zh_contains": "平行"
+      }
+    ],
+    "cadence": null
+  },
+  "notes": "S 跳進 16 半音（超過八度），同時 A-T 平行五度 (65-58=7, 67-60=7)"
+}

@@ -1,0 +1,39 @@
+{
+  "test_id": "P2_004",
+  "description": "B 跳進 S 級進到八度（允許）",
+  "category": "P2_hidden_intervals",
+  "severity_expected": null,
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 71, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 59, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 55, "measure": 1, "beat": 1.0 }
+        }
+      },
+      {
+        "index": 1,
+        "measure": 1,
+        "beat": 2.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 2.0 },
+          "A": { "voice": "A", "midi": 64, "measure": 1, "beat": 2.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 2.0 },
+          "B": { "voice": "B", "midi": 60, "measure": 1, "beat": 2.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 0,
+    "violations": [],
+    "cadence": null
+  },
+  "notes": "S 級進 (71→72=1半音) + B 跳進 (55→60=5半音) 到八度，允許"
+}

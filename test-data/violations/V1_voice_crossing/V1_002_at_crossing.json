@@ -1,0 +1,41 @@
+{
+  "test_id": "V1_002",
+  "description": "Alto 低於 Tenor 產生聲部交錯",
+  "category": "V1_voice_crossing",
+  "severity_expected": "error",
+
+  "input": {
+    "key_signature": null,
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 72, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 55, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 60, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 48, "measure": 1, "beat": 1.0 }
+        }
+      }
+    ]
+  },
+
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "V1",
+        "severity": "error",
+        "voices_involved": ["ALTO", "TENOR"],
+        "location": {
+          "chord_index": 0
+        },
+        "message_zh_contains": "交錯"
+      }
+    ],
+    "cadence": null
+  },
+
+  "notes": "A (G3=55) 低於 T (C4=60)，違反聲部排列順序"
+}

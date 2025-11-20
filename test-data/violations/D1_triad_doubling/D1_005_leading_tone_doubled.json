@@ -1,0 +1,36 @@
+{
+  "test_id": "D1_005",
+  "description": "導音重複（V 級和弦）",
+  "category": "D1_triad_doubling",
+  "severity_expected": "error",
+  "input": {
+    "key_signature": {"tonic_midi": 60, "mode": "major"},
+    "chords": [
+      {
+        "index": 0,
+        "measure": 1,
+        "beat": 1.0,
+        "notes": {
+          "S": { "voice": "S", "midi": 71, "measure": 1, "beat": 1.0 },
+          "A": { "voice": "A", "midi": 67, "measure": 1, "beat": 1.0 },
+          "T": { "voice": "T", "midi": 59, "measure": 1, "beat": 1.0 },
+          "B": { "voice": "B", "midi": 59, "measure": 1, "beat": 1.0 }
+        }
+      }
+    ]
+  },
+  "expected_output": {
+    "violation_count": 1,
+    "violations": [
+      {
+        "rule_id": "D1",
+        "severity": "error",
+        "voices_involved": null,
+        "location": {"chord_index": 0},
+        "message_zh_contains": "導音"
+      }
+    ],
+    "cadence": null
+  },
+  "notes": "V 級和弦 G-B-D (67-71-59)，導音 B (71) 作為三音被重複，嚴重錯誤"
+}
