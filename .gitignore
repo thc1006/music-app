@@ -1,0 +1,25 @@
+training/datasets/CVC-MUSCIMA_StaffRemoval.zip
+training/datasets/deepscores_v2.zip
+kaggle.json
+training/datasets
+.pyc
+__pycache__/
+*.pyc
+training/venv_yolo12/*
+training/venv_yolo12/**/*
+training/harmony_omr_yolo12/
+training/harmony_omr_ultra/
+training/harmony_omr_v2_optimized/
+training/harmony_omr_v2_ultimate/
+.claude/agents
+runs/detect/val/*
+runs/detect/train/*
+runs/detect/exp*/
+.pt*
+.pt
+training/yolo11n.pt
+training/yolo12s.pt
+
+# Training logs
+training/*.log
+training/__pycache__/
