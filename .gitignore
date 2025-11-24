@@ -23,3 +23,25 @@ training/yolo12s.pt
 # Training logs
 training/*.log
 training/__pycache__/
+runs/detect/val3/*
+training/harmony_omr_v2_phase2/balanced_training/
+
+# Downloaded dataset archives
+training/*.zip
+training/datasets/external/
+
+# Training run artifacts
+runs/
+
+# Claude settings
+.claude/settings.json
+
+# Phase 2 full directory
+training/harmony_omr_v2_phase2/
+
+# Temporary shell scripts
+training/AUTO_PROCESS_ALL_DATASETS.sh
+training/BULLETPROOF_AUTO_PIPELINE.sh
+training/FIX_AND_RETRAIN.sh
+training/LAUNCH_ULTIMATE_35CLASSES.sh
+training/RESTART_TRAINING.sh
