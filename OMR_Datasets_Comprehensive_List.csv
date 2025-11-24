@@ -1,0 +1,36 @@
+Dataset Name,Type,Size,License,Primary Use,Download,Commercial Use
+MUSCIMA++,Handwritten,"91,255 symbols; 140 images",CC-BY-NC-SA 4.0,"Symbol detection, classification, notation reconstruction",https://ufal.mff.cuni.cz/muscima,No (NC restriction)
+CVC-MUSCIMA,Handwritten,"1,000 images; 50 writers",CC-BY-NC-SA 4.0,"Writer identification, staff removal, symbol recognition",http://www.cvc.uab.es/cvcmuscima/index_database.html,No (NC restriction)
+DeepScores V1,Synthetic/Typeset,"300,000 images",Unknown/Research,"Object classification, detection, segmentation",https://tuggeluk.github.io/deepscores/,Unknown - Check with authors
+DeepScores V2,Synthetic/Typeset,"255,385 images; 151M symbols; 135 classes",CC BY 4.0,"Object detection, semantic/instance segmentation",https://zenodo.org/records/4012193,Yes (CC-BY 4.0)
+DoReMi,Synthetic/Typeset,"6,432 images; ~1M annotated objects; 94 classes",Unspecified/Research,"Universal OMR (all stages), end-to-end recognition",https://github.com/steinbergmedia/DoReMi/,Unknown - Check with authors
+PrIMuS (Printed Images of Music Staves),Typeset,"87,678 incipits/scores",Unspecified,End-to-end monophonic OMR,https://grfia.dlsi.ua.es/primus/,Unknown - Check with authors
+Camera-PrIMuS,Typeset (Camera distorted),"1,528 scores",Unspecified,End-to-end OMR (real-world conditions),https://grfia.dlsi.ua.es/primus/,Unknown - Check with authors
+HOMUS (Handwritten Online Musical Symbols),Handwritten Online,"15,200 samples; 32 symbol types; 100 musicians",Unspecified/Research,Online/offline symbol classification,http://grfia.dlsi.ua.es/homus/,Unknown - Check with authors
+OpenOMR Dataset,Typeset,706 symbols; 16 classes,GPL,Symbol classification,http://sourceforge.net/projects/openomr/,Unlikely (GPL)
+Audiveris OMR,Typeset,~800 annotated symbols; 4 sheets,AGPL-3.0,"Symbol classification, detection",https://github.com/Audiveris/omr-dataset-tools,No (AGPL-3.0)
+Baro Single Stave Dataset,Handwritten,95 single-staff images,CC-BY-NC-SA 4.0,End-to-end single-staff recognition,http://www.cvc.uab.es/people/abaro/datasets.html,No (NC restriction)
+Rebelo Dataset,Typeset/Handwritten,"~15,000 symbols",CC-BY-SA 4.0,Symbol classification,http://www.inescporto.pt/~arebelo/index.php,Yes (CC-BY-SA 4.0)
+Fornes Dataset,Handwritten,"4,100 symbols; 7 classes",Unspecified,Symbol classification,http://www.cvc.uab.es/~afornes/,Unknown - Check with authors
+Universal Music Symbol Collection,Handwritten + Typeset,"~90,000 symbols (74,000 handwritten; 16,000 typeset)",Unspecified,Universal symbol classification,https://github.com/apacha/MusicSymbolClassifier,Unknown - Check with authors
+SEILS Dataset,Typeset (Renaissance),30 madrigals; 150 images; 450+ files,CC-0 (for symbolic files) / Custom for PDFs,"Early music OMR, pattern recognition",https://github.com/SEILSdataset/SEILSdataset,Yes (CC-0 for symbolic)
+AudioLabs v1,Typeset,"940 images; 24,329 bounding boxes",CC-BY-NC-SA 4.0,Measure/stave annotation detection,https://www.audiolabs-erlangen.de/resources/MIR/2019-ISMIR-LBD-Measures,No (NC restriction)
+AudioLabs v2,Typeset,"940 images; 85,980 bounding boxes",CC-BY-NC-SA 4.0,Measure/stave annotation detection,https://www.audiolabs-erlangen.de/resources/MIR/2019-ISMIR-LBD-Measures,No (NC restriction)
+OpenScore Lieder,Typeset,"1,356 files",CC-0,General music encoding,https://github.com/OpenScore/Lieder,Yes (CC-0)
+OpenScore String Quartets,Typeset,106 files,CC-0 (2023 update),String quartet scores,https://github.com/OpenScore/StringQuartets,Yes (CC-0)
+MuseScore Dataset,Typeset,">340,000 files",Varies by uploader,General music files,https://musescore.com/sheetmusic,Varies by contribution
+MuseScore Monophonic MusicXML,Typeset,"17,000 file IDs",Unspecified,Monophonic score OMR research,https://github.com/eelcovdw/mono-musicxml-dataset,Unknown - Check with authors
+Mashcima,Synthetic (Handwritten style),Unlimited (synthesized),MIT (tool) / Varies (underlying data),Handwritten score synthesis,https://github.com/Jirka-Mayer/Mashcima,Depends on underlying data
+Capitan Collection,Handwritten Online,"10,230 samples; 30 classes",Unspecified/Research,Online symbol recognition,http://grfia.dlsi.ua.es/,Unknown - Check with authors
+Choi Accidentals Dataset,Typeset,"2,955 images",Unspecified,Accidental detection in context,https://www-intuidoc.irisa.fr/en/choi_accidentals/,Unknown - Check with authors
+Printed Music Symbols Dataset,Typeset,~200 symbols; 36 classes,Unspecified,Symbol classification,https://github.com/apacha/PrintedMusicSymbolsDataset,Unknown - Check with authors
+Music Score Classification Dataset,Typeset,"1,000 images; 500 music + 500 other",MIT,Score classification/detection,https://github.com/apacha/MusicScoreClassifier,Yes (MIT tool)
+Multimodal Sheet Music Dataset (MSMD),Synthetic,"497 pieces; 344,742 note pairs",CC-BY-SA 4.0,Audio-score cross-modal retrieval,https://github.com/CPJKU/msmd,Yes (CC-BY-SA 4.0)
+Sheet Midi Retrieval Dataset,Typeset,200 songs,MIT (tool) / Custom,Score-MIDI retrieval,https://github.com/tjtsai/SheetMidiRetrieval,Depends (MIT tool)
+Gamera MusicStaves Toolkit,Synthetic,32 score images,Unspecified,Staff line removal,http://music-staves.sf.net/,Unknown - Check with authors
+IMSLP (International Music Score Library Project),Typeset,">420,000 PDF scores",Public Domain (older works); Varies for newer,General music score database,http://imslp.org,Varies (Public Domain + modern works)
+Byrd Dataset,Typeset,34 images,Unspecified/Contact authors,Comparative OMR evaluation,http://www.diku.dk/~simonsen/suppmat/jnmr/,Unknown - Contact authors
+MScoreLib Dataset,Typeset,"~6,000 MusicXML scores",Unspecified,General music database,http://mscorelib.com/,Unknown - Check with authors
+OpenScore Baroque,Typeset,150+ scores,Unspecified,Baroque music encoding,https://github.com/OpenScore/Baroque,Unknown - Check with authors
+Silva Online Handwritten Symbols,Handwritten Online,"12,600 trajectories; 50 writers; 84 symbols",Unspecified,Online symbol recognition,Rui Miguel Filipe da Silva thesis (2013),Unknown - Check with authors
+Early Typographic Prints,Typeset,"240 pages; 52,178 characters",Unspecified,Early typographic OMR,Reference: Pugin 2006,Unknown - Check with authors
