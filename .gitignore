@@ -39,6 +39,9 @@ runs/
 # Phase 2 full directory
 training/harmony_omr_v2_phase2/
 
+# Phase 3 training output
+training/harmony_omr_v2_phase3/
+
 # Temporary shell scripts
 training/AUTO_PROCESS_ALL_DATASETS.sh
 training/BULLETPROOF_AUTO_PIPELINE.sh
