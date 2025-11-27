@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.0">
+  <music>
+    <body>
+      <mdiv>
+        <score>
+          <scoreDef>
+            <staffGrp>
+              <staffDef n="1" lines="5" clef.shape="G" clef.line="2"
+                        key.sig="0s" meter.count="4" meter.unit="4"/>
+            </staffGrp>
+          </scoreDef>
+          <section>
+            <measure n="1">
+              <staff n="1">
+                <layer n="1">
+                  <note pname="C" oct="4" dur="4"/>
+                  <note pname="D" oct="4" dur="4"/>
+                  <note pname="E" oct="4" dur="4"/>
+                  <note pname="F" oct="4" dur="4"/>
+                </layer>
+              </staff>
+              <barLine form="single"/>
+            </measure>
+          </section>
+        </score>
+      </mdiv>
+    </body>
+  </music>
+</mei>

@@ -1,0 +1,119 @@
+# Verovio 合成數據生成配置
+
+# 圖像設定
+image:
+  width: 1024
+  height: 1024
+  dpi: 300
+  format: "png"
+
+# Barline 類型分佈
+barline_types:
+  single: 0.35          # 單線
+  double: 0.15          # 雙線
+  final: 0.15           # 終止線
+  repeat_left: 0.15     # 反復記號（左）
+  repeat_right: 0.15    # 反復記號（右）
+  repeat_both: 0.05     # 雙向反復記號
+
+# 音樂內容參數
+music:
+  measures_per_image: [4, 6, 8]      # 每張圖片的小節數
+  notes_per_measure: [4, 6, 8]       # 每小節音符數
+  time_signatures:                    # 拍號
+    - "4/4"
+    - "3/4"
+    - "2/4"
+    - "6/8"
+  clefs:                             # 譜號
+    - "treble"
+    - "bass"
+    - "alto"
+    - "tenor"
+  key_signatures: [0, 1, 2, 3, 4]   # 調號（升降記號數量）
+
+# Verovio 渲染參數
+verovio:
+  scale: 100                         # 縮放比例
+  font: "Bravura"                    # 字體 (Bravura, Leipzig)
+  page_width: 2100                   # 頁面寬度（單位：十分之一毫米）
+  page_height: 2970                  # 頁面高度（A4）
+  page_margin_top: 100
+  page_margin_bottom: 100
+  page_margin_left: 100
+  page_margin_right: 100
+  spacing_staff: 12                  # 五線譜間距
+  spacing_system: 12                 # 系統間距
+
+# Domain Randomization 參數
+augmentation:
+  enabled: true
+
+  # 紙張紋理（Perlin noise）
+  paper_texture:
+    enabled: true
+    probability: 0.8
+    scale: 100.0                     # Perlin noise 頻率
+    octaves: 3
+    persistence: 0.5
+    intensity: 0.15                  # 紋理強度
+
+  # 掃描噪聲
+  scan_noise:
+    enabled: true
+    probability: 0.6
+    line_probability: 0.05           # 掃描線出現機率
+    spot_probability: 0.02           # 斑點出現機率
+    spot_size: [1, 3]                # 斑點大小範圍
+
+  # 幾何變換
+  geometric:
+    enabled: true
+    rotation:
+      probability: 0.5
+      angle_range: [-3, 3]           # 旋轉角度範圍（度）
+    perspective:
+      probability: 0.3
+      distortion: 0.02               # 透視變形強度
+
+  # JPEG 壓縮
+  jpeg_compression:
+    enabled: true
+    probability: 0.7
+    quality_range: [70, 95]          # 質量範圍
+
+  # 亮度/對比度
+  brightness_contrast:
+    enabled: true
+    probability: 0.8
+    brightness_range: [-30, 30]      # 亮度調整範圍
+    contrast_range: [0.8, 1.2]       # 對比度範圍
+
+# 質量控制
+quality:
+  min_bbox_area: 100                 # 最小 bbox 面積（像素）
+  max_bbox_area: 50000               # 最大 bbox 面積
+  min_confidence: 0.5                # 最小信心度（模擬）
+
+# 輸出設定
+output:
+  save_svg: false                    # 是否保存 SVG
+  save_validation_samples: true      # 是否保存可視化樣本
+  validation_sample_count: 50        # 可視化樣本數量
+  split_ratio:                       # 訓練/驗證分割比例
+    train: 0.9
+    val: 0.1
+
+# 並行處理
+parallel:
+  workers: 8                         # 並行進程數
+  batch_size: 100                    # 每個批次的圖片數
+
+# YOLO 類別映射
+yolo_classes:
+  single: 0
+  double: 1
+  final: 2
+  repeat_left: 3
+  repeat_right: 4
+  repeat_both: 5

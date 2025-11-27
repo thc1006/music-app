@@ -1,0 +1,18 @@
+# Verovio 合成 Barline 數據集
+# 生成時間: 2025-11-26 12:14:16
+
+path: /home/thc1006/dev/music-app/training/synthetic_generation/output_test
+train: train/images
+val: val/images
+
+# 類別數量
+nc: 6
+
+# 類別名稱
+names:
+  0: single
+  1: double
+  2: final
+  3: repeat_left
+  4: repeat_right
+  5: repeat_both

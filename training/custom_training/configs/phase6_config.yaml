@@ -1,0 +1,218 @@
+# ============================================
+# Phase 6 Training Configuration
+# ============================================
+# Hard Example Mining + Custom Loss Strategy
+#
+# Target improvements:
+# - barline (23): 0.201 → 0.50-0.60
+# - barline_double (24): 0.140 → 0.40-0.50
+# - Overall mAP50: 0.580 → 0.65-0.68
+
+# ============================================
+# Stage 1: Full Dataset + Weighted Loss
+# ============================================
+stage1:
+  # Basic settings
+  epochs: 150
+  patience: 25
+  batch: 16
+  imgsz: 640
+
+  # Learning rate
+  lr0: 0.001          # Initial LR
+  lrf: 0.01           # Final LR ratio
+  warmup_epochs: 3.0
+  optimizer: AdamW
+
+  # Augmentation (music-specific)
+  mosaic: 0.5         # Proven effective
+  mixup: 0.15
+  copy_paste: 0.4     # Increased for rare classes
+
+  # No geometric transforms (music is directional)
+  flipud: 0.0
+  fliplr: 0.0
+  degrees: 0.0
+
+  # Scale and color
+  scale: 0.3
+  translate: 0.1
+  hsv_h: 0.015
+  hsv_s: 0.4
+  hsv_v: 0.4
+
+  # Loss weights
+  box: 7.5            # Bbox regression
+  cls: 2.5            # Classification (increased)
+  dfl: 1.5            # Distribution focal loss
+
+  # Per-class loss weights (applied to classification loss)
+  class_weights:
+    23: 4.0           # barline - critical (recall 9%)
+    24: 8.0           # barline_double - worst (mAP 0.140)
+    25: 2.0           # barline_final - needs improvement
+    26: 1.0           # barline_repeat - already good
+
+  # Sampling weights (image-level oversampling)
+  sampling_weights:
+    23: 5.0           # Oversample images with barline 5x
+    24: 8.0           # Oversample images with barline_double 8x
+    25: 2.0           # Oversample images with barline_final 2x
+    26: 1.5           # Oversample images with barline_repeat 1.5x
+
+  # Other settings
+  cache: true
+  device: 0
+  workers: 8
+  amp: true           # Mixed precision
+  close_mosaic: 15    # Disable mosaic in last 15 epochs
+  deterministic: true
+  seed: 42
+
+# ============================================
+# Hard Example Mining Configuration
+# ============================================
+hem:
+  # Detection thresholds
+  conf_threshold: 0.5      # Confidence threshold for predictions
+  iou_threshold: 0.5       # IoU threshold for matching GT
+  low_conf_threshold: 0.3  # Threshold for low-confidence examples
+
+  # Hard example criteria
+  min_difficulty: 1.5      # Minimum difficulty score to include
+
+  # Target classes for mining (barline classes)
+  target_classes:
+    - 23  # barline
+    - 24  # barline_double
+    - 25  # barline_final
+    - 26  # barline_repeat
+
+  # Analysis options
+  max_images: null         # Max images to analyze (null = all)
+  save_visualizations: false  # Save annotated images (slow)
+
+# ============================================
+# Stage 2: Hard Example Fine-tuning
+# ============================================
+stage2:
+  # Basic settings
+  epochs: 50
+  patience: 15
+  batch: 16
+  imgsz: 640
+
+  # Learning rate (lower for fine-tuning)
+  lr0: 0.0005         # Half of Stage 1
+  lrf: 0.01
+  warmup_epochs: 2.0
+  optimizer: AdamW
+
+  # More aggressive augmentation for hard examples
+  mosaic: 0.6         # Increased
+  mixup: 0.2          # Increased
+  copy_paste: 0.5     # Maximum
+
+  # No geometric transforms
+  flipud: 0.0
+  fliplr: 0.0
+  degrees: 0.0
+
+  # Higher loss weights for hard examples
+  box: 10.0           # Emphasize bbox accuracy
+  cls: 3.0            # Emphasize classification
+  dfl: 2.0
+
+  # Other settings
+  cache: true
+  device: 0
+  workers: 8
+  amp: true
+  close_mosaic: 10    # Disable earlier
+  deterministic: true
+  seed: 42
+
+# ============================================
+# Focal Loss Configuration
+# ============================================
+focal_loss:
+  gamma: 2.0          # Focus on hard examples
+  alpha: 0.25         # Balance positive/negative
+
+  # Small object emphasis
+  small_obj_threshold: 0.01  # Area threshold (normalized)
+  small_obj_weight: 2.0      # Weight multiplier for small objects
+
+# ============================================
+# Evaluation Configuration
+# ============================================
+evaluation:
+  # Validation settings
+  conf: 0.001         # Low threshold to catch all predictions
+  iou: 0.5
+
+  # Save options
+  save_json: true
+  save_hybrid: true
+  plots: true
+
+  # Per-class analysis
+  analyze_per_class: true
+  confusion_matrix: true
+
+# ============================================
+# Expected Improvements
+# ============================================
+# Based on analysis of Phase 5 results:
+#
+# Current Performance (Phase 5):
+# - barline (23): mAP50 0.201, recall 9%
+# - barline_double (24): mAP50 0.140, recall 13.3%
+# - barline_final (25): mAP50 0.708, recall 52.5%
+# - barline_repeat (26): mAP50 0.879, recall 83%
+# - Overall mAP50: 0.580
+#
+# Target Performance (Phase 6):
+# - barline (23): mAP50 0.50-0.60, recall 40-60%
+# - barline_double (24): mAP50 0.40-0.50, recall 30-40%
+# - barline_final (25): mAP50 0.70-0.75
+# - barline_repeat (26): mAP50 0.87-0.89
+# - Overall mAP50: 0.65-0.68
+#
+# Key Strategies:
+# 1. Per-class weighted loss - focus training on hard classes
+# 2. Weighted sampling - increase exposure to barline examples
+# 3. Hard example mining - identify and retrain on difficult cases
+# 4. Two-stage training - general → specific
+# 5. Focal loss - emphasize hard examples within batches
+
+# ============================================
+# Dataset Paths (Auto-detected)
+# ============================================
+# These are typically auto-detected from command line args
+# or environment, but can be overridden here:
+#
+# base_weights: /path/to/phase5/best.pt
+# dataset_yaml: /path/to/harmony_phase5.yaml
+# output_dir: /path/to/harmony_omr_v2_phase6
+
+# ============================================
+# Notes
+# ============================================
+# 1. Stage 1 trains on full dataset with weighted loss
+#    - Duration: ~4-6 hours (150 epochs, RTX 5090)
+#    - Output: Stage 1 best.pt
+#
+# 2. Hard Example Mining runs inference on validation set
+#    - Identifies False Negatives, low-conf, misclassifications
+#    - Creates curated hard example dataset
+#    - Duration: ~30-60 minutes
+#
+# 3. Stage 2 fine-tunes on hard examples
+#    - Duration: ~1-2 hours (50 epochs)
+#    - Output: Final best.pt
+#
+# Total estimated time: 6-9 hours
+#
+# GPU memory usage: ~8-10GB (RTX 5090)
+# Disk space: ~5GB (models + checkpoints)
