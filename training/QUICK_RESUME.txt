@@ -1,0 +1,17 @@
+=============================================================
+快速恢復提示詞（直接複製貼上到 Claude Code）
+=============================================================
+
+請閱讀以下文件，了解當前訓練狀態：
+
+1. training/STATUS_SUMMARY.md - 當前狀態一頁摘要
+2. training/RESUME_SESSION_GUIDE.md - 完整恢復指南
+3. training/PHASE9_FIXED_FINAL_REPORT.md - Phase 9 失敗詳細報告
+
+關鍵信息：
+- Phase 9 修正訓練已完成，結果失敗（mAP50-95 = 0.5124）
+- Phase 8 仍是最佳模型（mAP50-95 = 0.5809）
+- 模型位置：harmony_omr_v2_phase8/phase8_training/weights/best.pt
+- 需決策：回退 Phase 8 或重新規劃數據策略
+
+請告訴我您想先執行哪個行動？

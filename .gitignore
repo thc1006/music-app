@@ -42,6 +42,28 @@ training/harmony_omr_v2_phase2/
 # Phase 3 training output
 training/harmony_omr_v2_phase3/
 
+# Phase 4-10 training outputs (large model files)
+training/harmony_omr_v2_phase4/
+training/harmony_omr_v2_phase5/
+training/harmony_omr_v2_phase6/
+training/harmony_omr_v2_phase7/
+training/harmony_omr_v2_phase8/
+training/harmony_omr_v2_phase9/
+training/harmony_omr_v2_phase9_fixed/
+training/harmony_omr_v2_phase10_1/
+training/harmony_omr_v2_dinov3_distill/
+training/harmony_omr_v2_dinov3_distill_v2/
+
+# MuseScore and temporary files
+training/*.AppImage
+training/*.pid
+training/logs/
+training/openscore_analysis/
+training/test_openscore_render/
+training/phase7_ultimate/
+training/squashfs-root-ms4/
+training/scripts/
+
 # Temporary shell scripts
 training/AUTO_PROCESS_ALL_DATASETS.sh
 training/BULLETPROOF_AUTO_PIPELINE.sh

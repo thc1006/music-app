@@ -1,0 +1,34 @@
+{
+  "OpenScore Lieder": {
+    "images": 5238,
+    "labels": 5238,
+    "bboxes": 60184,
+    "class_counts": {
+      "24": 20190,
+      "25": 4772,
+      "29": 22081,
+      "23": 12860,
+      "26": 281
+    },
+    "empty_labels": 495
+  },
+  "OpenScore Quartets": {
+    "images": 2529,
+    "labels": 2529,
+    "bboxes": 2612,
+    "class_counts": {
+      "29": 2612
+    },
+    "empty_labels": 166
+  },
+  "Synthetic Phase 8": {
+    "images": 5940,
+    "labels": 5940,
+    "bboxes": 105264,
+    "class_counts": {
+      "17": 75025,
+      "31": 30239
+    },
+    "empty_labels": 0
+  }
+}

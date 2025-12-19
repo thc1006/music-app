@@ -1,0 +1,20 @@
+# LilyPond 合成數據生成器依賴
+# 安裝: pip install -r requirements-synthetic.txt
+
+# 圖像處理
+Pillow>=10.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# 進度顯示（可選）
+tqdm>=4.65.0
+
+# 系統依賴說明:
+# 1. LilyPond (必須)
+#    Ubuntu/Debian: sudo apt install lilypond
+#    macOS: brew install lilypond
+#    驗證: lilypond --version
+#
+# 2. ImageMagick (LilyPond PNG 渲染需要)
+#    Ubuntu/Debian: sudo apt install imagemagick
+#    macOS: brew install imagemagick

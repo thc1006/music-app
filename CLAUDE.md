@@ -5,26 +5,166 @@
 
 > 密碼：Kinoshita15@
 
-## 📍 即時狀態（Last Updated: 2025-11-25 22:45 UTC+8）
+---
+
+## 📊 完整資源盤點 (2025-12-20 深度調研)
+
+### 已訓練模型性能排名
+
+| Phase | mAP50 | mAP50-95 | 訓練圖 | 狀態 |
+|-------|-------|----------|--------|------|
+| **8** | **0.6444** | **0.5809** | 32,555 | ✅ **當前最佳** |
+| 10.1 v2 | 0.6186 | 0.5568 | 33,410 | ✅ 次佳 |
+| 7 Stage 3 | 0.6581 | 0.5864 | - | ✅ 高解析度 |
+| 9 | 0.5841 | 0.5213 | 41,281 | ⚠️ 數據品質問題 |
+
+### 可用資料集統計
+
+| 資料集 | 訓練圖 | 驗證圖 | 標註數 | 狀態 |
+|--------|--------|--------|--------|------|
+| **Phase 8 Final** | 32,555 | 3,617 | 2.54M | ✅ 最佳品質 |
+| Phase 9 Merged | 41,281 | 3,817 | 2.60M | ✅ 最大規模 |
+| Phase 10.1 | 33,410 | 3,617 | 2.84M | ✅ 最新 |
+| OpenScore Lieder | 5,238 | - | 60K | ✅ 已轉換 |
+| Synthetic Phase 8 | 5,940 | - | 105K | ✅ 已生成 |
+
+### 外部資源 (4.5GB 已下載)
+
+| 資源 | 大小 | 關鍵貢獻 |
+|------|------|---------|
+| OpenScore Lieder | 954MB | **164x fermata** (5,748 vs 35) |
+| DeepScores V2 | 1.8GB | 255K 圖片, 855+ 動力標記 |
+| DoReMi | 672MB | 5,218 圖片 (需修復座標) |
+| MUSCIMA++ | 103MB | 91,255 手寫符號標註 |
+
+---
+
+## 🚨 Phase 9 瓶頸分析 (2025-11-28)
+
+### ❌ Phase 9 訓練結果：未達預期
+
+| 指標 | Phase 8 | Phase 9 | 差異 | 狀態 |
+|------|---------|---------|------|------|
+| **mAP50** | 0.6444 | 0.5841 | **-9.4%** | ❌ 下降 |
+| **mAP50-95** | 0.5809 | 0.5213 | **-10.3%** | ❌ 下降 |
+| **Epochs** | 150 | 100 | -50 | ⚠️ 不足 |
+| **訓練時間** | 9.2h | 7.7h | - | - |
+
+### 🔍 根本原因分析
+
+#### 1. 訓練配置差異
+| 參數 | Phase 8 | Phase 9 | 影響 |
+|------|---------|---------|------|
+| epochs | 150 | 100 | ⚠️ 訓練不足 |
+| lr0 | 0.001 | 0.0005 | ⚠️ 學習過慢 |
+| cls 損失權重 | 0.5 | 0.8 | 可能過度強調分類 |
+| warmup_epochs | 3 | 2 | 微小影響 |
+| erasing | 無 | 0.4 | 可能增加難度 |
+
+#### 2. 數據集變化
+- Phase 8: 32,555 訓練圖片
+- Phase 9: 41,281 訓練圖片 (+26.8%)
+- **新增數據來源**: OpenScore Lieder (5,238), DeepScores (847)
+
+#### 3. 可能的「負遷移」問題
+新增的 OpenScore/DeepScores 數據可能存在：
+- 渲染風格與原數據差異大
+- 標註質量不一致
+- 域差異 (Domain Shift) 導致模型混淆
+
+#### 4. val/cls_loss = inf 問題
+- **發現**: Phase 8 和 Phase 9 都有此問題（所有 epochs）
+- **原因**: AMP (混合精度訓練) 的 float16 數值精度問題
+- **影響**: 實際影響有限，Phase 8 仍達到 0.6444 mAP50
+- **參考**: [GitHub Issue #4785](https://github.com/ultralytics/ultralytics/issues/4785)
+
+### 📁 當前最佳模型
+
+```
+training/harmony_omr_v2_phase8/phase8_training/weights/best.pt (18.9 MB)
+mAP50: 0.6444 | mAP50-95: 0.5809
+```
+
+### ✅ 建議下一步行動
+
+#### 🔴 立即行動 (Tier 1)
+
+| 優先級 | 行動 | 預計效果 | 時間 |
+|--------|------|---------|------|
+| **1** | **繼續訓練 Phase 9**: 從 last.pt 恢復，再訓練 50-100 epochs | 可能追上 Phase 8 | 4-8h |
+| **2** | **使用 Phase 8 模型**: 作為當前生產模型 | 維持 0.6444 mAP50 | 立即 |
+| **3** | **調整學習率重訓**: lr0=0.001, epochs=150 | 可能超越 Phase 8 | 8-10h |
+
+#### 🟡 短期改進 (Tier 2)
+
+| 行動 | 說明 | 預計時間 |
+|------|------|---------|
+| **漸進式數據合併** | 先只加入 DeepScores，評估效果再加 OpenScore | 1-2 天 |
+| **數據質量審查** | 抽樣檢查 OpenScore/DeepScores 標註 | 2-4h |
+| **禁用 AMP 訓練** | `amp=False`，解決 val/cls_loss=inf | +3-4h 訓練時間 |
+
+#### 🟢 中期改進 (Tier 3)
+
+| 行動 | 說明 | 參考資料 |
+|------|------|---------|
+| **層級 Fine-tuning** | 只解凍後幾層進行訓練，減少遺忘 | [arXiv:2505.01016](https://arxiv.org/html/2505.01016v1) |
+| **知識蒸餾** | 使用 Phase 8 作為教師模型 | YOLO-NAS 方法 |
+| **高解析度訓練** | 768x768 或 1280x1280 | 增加小物件檢測能力 |
+
+### 🎯 推薦執行方案
+
+```bash
+# 方案 A: 繼續訓練 Phase 9 (推薦)
+cd ~/dev/music-app/training
+python -c "
+from ultralytics import YOLO
+model = YOLO('harmony_omr_v2_phase9/merged_data_training/weights/last.pt')
+model.train(
+    data='datasets/yolo_harmony_v2_phase9_merged/harmony_phase9_merged.yaml',
+    epochs=50,
+    resume=True
+)
+"
+
+# 方案 B: 使用 Phase 8 配置重訓 Phase 9 數據
+# 修改 yolo12_train_phase9.py:
+#   - epochs: 150
+#   - lr0: 0.001
+#   - cls: 0.5
+```
+
+### 📊 訓練曲線比較
+
+```
+Phase 8 (150 epochs):
+mAP50: 0.543 → 0.597 → 0.613 → 0.628 → 0.6444 ████████████████████ ✅
+
+Phase 9 (100 epochs):
+mAP50: 0.526 → 0.579 → 0.581 → 0.582 → 0.5841 █████████████░░░░░░░ (收斂過早)
+```
+
+---
+
+## 📍 即時狀態（Last Updated: 2025-11-28 21:30 UTC+8）
 
 ### 當前工作
-- **階段**：Phase 4 完成 → **Phase 4.5 OpenScore Lieder 準備完成** ✅
+- **階段**：Phase 9 完成 → **需要調整策略** ⚠️
 - **分支**：main
-- **數據集**：Phase 4 合併完成（24,566 圖片）
-- **新發現**：OpenScore Lieder 含 5,748 fermata 標註（164x MUSCIMA++）
+- **數據集**：Phase 9 合併 (45,098 圖片)
+- **問題**：Phase 9 未能超越 Phase 8，需要分析原因
 
-### ✅ Phase 3 訓練結果（2025-11-24 完成）
+### ✅ Phase 8 訓練結果（2025-11-28 完成）— 當前最佳
 
-| 指標 | Phase 2 | Phase 3 | 說明 |
+| 指標 | Phase 7 | Phase 8 | 說明 |
 |------|---------|---------|------|
-| **Epochs** | 131/150 | 150/150 | 完整訓練 |
-| **mAP50** | 0.509 | **0.580** | **+13.9% 提升** |
-| **mAP50-95** | 0.46 | **0.516** | +12.2% 提升 |
-| **訓練時間** | ~2.5h | ~4h | RTX 5090 |
+| **Epochs** | - | 150/150 | 完整訓練 |
+| **mAP50** | - | **0.6444** | 🏆 當前最佳 |
+| **mAP50-95** | - | **0.5809** | 🏆 當前最佳 |
+| **訓練時間** | - | ~9.2h | RTX 5090 |
 
 ### 📁 當前最佳模型
 ```
-training/harmony_omr_v2_phase3/external_data_training/weights/best.pt (18.9 MB)
+training/harmony_omr_v2_phase8/phase8_training/weights/best.pt (18.9 MB)
 ```
 
 ### 🎯 Phase 3 瓶頸類別突破
@@ -345,10 +485,13 @@ docs 資料夾：
 訓練資料與腳本：
 
 - training/
-  - yolo12_train.py ⭐ **NEW** - YOLO12 訓練主腳本（RTX 5060）
-  - omr_harmony.yaml ⭐ **NEW** - 資料集配置
-  - export_models.py ⭐ **NEW** - 模型匯出與量化腳本
-  - requirements-train.txt ⭐ **NEW** - 訓練環境依賴
+  - yolo12_train.py - YOLO12 訓練主腳本（RTX 5090）
+  - omr_harmony.yaml - 資料集配置
+  - export_models.py - 模型匯出與量化腳本
+  - requirements-train.txt - 訓練環境依賴
+  - **DINOV3_YOLO_INTEGRATION_MASTERPLAN.md** ⭐ **NEW** - DINOv3 整合完整計劃
+  - **yolo12_dinov3_distillation.py** ⭐ **NEW** - DINOv3 知識蒸餾腳本
+  - **YOLO_DINOV3_INTEGRATION_PLAN.md** ⭐ **NEW** - DINOv3 整合初步計劃
 
 Android 核心：
 
@@ -574,7 +717,7 @@ Android 核心：
 
 ---
 
-## 🎯 六階段訓練路線圖進度（更新）
+## 🎯 訓練路線圖進度（更新至 2025-12-20）
 
 | Phase | 名稱 | 目標 mAP50 | 狀態 | 說明 |
 |-------|------|-----------|------|------|
@@ -582,18 +725,69 @@ Android 核心：
 | 2 | 類別平衡 | 0.50-0.55 | ✅ 完成 (0.509) | 加權損失與過採樣 |
 | 3 | 外部數據整合 | 0.55-0.60 | ✅ 完成 (0.580) | DoReMi, Fornes, Choi 整合 |
 | 4 | MUSCIMA++/Rebelo | 0.60-0.65 | ✅ 數據準備完成 | 24,566 圖片，+10,040 新增 |
-| 5 | 合成數據生成 | 0.65-0.70 | 🔬 **研究完成** | Abjad + 領域隨機化 |
+| 5 | 合成數據生成 | 0.65-0.70 | 🔬 研究完成 | Abjad + 領域隨機化 |
 | 6 | 高解析度優化 | 0.75-0.80 | ⏳ 待執行 | 多尺度訓練 |
 | 7 | 生產優化 | 0.85+ | ⏳ 待執行 | TFLite 量化與部署 |
+| **8** | **DINOv3 整合** | **0.70-0.80** | 🆕 **計劃完成** | 知識蒸餾 / DINO-YOLO 混合 |
 
-**當前進度**：Phase 4 數據準備完成，Phase 5 研究完成 ✅
+**當前最佳模型**: Phase 8 - mAP50 = 0.6444
 
-**下一步**：
-1. **立即行動**：Phase 4 訓練（使用 RTX 5090）
-2. **並行準備**：Phase 5 實施（Abjad 環境設置）
-3. **預期時間**：Phase 4 訓練 4-6 小時，Phase 5 實施 2-3 週
+---
 
-**Phase 5 合成數據詳細計劃**：
+## 🧠 DINOv3 + YOLO12 整合計劃（2025-12-20 深度調研）
+
+### 📋 計劃文檔
+| 文檔 | 說明 | 狀態 |
+|------|------|------|
+| [`DINOV3_DISTILLATION_FINAL_PLAN.md`](training/DINOV3_DISTILLATION_FINAL_PLAN.md) | 最終實施計劃 | ✅ 最新 |
+| [`yolo12_dinov3_distillation_v2.py`](training/yolo12_dinov3_distillation_v2.py) | 蒸餾腳本 v2 | ✅ 已驗證 |
+| [`DINOV3_YOLO_INTEGRATION_MASTERPLAN.md`](training/DINOV3_YOLO_INTEGRATION_MASTERPLAN.md) | 完整調研報告 | ✅ 參考 |
+
+### 蒸餾實驗配置
+
+```
+教師模型: vit_small_patch16_dinov3 (21.6M, 384dim) ✅ 已驗證
+學生模型: YOLO12s (Phase 8 best.pt, mAP50=0.6444)
+訓練資料: yolo_harmony_v2_phase8_final (32,555 圖)
+目標: mAP50 > 0.68 (+5.6%)
+```
+
+### ✅ 環境驗證結果
+
+| 項目 | 狀態 | 版本/說明 |
+|------|------|----------|
+| **DINOv3 模型** | ✅ | timm 1.0.22 - 11 個模型 |
+| **vit_small_patch16_dinov3** | ✅ | 21.6M 參數, 640x640 測試通過 |
+| **LightlyTrain** | ✅ | 0.13.1 已安裝 |
+| **GPU** | ✅ | RTX 5090 32GB |
+| **Phase 8 模型** | ✅ | 18.9 MB, mAP50=0.6444 |
+
+### DINOv3 vs DINOv2
+
+| 特性 | DINOv3 | DINOv2 |
+|------|--------|--------|
+| 640x640 輸入 | ✅ 原生支援 | ❌ 需 518x518 |
+| 訓練數據 | **1.7B** 圖片 | 142M 圖片 |
+| Patch 密度 @640px | 40x40 = 1600 | 37x37 = 1369 |
+
+### 推薦蒸餾資源配置
+
+```
+配置 A (標準):
+├── 教師: Phase 8 best.pt (mAP50: 0.6444)
+├── 訓練: yolo_harmony_v2_phase8_final (32,555 圖)
+└── 目標: 穩定蒸餾基線
+
+配置 B (增強):
+├── 教師: Phase 8 best.pt
+├── 訓練: Phase 8 + OpenScore Lieder (37,793 圖)
+└── 目標: 更多 fermata/barline 數據
+```
+
+---
+
+## 📁 Phase 5 合成數據詳細計劃
+
 - 📄 完整研究：`training/SYNTHETIC_DATA_SUMMARY.md`
 - 📘 實作指南：`training/docs/synthetic_data_generation_guide.md`
 - 🚀 快速開始：`training/synthetic_generation/README.md`
