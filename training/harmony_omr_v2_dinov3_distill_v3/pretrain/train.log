@@ -1,0 +1,82 @@
+[2025-12-20 10:35:03,855][INFO] Args: {
+    "accelerator": "auto",
+    "batch_size": 32,
+    "callbacks": null,
+    "checkpoint": null,
+    "data": "/home/thc1006/dev/music-app/training/datasets/yolo_harmony_v2_phase8_final/train/images",
+    "devices": "auto",
+    "embed_dim": null,
+    "epochs": 20,
+    "float32_matmul_precision": "auto",
+    "loader_args": null,
+    "loggers": null,
+    "method": "distillation",
+    "method_args": {
+        "teacher": "dinov3/vitl16"
+    },
+    "model": "/home/thc1006/dev/music-app/training/harmony_omr_v2_phase8/phase8_training/weights/best.pt",
+    "model_args": null,
+    "num_nodes": 1,
+    "num_workers": 20,
+    "optim": "auto",
+    "optim_args": null,
+    "out": "/home/thc1006/dev/music-app/training/harmony_omr_v2_dinov3_distill_v3/pretrain",
+    "overwrite": false,
+    "precision": "auto",
+    "resume": null,
+    "resume_interrupted": false,
+    "seed": 0,
+    "strategy": "auto",
+    "trainer_args": null,
+    "transform_args": null
+}
+[2025-12-20 10:35:03,855][INFO] Using output directory '/home/thc1006/dev/music-app/training/harmony_omr_v2_dinov3_distill_v3/pretrain'.
+[2025-12-20 10:35:03,867][DEBUG] Platform: Linux-6.14.0-28-generic-x86_64-with-glibc2.39
+[2025-12-20 10:35:03,867][DEBUG] Python: 3.12.3
+[2025-12-20 10:35:03,867][DEBUG] LightlyTrain: 0.13.1
+[2025-12-20 10:35:03,867][DEBUG] LightlyTrain Git Information:
+[2025-12-20 10:35:03,867][DEBUG]  Branch: main
+[2025-12-20 10:35:03,867][DEBUG]  Commit: b359074231d81a59caf6e3ce7ec4f1d84edbe515
+[2025-12-20 10:35:03,867][DEBUG]  Uncommitted changes: ?? training/LIGHTLYTRAIN_YOLO12_DISTILLATION_GUIDE.md
+?? training/MOBILE_DEPLOYMENT_ARCHITECTURE_PLAN.md
+?? training/RTX5090_BLACKWELL_OPTIMIZATION_GUIDE.md
+?? training/backup_best_model.sh
+?? training/harmony_omr_v2_dinov3_distill_v3/
+?? training/model_backups/
+?? training/monitor_dinov3_training.py
+?? training/yolo12_dinov3_distillation_v3_optimized.py
+[2025-12-20 10:35:03,867][DEBUG] Run directory Git Information:
+[2025-12-20 10:35:03,867][DEBUG]  Branch: main
+[2025-12-20 10:35:03,867][DEBUG]  Commit: b359074231d81a59caf6e3ce7ec4f1d84edbe515
+[2025-12-20 10:35:03,867][DEBUG]  Uncommitted changes: ?? training/LIGHTLYTRAIN_YOLO12_DISTILLATION_GUIDE.md
+?? training/MOBILE_DEPLOYMENT_ARCHITECTURE_PLAN.md
+?? training/RTX5090_BLACKWELL_OPTIMIZATION_GUIDE.md
+?? training/backup_best_model.sh
+?? training/harmony_omr_v2_dinov3_distill_v3/
+?? training/model_backups/
+?? training/monitor_dinov3_training.py
+?? training/yolo12_dinov3_distillation_v3_optimized.py
+[2025-12-20 10:35:03,867][DEBUG] Dependencies:
+[2025-12-20 10:35:03,867][DEBUG]  - torch                       2.9.1
+[2025-12-20 10:35:03,867][DEBUG]  - torchvision                0.24.1
+[2025-12-20 10:35:03,867][DEBUG]  - pytorch-lightning           2.6.0
+[2025-12-20 10:35:03,867][DEBUG]  - Pillow                     12.0.0
+[2025-12-20 10:35:03,867][DEBUG]  - pillow-simd                     x
+[2025-12-20 10:35:03,867][DEBUG] Optional dependencies:
+[2025-12-20 10:35:03,867][DEBUG]  - super-gradients                 x
+[2025-12-20 10:35:03,867][DEBUG]  - timm                       1.0.22
+[2025-12-20 10:35:03,867][DEBUG]  - ultralytics               8.3.229
+[2025-12-20 10:35:03,867][DEBUG]  - wandb                           x
+[2025-12-20 10:35:03,867][DEBUG] CPUs: 24
+[2025-12-20 10:35:03,867][DEBUG] GPUs: 1
+[2025-12-20 10:35:03,867][DEBUG]  - NVIDIA GeForce RTX 5090 12.0 (33671479296)
+[2025-12-20 10:35:03,867][DEBUG] Environment variables:
+[2025-12-20 10:35:03,867][DEBUG]  - CUDA_VISIBLE_DEVICES: 0
+[2025-12-20 10:35:03,868][DEBUG] Getting transform args for method 'distillation'.
+[2025-12-20 10:35:03,868][DEBUG] Using additional transform arguments None.
+[2025-12-20 10:35:03,868][DEBUG] Getting transform for method 'distillation'.
+[2025-12-20 10:35:03,871][DEBUG] Creating temporary file '/home/thc1006/.cache/lightly-train/data/verify-out/31859ce36e84efbbcc341538d46d8f0a2df392f3aa88d27f8cb72ac157391ca4' to verify out path.
+[2025-12-20 10:35:03,880][DEBUG] Writing filepaths to '/home/thc1006/.cache/lightly-train/data/31859ce36e84efbbcc341538d46d8f0a2df392f3aa88d27f8cb72ac157391ca4.738b895c88aa9465c484d94f7d24ab7276a6ba9f0dc738d54e4384d477bcd541.temp' (chunk_size=10000)
+[2025-12-20 10:35:03,931][DEBUG] Creating memory mapped sequence with 32555 '['filenames']'.
+[2025-12-20 10:35:03,931][DEBUG] Found dataset size 32555.
+[2025-12-20 10:35:03,931][DEBUG] Using provided epochs 20.
