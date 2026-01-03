@@ -32,8 +32,8 @@
 ✅ timm 1.0.22 - 11 個 DINOv3 模型可用
 ✅ LightlyTrain 0.13.1 - 蒸餾 API 可用
 ✅ PyTorch 2.9.1+cu128
-✅ RTX 5090 32GB - batch_size=16 可行
-✅ vit_small_patch16_dinov3 可加載 (21.6M 參數)
+✅ RTX 5090 32GB - batch_size=32 可行
+✅ vit_large_patch16_dinov3 可加載 (304M 參數) - 最強版本!
 ✅ 640x640 輸入測試通過
 ```
 
@@ -80,19 +80,20 @@
 
 ### Phase 1: DINOv3 蒸餾訓練
 
-**目標**: mAP50 > 0.68 (+5.6%)
+**目標**: mAP50 > 0.70 (+8.6%)
 
-**執行腳本**: `training/yolo12_dinov3_distillation_v2.py`
+**執行腳本**: `training/yolo12_dinov3_distillation_v3_optimized.py`
 
 **配置**:
 ```python
-教師模型: vit_small_patch16_dinov3 (21.6M, 384dim)
-學生模型: YOLO12s (從 Phase 8 初始化)
+教師模型: vit_large_patch16_dinov3 (304M, 1024dim) - 最強版本!
+學生模型: YOLO12s (從 Phase 8 初始化, 9.3M 參數)
 資料集: yolo_harmony_v2_phase8_final (32,555 訓練圖)
 輸入尺寸: 640x640
-Batch Size: 16
-蒸餾溫度: 4.0
-蒸餾權重: α=0.5 (蒸餾 50% + 任務 50%)
+Batch Size: 32 (RTX 5090 32GB 自動偵測)
+預訓練 Epochs: 20
+微調 Epochs: 150
+學習率: 0.001 (Phase 8 成功配置)
 ```
 
 ### Phase 2: 高解析度微調 (可選)
@@ -112,17 +113,23 @@ Epochs: 50
 
 | 指標 | Phase 8 | 蒸餾後目標 | 提升 |
 |------|---------|-----------|------|
-| mAP50 | 0.6444 | > 0.68 | +5.5% |
-| mAP50-95 | 0.5809 | > 0.62 | +6.7% |
-| 小物件 (flag, dot) | ~0.70 | > 0.75 | +7% |
-| 結構符號 (barline) | ~0.60 | > 0.70 | +17% |
+| mAP50 | 0.6444 | > 0.70 | +8.6% |
+| mAP50-95 | 0.5809 | > 0.64 | +10% |
+| 小物件 (flag, dot) | ~0.70 | > 0.78 | +11% |
+| 結構符號 (barline) | ~0.60 | > 0.72 | +20% |
+
+### 4.1 DINOv3 Large 優勢
+- **304M 參數**: 比 Small (21.6M) 大 14 倍，特徵提取能力更強
+- **1024 維特徵**: 比 Small (384維) 更豐富的語義表示
+- **1.7B 圖片訓練**: 更強的泛化能力
 
 ---
 
 ## 5. 相關文件連結
 
 ### 訓練腳本
-- `training/yolo12_dinov3_distillation_v2.py` - 蒸餾主腳本
+- `training/yolo12_dinov3_distillation_v3_optimized.py` - 蒸餾主腳本 (RTX 5090 優化版)
+- `training/yolo12_dinov3_distillation_v2.py` - 舊版 (不推薦使用)
 
 ### 資料集
 - `datasets/yolo_harmony_v2_phase8_final/` - 主要訓練資料
@@ -142,11 +149,28 @@ Epochs: 50
 
 | 風險 | 可能性 | 緩解措施 |
 |------|--------|---------|
-| 蒸餾效果有限 | 中 | 嘗試更大教師模型 (vit_base) |
-| 顯存不足 | 低 | RTX 5090 32GB 充足 |
-| 訓練不穩定 | 中 | 使用較低學習率 + 預熱 |
+| 蒸餾效果有限 | 低 | 已使用最大教師模型 (vit_large, 304M) |
+| 顯存不足 | 極低 | RTX 5090 32GB + BF16 精度 |
+| 訓練不穩定 | 低 | 使用 Phase 8 成功的學習率配置 |
+| LightlyTrain API 變更 | 中 | 已準備 fallback 至純 YOLO 訓練 |
 
 ---
 
-**文檔版本**: 1.0
+## 7. 訓練監控
+
+```bash
+# 監控訓練日誌
+tail -f /home/thc1006/dev/music-app/training/logs/dinov3_distillation_v3.log
+
+# 檢查 GPU 狀態
+nvidia-smi
+
+# 查看訓練結果
+cat /home/thc1006/dev/music-app/training/harmony_omr_v2_dinov3_distill_v3/*/results.csv
+```
+
+---
+
+**文檔版本**: 2.0
 **更新日期**: 2025-12-20
+**更新內容**: 升級至 DINOv3 Large (304M), 優化 RTX 5090 配置
