@@ -7,7 +7,7 @@
 
 ---
 
-## 📍 即時狀態（Last Updated: 2026-01-05 13:30 UTC+8）
+## 📍 即時狀態（Last Updated: 2026-01-06 02:30 UTC+8）
 
 ### 🔥 當前正在進行的訓練
 
@@ -15,38 +15,39 @@
 訓練名稱: Ultimate v5 Stable (1280x1280 高解析度)
 腳本: resume_ultimate_v5_from_epoch90.py
 位置: harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/
-進度: 34/200 epochs (17%)
-當前 mAP50: 0.6501 (已超越 Phase 8 的 0.6444!)
-預計完成: 2026-01-07 晚間 (剩餘約 55 小時)
-GPU: RTX 5090 @ 98% 使用中
+進度: 74/200 epochs (37%)
+當前 mAP50: 0.6962 🎉 歷史新高！已超越所有實驗！
+預計完成: 2026-01-08 凌晨 (剩餘約 42 小時)
+GPU: RTX 5090 @ 93% 使用中, 64°C
 ```
 
 **監控命令**：
 ```bash
 tail -f training/logs/resume_ultimate_v5.log
-tail -3 training/harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/results.csv
+tail -5 training/harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/results.csv
 ```
 
 ### 📊 模型性能排名（歷史最佳）
 
 | 實驗 | mAP50 | mAP50-95 | 解析度 | 狀態 |
 |------|-------|----------|--------|------|
-| **Ultimate v5 Stable** | **0.6501** | 0.6502 | 1280 | 🔄 **訓練中** |
-| Phase 7 Stage 3 | 0.6581 | 0.5864 | 1280 | ✅ 歷史最高 |
-| **Phase 8** | **0.6444** | 0.5809 | 640 | ✅ 穩定最佳 |
-| DINOv3 蒸餾 v2 | 0.6261 | 0.5637 | 640 | ✅ 完成 |
-| Phase 10.1 v2 | 0.6186 | 0.5568 | 640 | ✅ 完成 |
+| **Ultimate v5 Stable** | **0.6962** | **0.6541** | 1280 | 🔄 **訓練中 - 歷史新高！** |
+| Phase 7 Stage 3 | 0.6586 | 0.5823 | 1280 | ✅ 前歷史最高 |
+| **Phase 8** | **0.6447** | 0.5810 | 640 | ✅ 穩定基線 |
+| DINOv3 蒸餾 v2 | 0.6262 | 0.5638 | 640 | ✅ 完成 |
+| Phase 6 | 0.6201 | 0.5447 | 640 | ✅ 完成 |
+| Phase 10.1 v2 | 0.6196 | 0.5544 | 640 | ✅ 完成 |
 
 ### 📁 關鍵模型位置
 
 ```bash
-# 當前穩定最佳 (Phase 8)
-training/harmony_omr_v2_phase8/phase8_training/weights/best.pt (19 MB)
-
-# 訓練中的最新模型
+# 🔥 當前最佳 (Ultimate v5 訓練中) - 歷史新高 mAP50=0.6962
 training/harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/weights/best.pt (54 MB)
 
-# DINOv3 蒸餾備份
+# ⭐ Phase 8 穩定基線 (可直接部署的小型模型)
+training/harmony_omr_v2_phase8/phase8_training/weights/best.pt (19 MB)
+
+# 💾 DINOv3 蒸餾備份
 training/model_backups/dinov3_distill_v2_best_20251220_062233.pt (54 MB)
 ```
 
@@ -72,14 +73,14 @@ training/model_backups/dinov3_distill_v2_best_20251220_062233.pt (54 MB)
 | 1 | 基礎訓練 | 0.452 | ✅ 完成 |
 | 2 | 類別平衡 | 0.509 | ✅ 完成 |
 | 3 | 外部數據整合 | 0.580 | ✅ 完成 |
-| 4-6 | 數據擴充 | 0.598-0.615 | ✅ 完成 |
-| 7 | 多階段訓練 | 0.658 | ✅ 完成 |
-| **8** | **Phase 8 穩定訓練** | **0.6444** | ✅ **穩定最佳** |
-| 9-10 | 數據合併實驗 | 0.58-0.62 | ⚠️ 負遷移問題 |
+| 4-6 | 數據擴充 | 0.598-0.620 | ✅ 完成 |
+| 7 | 多階段訓練 | 0.659 | ✅ 完成 |
+| 8 | Phase 8 穩定訓練 | 0.6447 | ✅ 穩定基線 |
+| 9-10 | 數據合併實驗 | 0.57-0.62 | ⚠️ 負遷移問題 |
 | DINOv3 | 知識蒸餾 | 0.626 | ✅ 完成 |
-| **Ultimate v5** | **1280 高解析度** | **0.6501** | 🔄 **訓練中** |
+| **Ultimate v5** | **1280 高解析度** | **0.6962** | 🔄 **訓練中 - 歷史新高！** |
 
-**目標**: mAP50 > 0.70
+**目標**: mAP50 > 0.70 (當前 0.6962，距離目標僅 0.4%！)
 
 ---
 
@@ -212,13 +213,13 @@ model.train(
 ## 7. 下一步行動
 
 ### 短期（訓練完成後）
-1. 等待 Ultimate v5 訓練完成（預計 2026-01-07）
-2. 評估最終 mAP50 是否達到 0.70+
-3. 若達標：匯出 TFLite INT8 模型
+1. 等待 Ultimate v5 訓練完成（預計 2026-01-08 凌晨，剩餘約 42 小時）
+2. 評估最終 mAP50 是否達到 0.70+（當前 0.6962，非常接近！）
+3. 若達標：匯出 TFLite INT8 模型（54MB → 約 14MB）
 
 ### 中期
-1. Android 整合測試
-2. 多裝置效能測試
+1. Android 整合測試（使用 1280x1280 高解析度模型）
+2. 多裝置效能測試（評估是否需要降級到 640 解析度）
 3. 規則引擎完善
 
 ---
