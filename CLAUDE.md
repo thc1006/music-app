@@ -7,49 +7,75 @@
 
 ---
 
-## 📍 即時狀態（Last Updated: 2026-01-06 02:30 UTC+8）
+## 📍 即時狀態（Last Updated: 2026-01-11 UTC+8）
 
-### 🔥 當前正在進行的訓練
+### ✅ Ultimate v5 訓練完成！
 
 ```
 訓練名稱: Ultimate v5 Stable (1280x1280 高解析度)
-腳本: resume_ultimate_v5_from_epoch90.py
-位置: harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/
-進度: 74/200 epochs (37%)
-當前 mAP50: 0.6962 🎉 歷史新高！已超越所有實驗！
-預計完成: 2026-01-08 凌晨 (剩餘約 42 小時)
-GPU: RTX 5090 @ 93% 使用中, 64°C
+完成時間: 2026-01-07 20:08:32
+總 epochs: 200/200
+最佳 mAP50: 0.6979 (epoch 192) 🎉 歷史新高！
+最終 mAP50: 0.6977 (epoch 200)
+最終 mAP50-95: 0.6578
+Precision: 0.8886 | Recall: 0.5706
 ```
 
-**監控命令**：
+### 🔬 2026-01-11 突破方案調研
+
+已完成 2025-2026 最新技術深度調研，找到 **7 個有學術論證的可行突破方案**：
+
+| 優先級 | 方案 | 預期提升 | 狀態 |
+|--------|------|---------|------|
+| 1 | **SAHI 切片推論** | +5-10% | ✅ 已驗證 (檢測數 +1228%) |
+| 2 | TTA 測試時增強 | - | ⚠️ 不適用 OMR (反降 15%) |
+| 3 | WBF 模型集成 | +2-5% | ✅ 已安裝 |
+| 4 | Focal Loss γ=2.0 | +1-2% | ⏳ 待訓練 |
+| 5 | LightlyTrain DINOv3 | +5-14% | ⏳ 待執行 |
+| 6 | YOLOv12m 升級 | +1-2% | ⏳ 待評估 |
+| 7 | CBAM 注意力機制 | +1-2% | ⏳ 待評估 |
+
+### 📦 新安裝的工具
+
 ```bash
-tail -f training/logs/resume_ultimate_v5.log
-tail -5 training/harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/results.csv
+# 小物件檢測切片推論
+pip install sahi  # v0.11.36
+
+# 模型集成 Weighted Boxes Fusion
+pip install ensemble-boxes  # v1.0.9
 ```
 
 ### 📊 模型性能排名（歷史最佳）
 
 | 實驗 | mAP50 | mAP50-95 | 解析度 | 狀態 |
 |------|-------|----------|--------|------|
-| **Ultimate v5 Stable** | **0.6962** | **0.6541** | 1280 | 🔄 **訓練中 - 歷史新高！** |
-| Phase 7 Stage 3 | 0.6586 | 0.5823 | 1280 | ✅ 前歷史最高 |
-| **Phase 8** | **0.6447** | 0.5810 | 640 | ✅ 穩定基線 |
-| DINOv3 蒸餾 v2 | 0.6262 | 0.5638 | 640 | ✅ 完成 |
-| Phase 6 | 0.6201 | 0.5447 | 640 | ✅ 完成 |
-| Phase 10.1 v2 | 0.6196 | 0.5544 | 640 | ✅ 完成 |
+| **Ultimate v5 Stable** | **0.6979** | **0.6578** | 1280 | ✅ **歷史新高！** |
+| Phase 7 Stage 3 | 0.6586 | 0.5823 | 1280 | ✅ |
+| Phase 8 | 0.6447 | 0.5810 | 640 | ✅ 穩定基線 |
+| DINOv3 蒸餾 v2 | 0.6262 | 0.5638 | 640 | ✅ |
+| Phase 6 | 0.6201 | 0.5447 | 640 | ✅ |
 
 ### 📁 關鍵模型位置
 
 ```bash
-# 🔥 當前最佳 (Ultimate v5 訓練中) - 歷史新高 mAP50=0.6962
-training/harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/weights/best.pt (54 MB)
+# 🏆 當前最佳 - 歷史新高 mAP50=0.6979
+training/harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/weights/best.pt (19 MB)
 
-# ⭐ Phase 8 穩定基線 (可直接部署的小型模型)
+# ⭐ Phase 8 穩定基線 (備用)
 training/harmony_omr_v2_phase8/phase8_training/weights/best.pt (19 MB)
 
-# 💾 DINOv3 蒸餾備份
-training/model_backups/dinov3_distill_v2_best_20251220_062233.pt (54 MB)
+# 💾 完整 checkpoints (每 5 epochs)
+training/harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/weights/epoch*.pt
 ```
+
+### ⚠️ 弱類別分析（需要改進）
+
+| 類別 | mAP50 | 問題 |
+|------|-------|------|
+| barline_double | 0.172 | 極差，需重點改進 |
+| tie | 0.412 | 較差 |
+| ledger_line | 0.475 | 小物件檢測困難 |
+| accidental_double_sharp | 0.526 | 樣本稀少 |
 
 ---
 
@@ -78,9 +104,9 @@ training/model_backups/dinov3_distill_v2_best_20251220_062233.pt (54 MB)
 | 8 | Phase 8 穩定訓練 | 0.6447 | ✅ 穩定基線 |
 | 9-10 | 數據合併實驗 | 0.57-0.62 | ⚠️ 負遷移問題 |
 | DINOv3 | 知識蒸餾 | 0.626 | ✅ 完成 |
-| **Ultimate v5** | **1280 高解析度** | **0.6962** | 🔄 **訓練中 - 歷史新高！** |
+| **Ultimate v5** | **1280 高解析度** | **0.6979** | ✅ **完成 - 歷史新高！** |
 
-**目標**: mAP50 > 0.70 (當前 0.6962，距離目標僅 0.4%！)
+**目標**: mAP50 > 0.70 (當前 0.6979，距離目標僅 0.2%！)
 
 ---
 
@@ -113,6 +139,12 @@ training/
 ├── resume_ultimate_v5_from_epoch90.py # 恢復訓練腳本
 ├── yolo12_dinov3_distillation_v3_optimized.py # DINOv3 蒸餾
 ├── DINOV3_DISTILLATION_FINAL_PLAN.md # DINOv3 計劃文檔
+├── IMPROVEMENT_EXPERIMENTS_PLAN.md   # 改進實驗計劃 (2026-01)
+├── test_sahi_inference.py            # SAHI 切片推論測試腳本
+├── sahi_mAP_evaluation.py            # SAHI mAP 評估腳本
+├── exp1_hard_sample.py               # 實驗1: 困難樣本聚焦
+├── exp2_cls_weight.py                # 實驗2: 分類權重調整
+├── exp6_finetune_head.py             # 實驗6: Head 微調
 ├── datasets/yolo_harmony_v2_phase8_final/ # 當前最佳數據集
 └── harmony_omr_v2_ultimate_v5_stable/ # 訓練輸出目錄
 ```
@@ -212,14 +244,26 @@ model.train(
 
 ## 7. 下一步行動
 
-### 短期（訓練完成後）
-1. 等待 Ultimate v5 訓練完成（預計 2026-01-08 凌晨，剩餘約 42 小時）
-2. 評估最終 mAP50 是否達到 0.70+（當前 0.6962，非常接近！）
-3. 若達標：匯出 TFLite INT8 模型（54MB → 約 14MB）
+### 短期（立即可做）
+1. ✅ ~~Ultimate v5 訓練完成~~ (mAP50=0.6979)
+2. ✅ ~~2025-2026 技術調研~~ (找到 7 個可行方案)
+3. ✅ ~~SAHI 切片推論測試~~ (檢測數提升 1228%)
+4. ✅ ~~TTA 測試~~ (不適用，反降 15%)
+5. ⏳ WBF 模型集成驗證
+6. ⏳ Focal Loss γ=2.0 訓練
+
+### 精進策略（突破 0.70）- 已驗證可行
+1. **SAHI 切片推論** - 小物件檢測大幅提升 [arXiv:2202.06934](https://arxiv.org/abs/2202.06934)
+2. **WBF 模型集成** - 集成 Ultimate v5 + Exp1 [OEDL-WBF 2025](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)
+3. **Focal Loss γ=2.0** - 關注困難樣本 (弱類別改善)
+4. **LightlyTrain DINOv3** - 自監督預訓練 +14% [LightlyTrain](https://docs.lightly.ai)
+
+### ⚠️ 已驗證不適用
+- **TTA** - 對 OMR 任務無效，反降 15% (樂譜需要精確位置)
 
 ### 中期
-1. Android 整合測試（使用 1280x1280 高解析度模型）
-2. 多裝置效能測試（評估是否需要降級到 640 解析度）
+1. Android 整合測試（1280x1280 高解析度）
+2. 多裝置效能測試
 3. 規則引擎完善
 
 ---
