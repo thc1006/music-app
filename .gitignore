@@ -70,3 +70,5 @@ training/BULLETPROOF_AUTO_PIPELINE.sh
 training/FIX_AND_RETRAIN.sh
 training/LAUNCH_ULTIMATE_35CLASSES.sh
 training/RESTART_TRAINING.sh
+training/harmony_omr_v2_experiments/*
+training/harmony_omr_v2_ultimate_v5_stable/*
