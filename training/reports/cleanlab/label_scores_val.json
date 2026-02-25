@@ -1,0 +1,3002 @@
+[
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_000092.png",
+    "score": 0.0,
+    "has_issue": true,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_000343.png",
+    "score": 0.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_000377.png",
+    "score": 0.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_001088.png",
+    "score": 0.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_001497.png",
+    "score": 0.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_001542.png",
+    "score": 0.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_01217_p4.png",
+    "score": 0.10953,
+    "has_issue": true,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00826_p7.png",
+    "score": 0.11153,
+    "has_issue": true,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_01177_p1.png",
+    "score": 0.113,
+    "has_issue": true,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00838_p3.png",
+    "score": 0.11487,
+    "has_issue": true,
+    "num_gt_boxes": 46
+  },
+  {
+    "image": "lieder_openscore_01218_p8.png",
+    "score": 0.1164,
+    "has_issue": true,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_00834_p8.png",
+    "score": 0.11667,
+    "has_issue": true,
+    "num_gt_boxes": 29
+  },
+  {
+    "image": "lieder_openscore_00990_p6.png",
+    "score": 0.11669,
+    "has_issue": true,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00833_p9.png",
+    "score": 0.11967,
+    "has_issue": true,
+    "num_gt_boxes": 30
+  },
+  {
+    "image": "lieder_openscore_00367_p1.png",
+    "score": 0.12076,
+    "has_issue": true,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_01355_p2.png",
+    "score": 0.1214,
+    "has_issue": true,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01082_p7.png",
+    "score": 0.12617,
+    "has_issue": true,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_01173_p1.png",
+    "score": 0.12968,
+    "has_issue": true,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_01221_p4.png",
+    "score": 0.1348,
+    "has_issue": true,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_01222_p7.png",
+    "score": 0.1371,
+    "has_issue": true,
+    "num_gt_boxes": 25
+  },
+  {
+    "image": "lieder_openscore_00331_p6.png",
+    "score": 0.13795,
+    "has_issue": true,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_01344_p5.png",
+    "score": 0.13821,
+    "has_issue": true,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_01221_p14.png",
+    "score": 0.13945,
+    "has_issue": true,
+    "num_gt_boxes": 23
+  },
+  {
+    "image": "lieder_openscore_01222_p4.png",
+    "score": 0.14038,
+    "has_issue": true,
+    "num_gt_boxes": 25
+  },
+  {
+    "image": "lieder_openscore_00973_p2.png",
+    "score": 0.14237,
+    "has_issue": true,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_01220_p2.png",
+    "score": 0.1458,
+    "has_issue": true,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00834_p2.png",
+    "score": 0.14655,
+    "has_issue": true,
+    "num_gt_boxes": 36
+  },
+  {
+    "image": "lieder_openscore_00835_p4.png",
+    "score": 0.14909,
+    "has_issue": true,
+    "num_gt_boxes": 34
+  },
+  {
+    "image": "lieder_openscore_00830_p2.png",
+    "score": 0.15733,
+    "has_issue": true,
+    "num_gt_boxes": 41
+  },
+  {
+    "image": "lieder_openscore_01221_p11.png",
+    "score": 0.15819,
+    "has_issue": true,
+    "num_gt_boxes": 31
+  },
+  {
+    "image": "lieder_openscore_00910_p3.png",
+    "score": 0.17377,
+    "has_issue": true,
+    "num_gt_boxes": 34
+  },
+  {
+    "image": "lieder_openscore_00196_p1.png",
+    "score": 0.17847,
+    "has_issue": true,
+    "num_gt_boxes": 23
+  },
+  {
+    "image": "lieder_openscore_01029_p6.png",
+    "score": 0.18606,
+    "has_issue": true,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_00594_p1.png",
+    "score": 0.22801,
+    "has_issue": true,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_00836_p2.png",
+    "score": 0.24488,
+    "has_issue": true,
+    "num_gt_boxes": 31
+  },
+  {
+    "image": "lieder_openscore_00359_p3.png",
+    "score": 0.24586,
+    "has_issue": true,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00758_p2.png",
+    "score": 0.2715,
+    "has_issue": true,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_00533_p3.png",
+    "score": 0.28262,
+    "has_issue": true,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_01191_p0.png",
+    "score": 0.28613,
+    "has_issue": true,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_01347_p0.png",
+    "score": 0.3022,
+    "has_issue": true,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00848_p0.png",
+    "score": 0.31911,
+    "has_issue": true,
+    "num_gt_boxes": 14
+  },
+  {
+    "image": "lieder_openscore_00879_p3.png",
+    "score": 0.32491,
+    "has_issue": true,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00036_p3.png",
+    "score": 0.32508,
+    "has_issue": true,
+    "num_gt_boxes": 19
+  },
+  {
+    "image": "lieder_openscore_00053_p0.png",
+    "score": 0.3367,
+    "has_issue": true,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01339_p2.png",
+    "score": 0.34316,
+    "has_issue": true,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_01190_p0.png",
+    "score": 0.34512,
+    "has_issue": true,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00541_p0.png",
+    "score": 0.35943,
+    "has_issue": true,
+    "num_gt_boxes": 51
+  },
+  {
+    "image": "lieder_openscore_00126_p0.png",
+    "score": 0.37443,
+    "has_issue": true,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01335_p0.png",
+    "score": 0.37745,
+    "has_issue": true,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00909_p2.png",
+    "score": 0.37782,
+    "has_issue": true,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_01338_p2.png",
+    "score": 0.38405,
+    "has_issue": true,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00964_p0.png",
+    "score": 0.38652,
+    "has_issue": true,
+    "num_gt_boxes": 41
+  },
+  {
+    "image": "lieder_openscore_00076_p0.png",
+    "score": 0.39841,
+    "has_issue": true,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_00331_p0.png",
+    "score": 0.39848,
+    "has_issue": true,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_01341_p0.png",
+    "score": 0.41166,
+    "has_issue": true,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00617_p3.png",
+    "score": 0.41193,
+    "has_issue": true,
+    "num_gt_boxes": 26
+  },
+  {
+    "image": "lieder_openscore_00981_p0.png",
+    "score": 0.42044,
+    "has_issue": true,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_00938_p0.png",
+    "score": 0.42332,
+    "has_issue": true,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01233_p0.png",
+    "score": 0.426,
+    "has_issue": true,
+    "num_gt_boxes": 22
+  },
+  {
+    "image": "lieder_openscore_01029_p0.png",
+    "score": 0.42968,
+    "has_issue": true,
+    "num_gt_boxes": 58
+  },
+  {
+    "image": "lieder_openscore_00039_p0.png",
+    "score": 0.43013,
+    "has_issue": true,
+    "num_gt_boxes": 40
+  },
+  {
+    "image": "lieder_openscore_00384_p0.png",
+    "score": 0.4337,
+    "has_issue": true,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00826_p0.png",
+    "score": 0.4365,
+    "has_issue": true,
+    "num_gt_boxes": 32
+  },
+  {
+    "image": "lieder_openscore_00472_p0.png",
+    "score": 0.44303,
+    "has_issue": true,
+    "num_gt_boxes": 40
+  },
+  {
+    "image": "lieder_openscore_00320_p3.png",
+    "score": 0.44678,
+    "has_issue": true,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_01340_p0.png",
+    "score": 0.44754,
+    "has_issue": true,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00604_p0.png",
+    "score": 0.46331,
+    "has_issue": false,
+    "num_gt_boxes": 35
+  },
+  {
+    "image": "lieder_openscore_01025_p4.png",
+    "score": 0.46761,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00889_p0.png",
+    "score": 0.47245,
+    "has_issue": true,
+    "num_gt_boxes": 32
+  },
+  {
+    "image": "lieder_openscore_00357_p1.png",
+    "score": 0.4812,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00524_p3.png",
+    "score": 0.48171,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_01207_p0.png",
+    "score": 0.48791,
+    "has_issue": false,
+    "num_gt_boxes": 23
+  },
+  {
+    "image": "lieder_openscore_00180_p0.png",
+    "score": 0.49501,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00185_p2.png",
+    "score": 0.49957,
+    "has_issue": false,
+    "num_gt_boxes": 17
+  },
+  {
+    "image": "lieder_openscore_00058_p5.png",
+    "score": 0.50925,
+    "has_issue": true,
+    "num_gt_boxes": 45
+  },
+  {
+    "image": "lieder_openscore_00644_p0.png",
+    "score": 0.50973,
+    "has_issue": false,
+    "num_gt_boxes": 31
+  },
+  {
+    "image": "lieder_openscore_00816_p1.png",
+    "score": 0.53474,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00070_p0.png",
+    "score": 0.53514,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00220_p2.png",
+    "score": 0.53908,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_01177_p0.png",
+    "score": 0.53946,
+    "has_issue": false,
+    "num_gt_boxes": 17
+  },
+  {
+    "image": "lieder_openscore_00844_p1.png",
+    "score": 0.53962,
+    "has_issue": false,
+    "num_gt_boxes": 51
+  },
+  {
+    "image": "lieder_openscore_01343_p0.png",
+    "score": 0.54335,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_01206_p2.png",
+    "score": 0.55219,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00994_p1.png",
+    "score": 0.55476,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00755_p0.png",
+    "score": 0.55998,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00910_p0.png",
+    "score": 0.56194,
+    "has_issue": false,
+    "num_gt_boxes": 45
+  },
+  {
+    "image": "lieder_openscore_00329_p0.png",
+    "score": 0.56374,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00306_p0.png",
+    "score": 0.56531,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00551_p1.png",
+    "score": 0.57256,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_01227_p0.png",
+    "score": 0.59161,
+    "has_issue": false,
+    "num_gt_boxes": 17
+  },
+  {
+    "image": "lieder_openscore_00059_p1.png",
+    "score": 0.60161,
+    "has_issue": false,
+    "num_gt_boxes": 27
+  },
+  {
+    "image": "lieder_openscore_00643_p1.png",
+    "score": 0.6066,
+    "has_issue": false,
+    "num_gt_boxes": 46
+  },
+  {
+    "image": "lieder_openscore_00512_p0.png",
+    "score": 0.60838,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00329_p1.png",
+    "score": 0.60963,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00283_p0.png",
+    "score": 0.61388,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00599_p0.png",
+    "score": 0.62321,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00632_p4.png",
+    "score": 0.62965,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00543_p0.png",
+    "score": 0.63292,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_01208_p0.png",
+    "score": 0.64781,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00837_p3.png",
+    "score": 0.65411,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_01117_p1.png",
+    "score": 0.67617,
+    "has_issue": false,
+    "num_gt_boxes": 22
+  },
+  {
+    "image": "lieder_openscore_00440_p4.png",
+    "score": 0.74136,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00166_p2.png",
+    "score": 0.75375,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_01093_p2.png",
+    "score": 0.75546,
+    "has_issue": false,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_01273_p3.png",
+    "score": 0.78711,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00067_p8.png",
+    "score": 0.80132,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00467_p1.png",
+    "score": 0.80262,
+    "has_issue": false,
+    "num_gt_boxes": 35
+  },
+  {
+    "image": "phase7_phase6_base_muscima_muscima_CVC-MUSCIMA_W-29_N-15_D-ideal.png",
+    "score": 0.83025,
+    "has_issue": false,
+    "num_gt_boxes": 19
+  },
+  {
+    "image": "lieder_openscore_00747_p1.png",
+    "score": 0.83441,
+    "has_issue": false,
+    "num_gt_boxes": 14
+  },
+  {
+    "image": "lieder_openscore_00050_p1.png",
+    "score": 0.85705,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00850_p2.png",
+    "score": 0.86022,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00840_p5.png",
+    "score": 0.86284,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00858_p2.png",
+    "score": 0.86634,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01166_p1.png",
+    "score": 0.87332,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_001125.png",
+    "score": 0.89792,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00222_p2.png",
+    "score": 0.90313,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_000525.png",
+    "score": 0.90662,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00069_p3.png",
+    "score": 0.91779,
+    "has_issue": false,
+    "num_gt_boxes": 25
+  },
+  {
+    "image": "phase7_phase6_base_muscima_muscima_CVC-MUSCIMA_W-33_N-19_D-ideal.png",
+    "score": 0.92387,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_000730.png",
+    "score": 0.92641,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "phase7_phase6_base_muscima_muscima_CVC-MUSCIMA_W-20_N-02_D-ideal.png",
+    "score": 0.92856,
+    "has_issue": false,
+    "num_gt_boxes": 48
+  },
+  {
+    "image": "lieder_openscore_00295_p1.png",
+    "score": 0.94164,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00535_p0.png",
+    "score": 0.94177,
+    "has_issue": false,
+    "num_gt_boxes": 24
+  },
+  {
+    "image": "lieder_openscore_00254_p0.png",
+    "score": 0.94216,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_01232_p2.png",
+    "score": 0.94541,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00201_p0.png",
+    "score": 0.94715,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "phase7_phase6_base_muscima_muscima_CVC-MUSCIMA_W-24_N-07_D-ideal.png",
+    "score": 0.94716,
+    "has_issue": false,
+    "num_gt_boxes": 20
+  },
+  {
+    "image": "phase7_phase6_base_muscima_muscima_CVC-MUSCIMA_W-30_N-13_D-ideal.png",
+    "score": 0.94844,
+    "has_issue": false,
+    "num_gt_boxes": 37
+  },
+  {
+    "image": "lieder_openscore_00117_p1.png",
+    "score": 0.95381,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00813_p4.png",
+    "score": 0.95423,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00580_p1.png",
+    "score": 0.95478,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_01186_p2.png",
+    "score": 0.95494,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "phase7_phase6_base_ds2_ds2_train_000749.png",
+    "score": 0.95624,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00850_p4.png",
+    "score": 0.95711,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00312_p2.png",
+    "score": 0.95713,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00417_p0.png",
+    "score": 0.95807,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00518_p2.png",
+    "score": 0.95857,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_00033_p2.png",
+    "score": 0.9598,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_01218_p0.png",
+    "score": 0.96006,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00706_p0.png",
+    "score": 0.9612,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00657_p1.png",
+    "score": 0.96417,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_01118_p1.png",
+    "score": 0.96536,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00426_p1.png",
+    "score": 0.96604,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_01132_p3.png",
+    "score": 0.96921,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00995_p0.png",
+    "score": 0.97005,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00043_p1.png",
+    "score": 0.97117,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00593_p3.png",
+    "score": 0.97129,
+    "has_issue": false,
+    "num_gt_boxes": 43
+  },
+  {
+    "image": "lieder_openscore_00215_p0.png",
+    "score": 0.9723,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_01233_p3.png",
+    "score": 0.97259,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00160_p0.png",
+    "score": 0.97348,
+    "has_issue": false,
+    "num_gt_boxes": 14
+  },
+  {
+    "image": "lieder_openscore_01340_p5.png",
+    "score": 0.97511,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00611_p8.png",
+    "score": 0.97556,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00551_p2.png",
+    "score": 0.97584,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_00216_p2.png",
+    "score": 0.97592,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_01279_p0.png",
+    "score": 0.97613,
+    "has_issue": false,
+    "num_gt_boxes": 24
+  },
+  {
+    "image": "lieder_openscore_00191_p3.png",
+    "score": 0.97621,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00483_p1.png",
+    "score": 0.97657,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00049_p0.png",
+    "score": 0.97658,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00513_p3.png",
+    "score": 0.97759,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_01081_p2.png",
+    "score": 0.9778,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00155_p0.png",
+    "score": 0.97868,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00077_p1.png",
+    "score": 0.97892,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00994_p3.png",
+    "score": 0.97919,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00633_p0.png",
+    "score": 0.97951,
+    "has_issue": false,
+    "num_gt_boxes": 14
+  },
+  {
+    "image": "lieder_openscore_00129_p0.png",
+    "score": 0.97963,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_01137_p2.png",
+    "score": 0.98064,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00997_p2.png",
+    "score": 0.98079,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_01067_p0.png",
+    "score": 0.98176,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00515_p8.png",
+    "score": 0.98238,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_00507_p6.png",
+    "score": 0.98264,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00820_p1.png",
+    "score": 0.98296,
+    "has_issue": false,
+    "num_gt_boxes": 22
+  },
+  {
+    "image": "lieder_openscore_00384_p1.png",
+    "score": 0.98308,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00994_p0.png",
+    "score": 0.98337,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00963_p3.png",
+    "score": 0.98339,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00759_p1.png",
+    "score": 0.98358,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00338_p2.png",
+    "score": 0.98395,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00904_p1.png",
+    "score": 0.98442,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01081_p1.png",
+    "score": 0.98457,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_01087_p1.png",
+    "score": 0.98534,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00740_p0.png",
+    "score": 0.98537,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00544_p3.png",
+    "score": 0.98555,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00001_p8.png",
+    "score": 0.98556,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01319_p2.png",
+    "score": 0.98559,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00796_p0.png",
+    "score": 0.98571,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01354_p0.png",
+    "score": 0.98595,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00035_p1.png",
+    "score": 0.98599,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00856_p3.png",
+    "score": 0.98601,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00845_p5.png",
+    "score": 0.98602,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00007_p5.png",
+    "score": 0.98622,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00348_p3.png",
+    "score": 0.98634,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_01025_p2.png",
+    "score": 0.98666,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00852_p4.png",
+    "score": 0.98706,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00759_p3.png",
+    "score": 0.98718,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00337_p1.png",
+    "score": 0.98719,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00675_p0.png",
+    "score": 0.98726,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00568_p2.png",
+    "score": 0.98732,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00497_p1.png",
+    "score": 0.98773,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00655_p0.png",
+    "score": 0.98778,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00852_p8.png",
+    "score": 0.98828,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_01263_p1.png",
+    "score": 0.98852,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00221_p0.png",
+    "score": 0.98861,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00567_p1.png",
+    "score": 0.98886,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00862_p2.png",
+    "score": 0.98886,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00640_p0.png",
+    "score": 0.98907,
+    "has_issue": false,
+    "num_gt_boxes": 14
+  },
+  {
+    "image": "lieder_openscore_00531_p1.png",
+    "score": 0.98937,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00005_p2.png",
+    "score": 0.98953,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01324_p1.png",
+    "score": 0.98956,
+    "has_issue": false,
+    "num_gt_boxes": 27
+  },
+  {
+    "image": "lieder_openscore_00543_p3.png",
+    "score": 0.98976,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_00599_p3.png",
+    "score": 0.9899,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01155_p3.png",
+    "score": 0.9899,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_01254_p4.png",
+    "score": 0.99005,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00930_p5.png",
+    "score": 0.99006,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_01027_p2.png",
+    "score": 0.99006,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_01338_p3.png",
+    "score": 0.99014,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00840_p0.png",
+    "score": 0.99022,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00822_p0.png",
+    "score": 0.99048,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_01162_p0.png",
+    "score": 0.99077,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00599_p4.png",
+    "score": 0.99104,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00065_p13.png",
+    "score": 0.99109,
+    "has_issue": false,
+    "num_gt_boxes": 41
+  },
+  {
+    "image": "lieder_openscore_00576_p1.png",
+    "score": 0.99119,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00222_p3.png",
+    "score": 0.99132,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_01023_p2.png",
+    "score": 0.99132,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_00944_p1.png",
+    "score": 0.99157,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00095_p2.png",
+    "score": 0.9916,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00339_p1.png",
+    "score": 0.99164,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00168_p1.png",
+    "score": 0.99175,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00524_p1.png",
+    "score": 0.99176,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00345_p4.png",
+    "score": 0.9918,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00817_p0.png",
+    "score": 0.992,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00275_p1.png",
+    "score": 0.99208,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00948_p0.png",
+    "score": 0.99215,
+    "has_issue": false,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_00597_p5.png",
+    "score": 0.99218,
+    "has_issue": false,
+    "num_gt_boxes": 30
+  },
+  {
+    "image": "lieder_openscore_00505_p2.png",
+    "score": 0.99229,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00466_p0.png",
+    "score": 0.99231,
+    "has_issue": false,
+    "num_gt_boxes": 23
+  },
+  {
+    "image": "lieder_openscore_00502_p0.png",
+    "score": 0.99282,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_00817_p1.png",
+    "score": 0.99301,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_01236_p0.png",
+    "score": 0.99306,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00344_p1.png",
+    "score": 0.9931,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00076_p4.png",
+    "score": 0.99315,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_00358_p1.png",
+    "score": 0.99333,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00884_p3.png",
+    "score": 0.9934,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00330_p5.png",
+    "score": 0.99343,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00973_p0.png",
+    "score": 0.99353,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00558_p0.png",
+    "score": 0.99356,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01215_p5.png",
+    "score": 0.99364,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00987_p2.png",
+    "score": 0.99365,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_00853_p4.png",
+    "score": 0.99374,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00580_p3.png",
+    "score": 0.99385,
+    "has_issue": false,
+    "num_gt_boxes": 26
+  },
+  {
+    "image": "lieder_openscore_00881_p1.png",
+    "score": 0.99387,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00232_p1.png",
+    "score": 0.99394,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_01270_p0.png",
+    "score": 0.99441,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_00597_p2.png",
+    "score": 0.99443,
+    "has_issue": false,
+    "num_gt_boxes": 30
+  },
+  {
+    "image": "lieder_openscore_00347_p0.png",
+    "score": 0.99466,
+    "has_issue": false,
+    "num_gt_boxes": 19
+  },
+  {
+    "image": "lieder_openscore_00039_p1.png",
+    "score": 0.99469,
+    "has_issue": false,
+    "num_gt_boxes": 40
+  },
+  {
+    "image": "lieder_openscore_01235_p2.png",
+    "score": 0.99509,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00425_p0.png",
+    "score": 0.9953,
+    "has_issue": false,
+    "num_gt_boxes": 20
+  },
+  {
+    "image": "lieder_openscore_00379_p1.png",
+    "score": 0.99531,
+    "has_issue": false,
+    "num_gt_boxes": 34
+  },
+  {
+    "image": "lieder_openscore_01253_p2.png",
+    "score": 0.99532,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00563_p1.png",
+    "score": 0.9954,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_01354_p1.png",
+    "score": 0.99548,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00852_p1.png",
+    "score": 0.99576,
+    "has_issue": false,
+    "num_gt_boxes": 25
+  },
+  {
+    "image": "lieder_openscore_00020_p0.png",
+    "score": 0.99584,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00931_p3.png",
+    "score": 0.9959,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_01047_p3.png",
+    "score": 0.99591,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00607_p0.png",
+    "score": 0.99594,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_00150_p3.png",
+    "score": 0.99603,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00083_p1.png",
+    "score": 0.99604,
+    "has_issue": false,
+    "num_gt_boxes": 24
+  },
+  {
+    "image": "lieder_openscore_00988_p1.png",
+    "score": 0.99604,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00530_p0.png",
+    "score": 0.99609,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00988_p2.png",
+    "score": 0.99613,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00861_p1.png",
+    "score": 0.99619,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00973_p1.png",
+    "score": 0.99623,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00033_p0.png",
+    "score": 0.99634,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00603_p1.png",
+    "score": 0.99643,
+    "has_issue": false,
+    "num_gt_boxes": 42
+  },
+  {
+    "image": "lieder_openscore_00630_p6.png",
+    "score": 0.99652,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00065_p8.png",
+    "score": 0.99675,
+    "has_issue": false,
+    "num_gt_boxes": 36
+  },
+  {
+    "image": "lieder_openscore_01127_p3.png",
+    "score": 0.99676,
+    "has_issue": false,
+    "num_gt_boxes": 26
+  },
+  {
+    "image": "lieder_openscore_00170_p2.png",
+    "score": 0.99699,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01264_p4.png",
+    "score": 0.99699,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00979_p0.png",
+    "score": 0.99702,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00594_p10.png",
+    "score": 0.99706,
+    "has_issue": false,
+    "num_gt_boxes": 24
+  },
+  {
+    "image": "lieder_openscore_00812_p0.png",
+    "score": 0.99712,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00348_p0.png",
+    "score": 0.99717,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00516_p6.png",
+    "score": 0.9972,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00333_p0.png",
+    "score": 0.99723,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_01259_p0.png",
+    "score": 0.9974,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00580_p11.png",
+    "score": 0.99745,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_00630_p4.png",
+    "score": 0.99751,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_01106_p1.png",
+    "score": 0.99796,
+    "has_issue": false,
+    "num_gt_boxes": 22
+  },
+  {
+    "image": "lieder_openscore_00584_p4.png",
+    "score": 0.99799,
+    "has_issue": false,
+    "num_gt_boxes": 25
+  },
+  {
+    "image": "lieder_openscore_00641_p1.png",
+    "score": 0.99801,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00404_p1.png",
+    "score": 0.99812,
+    "has_issue": false,
+    "num_gt_boxes": 14
+  },
+  {
+    "image": "lieder_openscore_01008_p3.png",
+    "score": 0.99812,
+    "has_issue": false,
+    "num_gt_boxes": 14
+  },
+  {
+    "image": "lieder_openscore_00563_p0.png",
+    "score": 0.99813,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00618_p0.png",
+    "score": 0.99818,
+    "has_issue": false,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_00142_p1.png",
+    "score": 0.99823,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00948_p1.png",
+    "score": 0.99829,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_01062_p1.png",
+    "score": 0.99835,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00625_p2.png",
+    "score": 0.99841,
+    "has_issue": false,
+    "num_gt_boxes": 25
+  },
+  {
+    "image": "lieder_openscore_00033_p3.png",
+    "score": 0.99856,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_01008_p1.png",
+    "score": 0.99857,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_00975_p4.png",
+    "score": 0.99863,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_00258_p1.png",
+    "score": 0.99865,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_00535_p2.png",
+    "score": 0.99865,
+    "has_issue": false,
+    "num_gt_boxes": 24
+  },
+  {
+    "image": "lieder_openscore_00065_p3.png",
+    "score": 0.99882,
+    "has_issue": false,
+    "num_gt_boxes": 32
+  },
+  {
+    "image": "lieder_openscore_00965_p1.png",
+    "score": 0.99896,
+    "has_issue": false,
+    "num_gt_boxes": 42
+  },
+  {
+    "image": "lieder_openscore_00624_p2.png",
+    "score": 0.99901,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_00084_p2.png",
+    "score": 0.9991,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00018_p0.png",
+    "score": 0.99911,
+    "has_issue": false,
+    "num_gt_boxes": 34
+  },
+  {
+    "image": "lieder_openscore_00934_p0.png",
+    "score": 0.99917,
+    "has_issue": false,
+    "num_gt_boxes": 29
+  },
+  {
+    "image": "lieder_openscore_00953_p1.png",
+    "score": 0.99924,
+    "has_issue": false,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_01101_p0.png",
+    "score": 0.99946,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_01090_p0.png",
+    "score": 0.99959,
+    "has_issue": false,
+    "num_gt_boxes": 33
+  },
+  {
+    "image": "lieder_openscore_00007_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00008_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00015_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00067_p11.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_00078_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00078_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00083_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 24
+  },
+  {
+    "image": "lieder_openscore_00086_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00090_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00094_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00098_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_00110_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00110_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00123_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00124_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00140_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00143_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00143_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00144_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00150_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00154_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00161_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00176_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00177_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00202_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00209_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00229_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00230_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00236_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00236_p13.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00236_p6.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00236_p7.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00237_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00241_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00244_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00245_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00246_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00249_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00254_p11.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00254_p16.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00254_p17.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00254_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00256_p7.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00257_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00259_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00266_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00266_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00267_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00287_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00287_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00300_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00302_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00321_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 17
+  },
+  {
+    "image": "lieder_openscore_00327_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00335_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00336_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_00340_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00344_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00345_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00352_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00359_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00360_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00361_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00368_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00381_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00381_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00382_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00383_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00393_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00416_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00422_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00468_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 25
+  },
+  {
+    "image": "lieder_openscore_00500_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00512_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_00513_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00516_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00516_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 21
+  },
+  {
+    "image": "lieder_openscore_00539_p7.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 20
+  },
+  {
+    "image": "lieder_openscore_00541_p7.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 22
+  },
+  {
+    "image": "lieder_openscore_00545_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_00545_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_00564_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_00570_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00579_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 23
+  },
+  {
+    "image": "lieder_openscore_00589_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 36
+  },
+  {
+    "image": "lieder_openscore_00589_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 33
+  },
+  {
+    "image": "lieder_openscore_00597_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 20
+  },
+  {
+    "image": "lieder_openscore_00601_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 26
+  },
+  {
+    "image": "lieder_openscore_00606_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00606_p8.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00608_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00630_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00633_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 14
+  },
+  {
+    "image": "lieder_openscore_00637_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00663_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_00664_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00666_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00666_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00667_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 31
+  },
+  {
+    "image": "lieder_openscore_00671_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_00678_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 24
+  },
+  {
+    "image": "lieder_openscore_00721_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 32
+  },
+  {
+    "image": "lieder_openscore_00724_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00737_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_00768_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00770_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00770_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00776_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00780_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00797_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_00799_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00813_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "lieder_openscore_00835_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_00835_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 38
+  },
+  {
+    "image": "lieder_openscore_00842_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00852_p10.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_00854_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00870_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00885_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_00887_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 17
+  },
+  {
+    "image": "lieder_openscore_00895_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00897_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00898_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00899_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_00900_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_00901_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_00903_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00906_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 26
+  },
+  {
+    "image": "lieder_openscore_00917_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_00931_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 15
+  },
+  {
+    "image": "lieder_openscore_00950_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 31
+  },
+  {
+    "image": "lieder_openscore_00977_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 13
+  },
+  {
+    "image": "lieder_openscore_00989_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 24
+  },
+  {
+    "image": "lieder_openscore_01002_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 28
+  },
+  {
+    "image": "lieder_openscore_01005_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01009_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01012_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01016_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01017_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01024_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_01038_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01039_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01042_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_01046_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 1
+  },
+  {
+    "image": "lieder_openscore_01047_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01050_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01058_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01070_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01079_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_01094_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 27
+  },
+  {
+    "image": "lieder_openscore_01100_p6.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 33
+  },
+  {
+    "image": "lieder_openscore_01103_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 35
+  },
+  {
+    "image": "lieder_openscore_01116_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01122_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  },
+  {
+    "image": "lieder_openscore_01149_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_01150_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 18
+  },
+  {
+    "image": "lieder_openscore_01162_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 19
+  },
+  {
+    "image": "lieder_openscore_01168_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01180_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01180_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01204_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_01210_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 9
+  },
+  {
+    "image": "lieder_openscore_01215_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 5
+  },
+  {
+    "image": "lieder_openscore_01221_p9.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 26
+  },
+  {
+    "image": "lieder_openscore_01224_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 17
+  },
+  {
+    "image": "lieder_openscore_01229_p6.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_01234_p0.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01250_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 16
+  },
+  {
+    "image": "lieder_openscore_01261_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01272_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01277_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 11
+  },
+  {
+    "image": "lieder_openscore_01280_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 4
+  },
+  {
+    "image": "lieder_openscore_01281_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_01288_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 6
+  },
+  {
+    "image": "lieder_openscore_01291_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01299_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_01301_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_01312_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 2
+  },
+  {
+    "image": "lieder_openscore_01317_p2.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 10
+  },
+  {
+    "image": "lieder_openscore_01321_p1.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_01321_p3.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_01321_p5.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "lieder_openscore_01328_p4.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 3
+  },
+  {
+    "image": "lieder_openscore_01331_p6.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 8
+  },
+  {
+    "image": "phase7_phase6_base_muscima_muscima_CVC-MUSCIMA_W-07_N-08_D-ideal.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 17
+  },
+  {
+    "image": "phase7_phase6_base_muscima_muscima_CVC-MUSCIMA_W-17_N-18_D-ideal.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 7
+  },
+  {
+    "image": "phase7_phase6_base_muscima_muscima_CVC-MUSCIMA_W-18_N-12_D-ideal.png",
+    "score": 1.0,
+    "has_issue": false,
+    "num_gt_boxes": 12
+  }
+]

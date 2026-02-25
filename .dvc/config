@@ -1,0 +1,4 @@
+[core]
+    remote = localstorage
+['remote "localstorage"']
+    url = /home/thc1006/dev/music-app/.dvc/local-remote

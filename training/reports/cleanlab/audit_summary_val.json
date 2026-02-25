@@ -1,0 +1,191 @@
+{
+  "split": "val",
+  "total_images": 500,
+  "images_with_issues": 63,
+  "issue_percentage": 12.6,
+  "score_mean": 0.85729,
+  "score_median": 0.99418,
+  "score_min": 0.0,
+  "worst_30": [
+    {
+      "rank": 1,
+      "image": "phase7_phase6_base_ds2_ds2_train_000092.png",
+      "score": 0.0,
+      "num_gt_boxes": 4
+    },
+    {
+      "rank": 2,
+      "image": "lieder_openscore_01217_p4.png",
+      "score": 0.10953,
+      "num_gt_boxes": 6
+    },
+    {
+      "rank": 3,
+      "image": "lieder_openscore_00826_p7.png",
+      "score": 0.11153,
+      "num_gt_boxes": 13
+    },
+    {
+      "rank": 4,
+      "image": "lieder_openscore_01177_p1.png",
+      "score": 0.113,
+      "num_gt_boxes": 5
+    },
+    {
+      "rank": 5,
+      "image": "lieder_openscore_00838_p3.png",
+      "score": 0.11487,
+      "num_gt_boxes": 46
+    },
+    {
+      "rank": 6,
+      "image": "lieder_openscore_01218_p8.png",
+      "score": 0.1164,
+      "num_gt_boxes": 11
+    },
+    {
+      "rank": 7,
+      "image": "lieder_openscore_00834_p8.png",
+      "score": 0.11667,
+      "num_gt_boxes": 29
+    },
+    {
+      "rank": 8,
+      "image": "lieder_openscore_00990_p6.png",
+      "score": 0.11669,
+      "num_gt_boxes": 21
+    },
+    {
+      "rank": 9,
+      "image": "lieder_openscore_00833_p9.png",
+      "score": 0.11967,
+      "num_gt_boxes": 30
+    },
+    {
+      "rank": 10,
+      "image": "lieder_openscore_00367_p1.png",
+      "score": 0.12076,
+      "num_gt_boxes": 4
+    },
+    {
+      "rank": 11,
+      "image": "lieder_openscore_01355_p2.png",
+      "score": 0.1214,
+      "num_gt_boxes": 3
+    },
+    {
+      "rank": 12,
+      "image": "lieder_openscore_01082_p7.png",
+      "score": 0.12617,
+      "num_gt_boxes": 7
+    },
+    {
+      "rank": 13,
+      "image": "lieder_openscore_01173_p1.png",
+      "score": 0.12968,
+      "num_gt_boxes": 9
+    },
+    {
+      "rank": 14,
+      "image": "lieder_openscore_01221_p4.png",
+      "score": 0.1348,
+      "num_gt_boxes": 12
+    },
+    {
+      "rank": 15,
+      "image": "lieder_openscore_01222_p7.png",
+      "score": 0.1371,
+      "num_gt_boxes": 25
+    },
+    {
+      "rank": 16,
+      "image": "lieder_openscore_00331_p6.png",
+      "score": 0.13795,
+      "num_gt_boxes": 16
+    },
+    {
+      "rank": 17,
+      "image": "lieder_openscore_01344_p5.png",
+      "score": 0.13821,
+      "num_gt_boxes": 16
+    },
+    {
+      "rank": 18,
+      "image": "lieder_openscore_01221_p14.png",
+      "score": 0.13945,
+      "num_gt_boxes": 23
+    },
+    {
+      "rank": 19,
+      "image": "lieder_openscore_01222_p4.png",
+      "score": 0.14038,
+      "num_gt_boxes": 25
+    },
+    {
+      "rank": 20,
+      "image": "lieder_openscore_00973_p2.png",
+      "score": 0.14237,
+      "num_gt_boxes": 21
+    },
+    {
+      "rank": 21,
+      "image": "lieder_openscore_01220_p2.png",
+      "score": 0.1458,
+      "num_gt_boxes": 12
+    },
+    {
+      "rank": 22,
+      "image": "lieder_openscore_00834_p2.png",
+      "score": 0.14655,
+      "num_gt_boxes": 36
+    },
+    {
+      "rank": 23,
+      "image": "lieder_openscore_00835_p4.png",
+      "score": 0.14909,
+      "num_gt_boxes": 34
+    },
+    {
+      "rank": 24,
+      "image": "lieder_openscore_00830_p2.png",
+      "score": 0.15733,
+      "num_gt_boxes": 41
+    },
+    {
+      "rank": 25,
+      "image": "lieder_openscore_01221_p11.png",
+      "score": 0.15819,
+      "num_gt_boxes": 31
+    },
+    {
+      "rank": 26,
+      "image": "lieder_openscore_00910_p3.png",
+      "score": 0.17377,
+      "num_gt_boxes": 34
+    },
+    {
+      "rank": 27,
+      "image": "lieder_openscore_00196_p1.png",
+      "score": 0.17847,
+      "num_gt_boxes": 23
+    },
+    {
+      "rank": 28,
+      "image": "lieder_openscore_01029_p6.png",
+      "score": 0.18606,
+      "num_gt_boxes": 38
+    },
+    {
+      "rank": 29,
+      "image": "lieder_openscore_00594_p1.png",
+      "score": 0.22801,
+      "num_gt_boxes": 28
+    },
+    {
+      "rank": 30,
+      "image": "lieder_openscore_00836_p2.png",
+      "score": 0.24488,
+      "num_gt_boxes": 31
+    }
+  ]
+}

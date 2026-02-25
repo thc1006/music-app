@@ -1,0 +1,23 @@
+{
+  "cleaned_deploy": {
+    "mAP50": 0.77523,
+    "mAP50_95": 0.72706,
+    "precision": 0.94131,
+    "recall": 0.58128,
+    "time_s": 26.1
+  },
+  "cleaned_strict": {
+    "mAP50": 0.72953,
+    "mAP50_95": 0.68727,
+    "precision": 0.9198,
+    "recall": 0.58881,
+    "time_s": 25.3
+  },
+  "cleaned_best": {
+    "mAP50": 0.7763,
+    "mAP50_95": 0.73199,
+    "precision": 0.95684,
+    "recall": 0.57585,
+    "time_s": 24.8
+  }
+}

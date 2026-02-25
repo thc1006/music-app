@@ -1,0 +1,208 @@
+{
+  "summary": {
+    "total_images_original": 32555,
+    "total_lines_balanced_txt": 92437,
+    "imbalance_ratio_original": 329.51,
+    "imbalance_ratio_effective": 294.13
+  },
+  "per_class": {
+    "notehead_filled": {
+      "class_id": 0,
+      "original_count": 659347,
+      "effective_count": 2942781,
+      "boost_ratio": 4.4632
+    },
+    "notehead_hollow": {
+      "class_id": 1,
+      "original_count": 54139,
+      "effective_count": 247283,
+      "boost_ratio": 4.5676
+    },
+    "stem": {
+      "class_id": 2,
+      "original_count": 606196,
+      "effective_count": 2724232,
+      "boost_ratio": 4.494
+    },
+    "beam": {
+      "class_id": 3,
+      "original_count": 186358,
+      "effective_count": 842095,
+      "boost_ratio": 4.5187
+    },
+    "flag_8th": {
+      "class_id": 4,
+      "original_count": 36558,
+      "effective_count": 170771,
+      "boost_ratio": 4.6712
+    },
+    "flag_16th": {
+      "class_id": 5,
+      "original_count": 17111,
+      "effective_count": 55798,
+      "boost_ratio": 3.2609
+    },
+    "flag_32nd": {
+      "class_id": 6,
+      "original_count": 6719,
+      "effective_count": 33595,
+      "boost_ratio": 5.0
+    },
+    "augmentation_dot": {
+      "class_id": 7,
+      "original_count": 40764,
+      "effective_count": 185679,
+      "boost_ratio": 4.555
+    },
+    "tie": {
+      "class_id": 8,
+      "original_count": 53767,
+      "effective_count": 243004,
+      "boost_ratio": 4.5196
+    },
+    "clef_treble": {
+      "class_id": 9,
+      "original_count": 21079,
+      "effective_count": 89239,
+      "boost_ratio": 4.2335
+    },
+    "clef_bass": {
+      "class_id": 10,
+      "original_count": 13167,
+      "effective_count": 60707,
+      "boost_ratio": 4.6105
+    },
+    "clef_alto": {
+      "class_id": 11,
+      "original_count": 6384,
+      "effective_count": 31920,
+      "boost_ratio": 5.0
+    },
+    "clef_tenor": {
+      "class_id": 12,
+      "original_count": 3195,
+      "effective_count": 15975,
+      "boost_ratio": 5.0
+    },
+    "accidental_sharp": {
+      "class_id": 13,
+      "original_count": 53386,
+      "effective_count": 251629,
+      "boost_ratio": 4.7134
+    },
+    "accidental_flat": {
+      "class_id": 14,
+      "original_count": 48394,
+      "effective_count": 208446,
+      "boost_ratio": 4.3073
+    },
+    "accidental_natural": {
+      "class_id": 15,
+      "original_count": 25529,
+      "effective_count": 111251,
+      "boost_ratio": 4.3578
+    },
+    "accidental_double_sharp": {
+      "class_id": 16,
+      "original_count": 2001,
+      "effective_count": 10005,
+      "boost_ratio": 5.0
+    },
+    "accidental_double_flat": {
+      "class_id": 17,
+      "original_count": 68538,
+      "effective_count": 138092,
+      "boost_ratio": 2.0148
+    },
+    "rest_whole": {
+      "class_id": 18,
+      "original_count": 17927,
+      "effective_count": 85931,
+      "boost_ratio": 4.7934
+    },
+    "rest_half": {
+      "class_id": 19,
+      "original_count": 4579,
+      "effective_count": 22895,
+      "boost_ratio": 5.0
+    },
+    "rest_quarter": {
+      "class_id": 20,
+      "original_count": 16675,
+      "effective_count": 75720,
+      "boost_ratio": 4.5409
+    },
+    "rest_8th": {
+      "class_id": 21,
+      "original_count": 30690,
+      "effective_count": 128663,
+      "boost_ratio": 4.1923
+    },
+    "rest_16th": {
+      "class_id": 22,
+      "original_count": 37228,
+      "effective_count": 146661,
+      "boost_ratio": 3.9395
+    },
+    "barline": {
+      "class_id": 23,
+      "original_count": 36440,
+      "effective_count": 119734,
+      "boost_ratio": 3.2858
+    },
+    "barline_double": {
+      "class_id": 24,
+      "original_count": 21623,
+      "effective_count": 68581,
+      "boost_ratio": 3.1717
+    },
+    "barline_final": {
+      "class_id": 25,
+      "original_count": 52839,
+      "effective_count": 228526,
+      "boost_ratio": 4.3249
+    },
+    "barline_repeat": {
+      "class_id": 26,
+      "original_count": 15976,
+      "effective_count": 70347,
+      "boost_ratio": 4.4033
+    },
+    "time_signature": {
+      "class_id": 27,
+      "original_count": 32511,
+      "effective_count": 154783,
+      "boost_ratio": 4.7609
+    },
+    "key_signature": {
+      "class_id": 28,
+      "original_count": 58271,
+      "effective_count": 271173,
+      "boost_ratio": 4.6537
+    },
+    "fermata": {
+      "class_id": 29,
+      "original_count": 30975,
+      "effective_count": 91993,
+      "boost_ratio": 2.9699
+    },
+    "dynamic_soft": {
+      "class_id": 30,
+      "original_count": 24809,
+      "effective_count": 115280,
+      "boost_ratio": 4.6467
+    },
+    "dynamic_loud": {
+      "class_id": 31,
+      "original_count": 28688,
+      "effective_count": 87270,
+      "boost_ratio": 3.042
+    },
+    "ledger_line": {
+      "class_id": 32,
+      "original_count": 218202,
+      "effective_count": 981132,
+      "boost_ratio": 4.4964
+    }
+  }
+}

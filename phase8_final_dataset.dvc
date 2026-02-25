@@ -1,0 +1,6 @@
+outs:
+- md5: 12c0318e163f52efb63074e5a1e5a3da.dir
+  size: 4277728443
+  nfiles: 72348
+  hash: md5
+  path: training/datasets/yolo_harmony_v2_phase8_final

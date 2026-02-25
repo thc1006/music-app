@@ -19,6 +19,7 @@ runs/detect/exp*/
 .pt
 training/yolo11n.pt
 training/yolo12s.pt
+training/*.pt
 
 # Training logs
 training/*.log
@@ -32,9 +33,15 @@ training/datasets/external/
 
 # Training run artifacts
 runs/
+training/harmony_omr_v2_yolo26/
+training/mlruns/
 
 # Claude settings
 .claude/settings.json
+
+# Local toolchain unpacked in-repo (do not commit binaries)
+.local/
+.dvc/local-remote/
 
 # Phase 2 full directory
 training/harmony_omr_v2_phase2/
@@ -72,3 +79,6 @@ training/LAUNCH_ULTIMATE_35CLASSES.sh
 training/RESTART_TRAINING.sh
 training/harmony_omr_v2_experiments/*
 training/harmony_omr_v2_ultimate_v5_stable/*
+
+# Large report files (>100MB, GitHub limit)
+training/reports/label_audit_geometry.csv

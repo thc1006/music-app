@@ -1,0 +1,208 @@
+{
+  "total": {
+    "false_negative": 4586,
+    "phantom_label": 99209,
+    "position_misalign": 4220,
+    "class_mismatch": 1750
+  },
+  "by_class": {
+    "accidental_double_sharp": {
+      "false_negative": 8,
+      "phantom_label": 49,
+      "position_misalign": 0,
+      "class_mismatch": 13
+    },
+    "augmentation_dot": {
+      "false_negative": 33,
+      "phantom_label": 1446,
+      "position_misalign": 1,
+      "class_mismatch": 1
+    },
+    "accidental_double_flat": {
+      "false_negative": 2,
+      "phantom_label": 0,
+      "position_misalign": 0,
+      "class_mismatch": 7
+    },
+    "beam": {
+      "false_negative": 173,
+      "phantom_label": 4419,
+      "position_misalign": 159,
+      "class_mismatch": 4
+    },
+    "accidental_flat": {
+      "false_negative": 32,
+      "phantom_label": 526,
+      "position_misalign": 7,
+      "class_mismatch": 32
+    },
+    "notehead_filled": {
+      "false_negative": 262,
+      "phantom_label": 10306,
+      "position_misalign": 577,
+      "class_mismatch": 12
+    },
+    "accidental_natural": {
+      "false_negative": 28,
+      "phantom_label": 715,
+      "position_misalign": 21,
+      "class_mismatch": 37
+    },
+    "key_signature": {
+      "false_negative": 52,
+      "phantom_label": 350,
+      "position_misalign": 0,
+      "class_mismatch": 108
+    },
+    "stem": {
+      "false_negative": 333,
+      "phantom_label": 30843,
+      "position_misalign": 40,
+      "class_mismatch": 26
+    },
+    "notehead_hollow": {
+      "false_negative": 35,
+      "phantom_label": 769,
+      "position_misalign": 80,
+      "class_mismatch": 13
+    },
+    "clef_treble": {
+      "false_negative": 25,
+      "phantom_label": 100,
+      "position_misalign": 0,
+      "class_mismatch": 2
+    },
+    "barline_final": {
+      "false_negative": 73,
+      "phantom_label": 4054,
+      "position_misalign": 24,
+      "class_mismatch": 43
+    },
+    "barline_repeat": {
+      "false_negative": 23,
+      "phantom_label": 241,
+      "position_misalign": 0,
+      "class_mismatch": 5
+    },
+    "clef_bass": {
+      "false_negative": 25,
+      "phantom_label": 58,
+      "position_misalign": 0,
+      "class_mismatch": 2
+    },
+    "ledger_line": {
+      "false_negative": 69,
+      "phantom_label": 4753,
+      "position_misalign": 0,
+      "class_mismatch": 2
+    },
+    "fermata": {
+      "false_negative": 2301,
+      "phantom_label": 5533,
+      "position_misalign": 1977,
+      "class_mismatch": 1052
+    },
+    "time_signature": {
+      "false_negative": 56,
+      "phantom_label": 100,
+      "position_misalign": 12,
+      "class_mismatch": 20
+    },
+    "clef_tenor": {
+      "false_negative": 15,
+      "phantom_label": 0,
+      "position_misalign": 0,
+      "class_mismatch": 0
+    },
+    "flag_8th": {
+      "false_negative": 32,
+      "phantom_label": 1241,
+      "position_misalign": 10,
+      "class_mismatch": 47
+    },
+    "tie": {
+      "false_negative": 60,
+      "phantom_label": 2056,
+      "position_misalign": 104,
+      "class_mismatch": 8
+    },
+    "barline_double": {
+      "false_negative": 68,
+      "phantom_label": 17397,
+      "position_misalign": 210,
+      "class_mismatch": 71
+    },
+    "accidental_sharp": {
+      "false_negative": 50,
+      "phantom_label": 1051,
+      "position_misalign": 7,
+      "class_mismatch": 35
+    },
+    "barline": {
+      "false_negative": 672,
+      "phantom_label": 11750,
+      "position_misalign": 987,
+      "class_mismatch": 96
+    },
+    "rest_8th": {
+      "false_negative": 41,
+      "phantom_label": 283,
+      "position_misalign": 2,
+      "class_mismatch": 12
+    },
+    "flag_16th": {
+      "false_negative": 5,
+      "phantom_label": 336,
+      "position_misalign": 0,
+      "class_mismatch": 29
+    },
+    "rest_16th": {
+      "false_negative": 13,
+      "phantom_label": 246,
+      "position_misalign": 1,
+      "class_mismatch": 17
+    },
+    "clef_alto": {
+      "false_negative": 24,
+      "phantom_label": 59,
+      "position_misalign": 0,
+      "class_mismatch": 1
+    },
+    "rest_whole": {
+      "false_negative": 5,
+      "phantom_label": 144,
+      "position_misalign": 0,
+      "class_mismatch": 23
+    },
+    "rest_half": {
+      "false_negative": 13,
+      "phantom_label": 187,
+      "position_misalign": 0,
+      "class_mismatch": 10
+    },
+    "rest_quarter": {
+      "false_negative": 15,
+      "phantom_label": 178,
+      "position_misalign": 1,
+      "class_mismatch": 4
+    },
+    "dynamic_soft": {
+      "false_negative": 37,
+      "phantom_label": 2,
+      "position_misalign": 0,
+      "class_mismatch": 1
+    },
+    "dynamic_loud": {
+      "false_negative": 6,
+      "phantom_label": 3,
+      "position_misalign": 0,
+      "class_mismatch": 9
+    },
+    "flag_32nd": {
+      "false_negative": 0,
+      "phantom_label": 14,
+      "position_misalign": 0,
+      "class_mismatch": 8
+    }
+  }
+}
