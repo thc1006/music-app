@@ -140,12 +140,18 @@ class SymbolAssembler {
      * 解析全域資訊（調號、拍號）
      */
     private fun parseGlobalInfo(detections: List<Detection>) {
-        // 簡化實作：假設 C major, 4/4
-        // TODO: 實際解析調號與拍號符號
+        val keySignatureSymbols = detections.filter { it.className == "key_signature" }
+        val timeSignatureSymbols = detections.filter { it.className == "time_signature" }
+
+        // 目前模型類別只輸出 key_signature / time_signature，未拆出具體值，先保守給預設值。
         detectedKeySignature = KeySignature(tonicMidi = MIDI_C4, mode = Mode.MAJOR)
         detectedTimeSignature = TimeSignature(numerator = 4, denominator = 4)
 
-        Log.d(TAG, "解析全域資訊: Key=C major, Time=4/4")
+        Log.d(
+            TAG,
+            "解析全域資訊: Key=C major, Time=4/4 " +
+                "(key_signature=${keySignatureSymbols.size}, time_signature=${timeSignatureSymbols.size})"
+        )
     }
 
     /**
@@ -175,65 +181,77 @@ class SymbolAssembler {
         accidentals: List<Detection>
     ): List<ChordSnapshot> {
         val chords = mutableListOf<ChordSnapshot>()
-
-        // 簡化實作：將所有音符放入單一 chord
-        // TODO: 根據時間位置（X 座標）分組
-
         val allNotes = notesByStaff.values.flatten().sortedBy { it.bbox.centerX() }
-
         if (allNotes.isEmpty()) {
             return emptyList()
         }
-
-        // 建立測試用 ChordSnapshot
-        val noteEvents = allNotes.take(4).mapIndexed { index, detection ->
-            val voice = when (index) {
-                0 -> Voice.SOPRANO
-                1 -> Voice.ALTO
-                2 -> Voice.TENOR
-                else -> Voice.BASS
-            }
-
-            // 簡化音高計算：基於 Y 座標
-            val midi = calculateMidiPitch(detection.bbox.centerY())
-
-            NoteEvent(
-                voice = voice,
-                midi = midi,
-                measure = 1,
-                beat = 1.0
-            )
+        if (accidentals.isNotEmpty()) {
+            Log.d(TAG, "偵測到 ${accidentals.size} 個升降記號，暫未套用到音高推斷")
         }
 
-        if (noteEvents.size == 4) {
-            val notes = mapOf(
-                Voice.SOPRANO to noteEvents[0],
-                Voice.ALTO to noteEvents[1],
-                Voice.TENOR to noteEvents[2],
-                Voice.BASS to noteEvents[3]
-            )
+        val barlineXs = barlines.map { it.bbox.centerX() }.sorted()
+        val groupedNotes = allNotes.groupBy { detection ->
+            val x = detection.bbox.centerX()
+            val measure = barlineXs.count { it < x } + 1
+            val beat = estimateBeat(x, measure, barlineXs)
+            measure to beat
+        }
 
-            chords.add(
-                ChordSnapshot(
-                    index = 0,
-                    measure = 1,
-                    beat = 1.0,
-                    notes = notes
+        var chordIndex = 0
+        groupedNotes
+            .toList()
+            .sortedWith(compareBy({ it.first.first }, { it.first.second }))
+            .forEach { (position, detections) ->
+                if (detections.size < 4) {
+                    return@forEach
+                }
+                val (measure, beat) = position
+                val sortedByY = detections.sortedBy { it.bbox.centerY() }.take(4)
+                val voiceOrder = listOf(Voice.SOPRANO, Voice.ALTO, Voice.TENOR, Voice.BASS)
+                val notes = voiceOrder.mapIndexed { index, voice ->
+                    val detection = sortedByY[index]
+                    voice to NoteEvent(
+                        voice = voice,
+                        midi = calculateMidiPitch(detection.bbox.centerY()),
+                        measure = measure,
+                        beat = beat
+                    )
+                }.toMap()
+
+                chords.add(
+                    ChordSnapshot(
+                        index = chordIndex++,
+                        measure = measure,
+                        beat = beat,
+                        notes = notes
+                    )
                 )
             )
+        return chords
+    }
+
+    private fun estimateBeat(
+        x: Float,
+        measure: Int,
+        barlineXs: List<Float>
+    ): Double {
+        if (barlineXs.isEmpty()) {
+            return (1 + (x / 200f).toInt().coerceIn(0, 3)).toDouble()
         }
 
-        return chords
+        val left = if (measure <= 1) 0f else barlineXs.getOrElse(measure - 2) { 0f }
+        val right = barlineXs.getOrElse(measure - 1) { left + 800f }
+        val width = (right - left).takeIf { it > 1f } ?: 800f
+        val relative = ((x - left) / width).coerceIn(0f, 0.999f)
+        return (1 + (relative * 4).toInt()).toDouble()
     }
 
     /**
      * 計算 MIDI 音高（基於 Y 座標）
      */
     private fun calculateMidiPitch(y: Float): Int {
-        // 簡化實作：線性映射
-        // TODO: 實際根據五線譜位置計算
-        val normalized = (y / 1000f).coerceIn(0f, 1f)
-        return MIDI_C4 + ((1 - normalized) * 24).toInt()  // C4 上下兩個八度
+        val semitoneStep = ((500f - y) / (STAFF_LINE_SPACING / 2f)).toInt()
+        return (MIDI_C4 + semitoneStep).coerceIn(36, 84)
     }
 }
 

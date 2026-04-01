@@ -1,6 +1,14 @@
 package com.example.harmonychecker.core.omr
 
 import com.example.harmonychecker.core.harmony.ChordSnapshot
+import com.example.harmonychecker.core.harmony.NoteEvent
+import com.example.harmonychecker.core.harmony.Voice
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.util.Base64
 
 /**
  * OMR / 多模態 LLM 代理 API 介面與 HTTP client 骨架。
@@ -33,25 +41,129 @@ interface OmrClient {
 class HttpOmrClient(
     private val baseUrl: String,
     // 這裡不直接綁定特定 HTTP library，交由實作端決定。
-    private val httpPost: suspend (url: String, body: ByteArray, contentType: String) -> String
+    private val httpPost: suspend (url: String, body: ByteArray, contentType: String) -> String,
+    private val json: Json = Json { ignoreUnknownKeys = true }
 ) : OmrClient {
 
     override suspend fun recognizeScore(imageBytes: ByteArray): OmrResult {
-        // TODO: 序列化成符合 docs/omr_proxy_api.md 要求的 JSON，
-        // 例如：{"image_base64": "...", "options": {...}}
         val url = "$baseUrl/api/omr/score"
+        val requestBody = json.encodeToString(
+            OmrRequest(
+                imageBase64 = Base64.getEncoder().encodeToString(imageBytes),
+                options = OmrOptions(languageHint = "zh-TW")
+            )
+        ).toByteArray(Charsets.UTF_8)
 
-        // 這裡僅示範呼叫，實際上應該使用 JSON 字串作為 body。
-        val requestBody = imageBytes // placeholder
+        val responseText = httpPost(url, requestBody, "application/json; charset=utf-8")
+        val response = json.decodeFromString<OmrResponse>(responseText)
+        val warnings = response.warnings + if (response.measures.isEmpty()) {
+            listOf("OMR 回應未包含任何 measures")
+        } else {
+            emptyList()
+        }
 
-        val responseText = httpPost(url, requestBody, "application/json")
-
-        // TODO: 將 responseText parse 成 OmrResult
-        // 目前先回傳空結構。
         return OmrResult(
-            chords = emptyList(),
+            chords = response.toChordSnapshots(),
             rawJson = responseText,
-            warnings = listOf("HttpOmrClient.recognizeScore 尚未實作 JSON 解析")
+            warnings = warnings
         )
     }
+}
+
+@Serializable
+private data class OmrRequest(
+    @SerialName("image_base64")
+    val imageBase64: String,
+    val filename: String? = null,
+    val options: OmrOptions? = null
+)
+
+@Serializable
+private data class OmrOptions(
+    @SerialName("staff_layout")
+    val staffLayout: String = "SATB_GRAND_STAFF",
+    @SerialName("expected_voices")
+    val expectedVoices: List<String> = listOf("S", "A", "T", "B"),
+    @SerialName("language_hint")
+    val languageHint: String = "zh-TW"
+)
+
+@Serializable
+private data class OmrResponse(
+    val measures: List<MeasureDto> = emptyList(),
+    @SerialName("raw_model_output")
+    val rawModelOutput: String? = null,
+    val warnings: List<String> = emptyList()
+)
+
+@Serializable
+private data class MeasureDto(
+    val index: Int,
+    val chords: List<ChordDto> = emptyList()
+)
+
+@Serializable
+private data class ChordDto(
+    val beat: Double,
+    val notes: List<NoteDto> = emptyList()
+)
+
+@Serializable
+private data class NoteDto(
+    val voice: String,
+    val pitch: String,
+    val duration: Double
+)
+
+private fun OmrResponse.toChordSnapshots(): List<ChordSnapshot> {
+    var chordIndex = 0
+    return measures
+        .sortedBy { it.index }
+        .flatMap { measure ->
+            measure.chords.map { chord ->
+                val notes = chord.notes.associate { note ->
+                    val voice = Voice.fromString(note.voice)
+                    voice to NoteEvent(
+                        voice = voice,
+                        midi = pitchToMidi(note.pitch),
+                        measure = measure.index,
+                        beat = chord.beat,
+                        duration = note.duration
+                    )
+                }
+                ChordSnapshot(
+                    index = chordIndex++,
+                    measure = measure.index,
+                    beat = chord.beat,
+                    notes = notes
+                )
+            }
+        }
+}
+
+private val PITCH_REGEX = Regex("^([A-Ga-g])([#b]?)(-?\\d+)$")
+
+private fun pitchToMidi(pitch: String): Int {
+    val match = PITCH_REGEX.matchEntire(pitch)
+        ?: throw IllegalArgumentException("無法解析音高格式: $pitch")
+    val note = match.groupValues[1].uppercase()
+    val accidental = match.groupValues[2]
+    val octave = match.groupValues[3].toInt()
+
+    val basePc = when (note) {
+        "C" -> 0
+        "D" -> 2
+        "E" -> 4
+        "F" -> 5
+        "G" -> 7
+        "A" -> 9
+        "B" -> 11
+        else -> throw IllegalArgumentException("不支援的音名: $note")
+    }
+    val adjustedPc = when (accidental) {
+        "#" -> basePc + 1
+        "b" -> basePc - 1
+        else -> basePc
+    }
+    return (octave + 1) * 12 + adjustedPc
 }

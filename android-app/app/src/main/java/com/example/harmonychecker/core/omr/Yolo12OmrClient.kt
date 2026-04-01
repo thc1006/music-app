@@ -2,15 +2,14 @@ package com.example.harmonychecker.core.omr
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.RectF
 import android.util.Log
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.gpu.GpuDelegate
 import org.tensorflow.lite.support.common.FileUtil
-import com.example.harmonychecker.core.harmony.ChordSnapshot
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import kotlin.math.exp
 
 /**
  * YOLO12 TFLite 端側 OMR 客戶端
@@ -99,15 +98,9 @@ class Yolo12OmrClient(
      * 實際使用時需要轉換
      */
     override suspend fun recognizeScore(imageBytes: ByteArray): OmrResult {
-        // TODO: 將 ByteArray 轉換為 Bitmap
-        // 這裡暫時回傳空結果
-        Log.w(TAG, "recognizeScore(ByteArray) 尚未完整實作")
-
-        return OmrResult(
-            chords = emptyList(),
-            rawJson = null,
-            warnings = listOf("Yolo12OmrClient 需要 Bitmap 輸入")
-        )
+        val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+            ?: throw IllegalArgumentException("無法將 imageBytes 解碼為 Bitmap")
+        return recognizeScore(bitmap)
     }
 
     /**
@@ -119,18 +112,24 @@ class Yolo12OmrClient(
         }
 
         val detections = detect(bitmap)
-
-        // TODO: 使用 SymbolAssembler 組裝成 ChordSnapshot
-        // 目前先回傳空的 chords
+        val assembler = SymbolAssembler()
+        val chords = assembler.assemble(
+            detections = detections,
+            imageWidth = bitmap.width,
+            imageHeight = bitmap.height
+        )
+        val warnings = mutableListOf<String>()
+        if (detections.isEmpty()) {
+            warnings += "未檢測到任何符號"
+        }
+        if (chords.isEmpty() && detections.isNotEmpty()) {
+            warnings += "有檢測結果，但尚未組裝出有效 SATB chord"
+        }
 
         return OmrResult(
-            chords = emptyList(),
-            rawJson = "Detected ${detections.size} symbols",
-            warnings = if (detections.isEmpty()) {
-                listOf("未檢測到任何符號")
-            } else {
-                emptyList()
-            }
+            chords = chords,
+            rawJson = "detections=${detections.size}, chords=${chords.size}",
+            warnings = warnings
         )
     }
 

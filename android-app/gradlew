@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+set -e
+
+APP_HOME=$(cd "$(dirname "$0")"; pwd -P)
+CLASSPATH="$APP_HOME/gradle/wrapper/gradle-wrapper.jar:$APP_HOME/gradle/wrapper/gradle-cli.jar"
+LOCAL_JAVA_HOME="$APP_HOME/../.local/jdk17_pkg/usr/lib/jvm/java-17-openjdk-amd64"
+
+if [ -z "$JAVA_HOME" ] && [ -x "$LOCAL_JAVA_HOME/bin/java" ]; then
+  JAVA_HOME="$LOCAL_JAVA_HOME"
+  export JAVA_HOME
+fi
+
+if [ -n "$JAVA_HOME" ]; then
+  JAVACMD="$JAVA_HOME/bin/java"
+else
+  JAVACMD="java"
+fi
+
+exec "$JAVACMD" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
