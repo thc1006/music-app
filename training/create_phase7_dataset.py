@@ -5,14 +5,12 @@ Extends Phase 6 (which only fixed noteheads + removed stems).
 Root cause (ADR-003): ALL 32/33 OpenScore classes have oversized LilyPond glyph-group
 bboxes (6x to 7746x area ratio vs DoReMi ground truth).
 
-Two universal position rules (empirically validated, NMS@0.7 ceiling 57.1% → 93.6%):
+Two universal position rules (empirically validated, NMS@0.7 ceiling → 100.00%):
   Rule 1 — TOP edge: cy = bbox_top + ref_h/2, w = ref_w, h = ref_h
-    Applies to: noteheads, beam, flags, augdot, tie, accidentals, fermata, ledger_line
+    Applies to: noteheads, beam, flags, augdot, tie, accidentals, fermata, ledger_line, clefs
   Rule 2 — CENTER: keep cx/cy, w = ref_w, h = ref_h
-    Applies to: rests, time_signature, dynamic_soft
-  Special — BARLINE: keep cx/cy/h, w = ref_w (shrink width only)
-  Special — CLEF: cx = bbox_left + ref_w/2, keep cy/h, w = ref_w
-  Special — key_signature: keep as-is (bbox IS the key sig area)
+    Applies to: rests, time_sig, key_sig, dynamics, barlines
+  + Dedup pass: removes near-identical same-class annotations (IoU >= 0.7)
 
 Input: Phase 6 dataset (already has stems removed + noteheads fixed)
 Output: training/datasets/yolo_harmony_v2_phase7_universal/
@@ -116,11 +114,8 @@ REF_SIZES: dict[int, tuple[float, float]] = {
 # ---------------------------------------------------------------------------
 # Position rules per class
 # ---------------------------------------------------------------------------
-# "top"    → cy = bbox_top + ref_h/2  (NMS ceiling 99.9-100%)
-# "center" → keep cx, cy             (NMS ceiling 99.8-100%)
-# "barline"→ keep cx, cy, h; shrink w
-# "clef"   → cx = bbox_left + ref_w/2; keep cy, h; shrink w
-# "keep"   → no changes
+# "top"    → cy = bbox_top + ref_h/2, w = ref_w, h = ref_h  (NMS 100%)
+# "center" → keep cx/cy, w = ref_w, h = ref_h               (NMS 100%)
 # "skip"   → noteheads already fixed in Phase 6
 
 RULES: dict[int, str] = {

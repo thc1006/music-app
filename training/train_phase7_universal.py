@@ -243,60 +243,17 @@ def surgical_reset_cv2(model, log: logging.Logger) -> int:
 # Monkey-Patches
 # ---------------------------------------------------------------------------
 
-def _apply_bf16_amp_patch(log: logging.Logger) -> None:
-    """Patch PyTorch AMP to use bf16 instead of fp16 globally.
-
-    RTX 5090 (Blackwell, compute 12.0) supports bf16 natively.
-    fp16 causes inf loss on this model (verified: mAP50 drops to 0.25).
-    bf16 has the same 8-bit exponent range as fp32 → overflow impossible.
-
-    Ultralytics uses torch.amp.autocast (new API, accessed at call time via
-    torch.amp module attribute). We patch at the torch.amp level to catch
-    ALL autocast calls regardless of import path.
-
-    GradScaler is unnecessary for bf16 (no loss scaling needed) — patched to
-    always be disabled.
-    """
-    import torch.amp
-    import torch.amp.autocast_mode
-    import torch.amp.grad_scaler
-
-    # --- Patch 1: Force bf16 on all CUDA autocast ---
-    _OrigAutocast = torch.amp.autocast_mode.autocast
-
-    class _BF16Autocast(_OrigAutocast):
-        def __init__(self, device_type, dtype=None, enabled=True, cache_enabled=None):
-            if device_type == 'cuda' and enabled and (dtype is None or dtype == torch.float16):
-                dtype = torch.bfloat16
-            super().__init__(device_type, dtype=dtype, enabled=enabled, cache_enabled=cache_enabled)
-
-    # Patch all access paths (Ultralytics uses torch.amp.autocast at call time)
-    torch.amp.autocast_mode.autocast = _BF16Autocast
-    torch.amp.autocast = _BF16Autocast
-    torch.cuda.amp.autocast = _BF16Autocast
-
-    # --- Patch 2: Disable GradScaler (bf16 doesn't need loss scaling) ---
-    _OrigGradScaler = torch.amp.grad_scaler.GradScaler
-
-    class _NoOpGradScaler(_OrigGradScaler):
-        def __init__(self, *args, **kwargs):
-            kwargs['enabled'] = False
-            super().__init__(*args, **kwargs)
-
-    torch.amp.grad_scaler.GradScaler = _NoOpGradScaler
-    torch.amp.GradScaler = _NoOpGradScaler
-    torch.cuda.amp.GradScaler = _NoOpGradScaler
-
-    log.info("bf16 AMP patch applied:")
-    log.info("  autocast: fp16→bf16 (torch.amp + torch.cuda.amp)")
-    log.info("  GradScaler: disabled (bf16 doesn't need loss scaling)")
-
-
 def _apply_box_capping_patch(max_boxes: int, log: logging.Logger) -> None:
     from ultralytics.utils.loss import v8DetectionLoss
     from ultralytics.utils.ops import xywh2xyxy
 
+    # Idempotency guard: don't double-wrap
+    if getattr(v8DetectionLoss, '_box_capping_patched', False):
+        log.warning("Box capping patch already applied, skipping.")
+        return
+
     _original_preprocess = v8DetectionLoss.preprocess
+    _logged_cap = [False]  # mutable container for closure
 
     def _capped_preprocess(self, targets, batch_size, scale_tensor):
         nl, ne = targets.shape
@@ -311,6 +268,11 @@ def _apply_box_capping_patch(max_boxes: int, log: logging.Logger) -> None:
         if actual_max <= max_boxes:
             return _original_preprocess(self, targets, batch_size, scale_tensor)
 
+        if not _logged_cap[0]:
+            log.warning("Box capping triggered: %d GT boxes in one image, capping to %d",
+                        actual_max, max_boxes)
+            _logged_cap[0] = True
+
         capped_targets = []
         for j in range(batch_size):
             matches = i == j
@@ -323,23 +285,24 @@ def _apply_box_capping_patch(max_boxes: int, log: logging.Logger) -> None:
                 img_targets = img_targets[perm]
             capped_targets.append(img_targets)
 
-        if capped_targets:
-            targets = torch.cat(capped_targets, dim=0)
-        else:
+        if not capped_targets:
             return torch.zeros(batch_size, 0, ne - 1, device=self.device)
 
+        targets = torch.cat(capped_targets, dim=0)
         i = targets[:, 0]
-        _, counts = i.unique(return_counts=True)
-        counts = counts.to(dtype=torch.int32)
-        out = torch.zeros(batch_size, counts.max(), ne - 1, device=self.device)
+
+        # Allocate output with max_boxes columns (known upper bound, avoids extra unique())
+        out = torch.zeros(batch_size, max_boxes, ne - 1, device=self.device)
         for j in range(batch_size):
             matches = i == j
-            if n := matches.sum():
+            n = int(matches.sum().item())
+            if n > 0:
                 out[j, :n] = targets[matches, 1:]
         out[..., 1:5] = xywh2xyxy(out[..., 1:5].mul_(scale_tensor))
         return out
 
     v8DetectionLoss.preprocess = _capped_preprocess
+    v8DetectionLoss._box_capping_patched = True
     log.info("TAL box capping applied: max_boxes=%d", max_boxes)
 
 
@@ -423,16 +386,28 @@ def extract_results_csv(results_csv: Path, stage: int, ml: MetricsLogger) -> Non
     with open(results_csv, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            epoch = int(list(row.values())[0].strip())
+            # Ultralytics results.csv has padded headers; find epoch robustly
+            epoch = None
             metrics = {}
             for k, v in row.items():
-                k = k.strip()
-                if k == "epoch":
+                k_clean = k.strip()
+                v_clean = v.strip() if v else ""
+                if k_clean == "epoch":
+                    try:
+                        epoch = int(v_clean)
+                    except (ValueError, TypeError):
+                        pass
                     continue
                 try:
-                    metrics[k] = float(v)
+                    metrics[k_clean] = float(v_clean)
                 except (ValueError, TypeError):
                     pass
+            if epoch is None:
+                # Fallback: first column is epoch (legacy format)
+                try:
+                    epoch = int(list(row.values())[0].strip())
+                except (ValueError, TypeError, IndexError):
+                    continue
             ml.log_epoch(stage, epoch, metrics)
 
 
@@ -479,11 +454,11 @@ def main() -> int:
     log.info("Base model: %s", BASE_MODEL)
     log.info("Dataset:    %s", DATA)
 
-    # CUDA memory optimization
-    if torch.cuda.is_available():
-        # Better memory fragmentation handling (reduces OOM from fragmentation)
-        import os
-        os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+    # NOTE: PYTORCH_CUDA_ALLOC_CONF must be set BEFORE torch import to take effect.
+    # Since torch is already imported at module level, we set it here for child processes
+    # (e.g., DataLoader workers). For the main process, CUDA allocator is already initialized.
+    import os
+    os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
     # Apply patches BEFORE importing YOLO
     # NOTE: bf16 patch NOT applied — both fp16 and bf16 cause mAP→0.25 on this model.
