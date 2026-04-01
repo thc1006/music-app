@@ -1,0 +1,323 @@
+{
+  "metadata": {
+    "model": "/home/thc1006/dev/music-app/training/harmony_omr_v2_ultimate_v5_stable/stable_1280_resumed/weights/best.pt",
+    "data": "/home/thc1006/dev/music-app/training/datasets/yolo_harmony_v2_phase8_cleaned_v2/harmony_phase8_cleaned_v2.yaml",
+    "imgsz": 1280,
+    "device": "0",
+    "precision_constraint": 0.85,
+    "timestamp": "2026-02-23T12:45:33.084756+08:00",
+    "elapsed_seconds": 445.4
+  },
+  "stage1_conf_sweep": {
+    "fixed_iou": 0.55,
+    "results": [
+      {
+        "conf": 0.05,
+        "iou": 0.55,
+        "mAP50": 0.76909,
+        "mAP50_95": 0.71433,
+        "precision": 0.90798,
+        "recall": 0.59499
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.55,
+        "mAP50": 0.7724,
+        "mAP50_95": 0.719,
+        "precision": 0.90798,
+        "recall": 0.59499
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.55,
+        "mAP50": 0.773,
+        "mAP50_95": 0.72077,
+        "precision": 0.90696,
+        "recall": 0.59564
+      },
+      {
+        "conf": 0.2,
+        "iou": 0.55,
+        "mAP50": 0.77284,
+        "mAP50_95": 0.72207,
+        "precision": 0.92365,
+        "recall": 0.58731
+      },
+      {
+        "conf": 0.25,
+        "iou": 0.55,
+        "mAP50": 0.77204,
+        "mAP50_95": 0.7231,
+        "precision": 0.93929,
+        "recall": 0.57779
+      },
+      {
+        "conf": 0.3,
+        "iou": 0.55,
+        "mAP50": 0.77083,
+        "mAP50_95": 0.72314,
+        "precision": 0.95156,
+        "recall": 0.56958
+      }
+    ]
+  },
+  "stage2_combined_sweep": {
+    "top_confs_selected": [
+      0.15,
+      0.2,
+      0.1
+    ],
+    "iou_values": [
+      0.45,
+      0.5,
+      0.55,
+      0.6
+    ],
+    "results": [
+      {
+        "conf": 0.15,
+        "iou": 0.45,
+        "mAP50": 0.76223,
+        "mAP50_95": 0.70524,
+        "precision": 0.8981,
+        "recall": 0.57988
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.5,
+        "mAP50": 0.76825,
+        "mAP50_95": 0.71312,
+        "precision": 0.90333,
+        "recall": 0.58845
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.55,
+        "mAP50": 0.773,
+        "mAP50_95": 0.72077,
+        "precision": 0.90696,
+        "recall": 0.59564
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.6,
+        "mAP50": 0.77434,
+        "mAP50_95": 0.72599,
+        "precision": 0.91417,
+        "recall": 0.5946
+      },
+      {
+        "conf": 0.2,
+        "iou": 0.45,
+        "mAP50": 0.76245,
+        "mAP50_95": 0.70734,
+        "precision": 0.91703,
+        "recall": 0.57101
+      },
+      {
+        "conf": 0.2,
+        "iou": 0.5,
+        "mAP50": 0.76837,
+        "mAP50_95": 0.71487,
+        "precision": 0.92159,
+        "recall": 0.57977
+      },
+      {
+        "conf": 0.2,
+        "iou": 0.55,
+        "mAP50": 0.77284,
+        "mAP50_95": 0.72207,
+        "precision": 0.92365,
+        "recall": 0.58731
+      },
+      {
+        "conf": 0.2,
+        "iou": 0.6,
+        "mAP50": 0.77411,
+        "mAP50_95": 0.72687,
+        "precision": 0.9282,
+        "recall": 0.58735
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.45,
+        "mAP50": 0.76137,
+        "mAP50_95": 0.70233,
+        "precision": 0.90028,
+        "recall": 0.57899
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.5,
+        "mAP50": 0.76755,
+        "mAP50_95": 0.7105,
+        "precision": 0.90513,
+        "recall": 0.58768
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.55,
+        "mAP50": 0.7724,
+        "mAP50_95": 0.719,
+        "precision": 0.90798,
+        "recall": 0.59499
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.6,
+        "mAP50": 0.77355,
+        "mAP50_95": 0.72437,
+        "precision": 0.91483,
+        "recall": 0.59413
+      }
+    ]
+  },
+  "all_results_sorted_by_map50": [
+    {
+      "conf": 0.15,
+      "iou": 0.6,
+      "mAP50": 0.77434,
+      "mAP50_95": 0.72599,
+      "precision": 0.91417,
+      "recall": 0.5946
+    },
+    {
+      "conf": 0.2,
+      "iou": 0.6,
+      "mAP50": 0.77411,
+      "mAP50_95": 0.72687,
+      "precision": 0.9282,
+      "recall": 0.58735
+    },
+    {
+      "conf": 0.1,
+      "iou": 0.6,
+      "mAP50": 0.77355,
+      "mAP50_95": 0.72437,
+      "precision": 0.91483,
+      "recall": 0.59413
+    },
+    {
+      "conf": 0.15,
+      "iou": 0.55,
+      "mAP50": 0.773,
+      "mAP50_95": 0.72077,
+      "precision": 0.90696,
+      "recall": 0.59564
+    },
+    {
+      "conf": 0.2,
+      "iou": 0.55,
+      "mAP50": 0.77284,
+      "mAP50_95": 0.72207,
+      "precision": 0.92365,
+      "recall": 0.58731
+    },
+    {
+      "conf": 0.1,
+      "iou": 0.55,
+      "mAP50": 0.7724,
+      "mAP50_95": 0.719,
+      "precision": 0.90798,
+      "recall": 0.59499
+    },
+    {
+      "conf": 0.25,
+      "iou": 0.55,
+      "mAP50": 0.77204,
+      "mAP50_95": 0.7231,
+      "precision": 0.93929,
+      "recall": 0.57779
+    },
+    {
+      "conf": 0.3,
+      "iou": 0.55,
+      "mAP50": 0.77083,
+      "mAP50_95": 0.72314,
+      "precision": 0.95156,
+      "recall": 0.56958
+    },
+    {
+      "conf": 0.05,
+      "iou": 0.55,
+      "mAP50": 0.76909,
+      "mAP50_95": 0.71433,
+      "precision": 0.90798,
+      "recall": 0.59499
+    },
+    {
+      "conf": 0.2,
+      "iou": 0.5,
+      "mAP50": 0.76837,
+      "mAP50_95": 0.71487,
+      "precision": 0.92159,
+      "recall": 0.57977
+    },
+    {
+      "conf": 0.15,
+      "iou": 0.5,
+      "mAP50": 0.76825,
+      "mAP50_95": 0.71312,
+      "precision": 0.90333,
+      "recall": 0.58845
+    },
+    {
+      "conf": 0.1,
+      "iou": 0.5,
+      "mAP50": 0.76755,
+      "mAP50_95": 0.7105,
+      "precision": 0.90513,
+      "recall": 0.58768
+    },
+    {
+      "conf": 0.2,
+      "iou": 0.45,
+      "mAP50": 0.76245,
+      "mAP50_95": 0.70734,
+      "precision": 0.91703,
+      "recall": 0.57101
+    },
+    {
+      "conf": 0.15,
+      "iou": 0.45,
+      "mAP50": 0.76223,
+      "mAP50_95": 0.70524,
+      "precision": 0.8981,
+      "recall": 0.57988
+    },
+    {
+      "conf": 0.1,
+      "iou": 0.45,
+      "mAP50": 0.76137,
+      "mAP50_95": 0.70233,
+      "precision": 0.90028,
+      "recall": 0.57899
+    }
+  ],
+  "best": {
+    "best_mAP50": {
+      "conf": 0.15,
+      "iou": 0.6,
+      "mAP50": 0.77434,
+      "mAP50_95": 0.72599,
+      "precision": 0.91417,
+      "recall": 0.5946
+    },
+    "best_recall": {
+      "conf": 0.15,
+      "iou": 0.55,
+      "mAP50": 0.773,
+      "mAP50_95": 0.72077,
+      "precision": 0.90696,
+      "recall": 0.59564
+    },
+    "best_mAP50_95": {
+      "conf": 0.2,
+      "iou": 0.6,
+      "mAP50": 0.77411,
+      "mAP50_95": 0.72687,
+      "precision": 0.9282,
+      "recall": 0.58735
+    }
+  }
+}

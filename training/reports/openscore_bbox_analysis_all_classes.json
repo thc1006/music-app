@@ -1,0 +1,999 @@
+{
+  "ratio_table": [
+    {
+      "cid": 0,
+      "name": "notehead_filled",
+      "os_count": 63313,
+      "dr_count": 13457,
+      "os_med_w": 0.297449,
+      "os_med_h": 0.264659,
+      "dr_med_w": 0.011313,
+      "dr_med_h": 0.006849,
+      "ratio_w": 26.292672147087423,
+      "ratio_h": 38.64199153161045,
+      "oversized": true
+    },
+    {
+      "cid": 1,
+      "name": "notehead_hollow",
+      "os_count": 7281,
+      "dr_count": 159,
+      "os_med_w": 0.28956,
+      "os_med_h": 0.270563,
+      "dr_med_w": 0.011313,
+      "dr_med_h": 0.006849,
+      "ratio_w": 25.595332802970034,
+      "ratio_h": 39.504015184698495,
+      "oversized": true
+    },
+    {
+      "cid": 2,
+      "name": "stem",
+      "os_count": 58294,
+      "dr_count": 11538,
+      "os_med_w": 0.291837,
+      "os_med_h": 0.270563,
+      "dr_med_w": 0.001212,
+      "dr_med_h": 0.019692,
+      "ratio_w": 240.78960396039605,
+      "ratio_h": 13.739742027219174,
+      "oversized": true
+    },
+    {
+      "cid": 3,
+      "name": "beam",
+      "os_count": 18789,
+      "dr_count": 2848,
+      "os_med_w": 0.318878,
+      "os_med_h": 0.264257,
+      "dr_med_w": 0.043232,
+      "dr_med_h": 0.00742,
+      "ratio_w": 7.375971502590674,
+      "ratio_h": 35.614150943396226,
+      "oversized": true
+    },
+    {
+      "cid": 4,
+      "name": "flag_8th",
+      "os_count": 3496,
+      "dr_count": 236,
+      "os_med_w": 0.305612,
+      "os_med_h": 0.2578935,
+      "dr_med_w": 0.008889,
+      "dr_med_h": 0.019692,
+      "ratio_w": 34.38092023849702,
+      "ratio_h": 13.09635892748324,
+      "oversized": true
+    },
+    {
+      "cid": 5,
+      "name": "flag_16th",
+      "os_count": 211,
+      "dr_count": 1674,
+      "os_med_w": 0.295918,
+      "os_med_h": 0.264069,
+      "dr_med_w": 0.009697,
+      "dr_med_h": 0.019406,
+      "ratio_w": 30.516448386098794,
+      "ratio_h": 13.607595588993096,
+      "oversized": true
+    },
+    {
+      "cid": 6,
+      "name": "flag_32nd",
+      "os_count": 152,
+      "dr_count": 610,
+      "os_med_w": 0.29132650000000004,
+      "os_med_h": 0.255051,
+      "dr_med_w": 0.008889,
+      "dr_med_h": 0.023116,
+      "ratio_w": 32.773821577230294,
+      "ratio_h": 11.033526561688873,
+      "oversized": true
+    },
+    {
+      "cid": 7,
+      "name": "augmentation_dot",
+      "os_count": 4722,
+      "dr_count": 253,
+      "os_med_w": 0.287245,
+      "os_med_h": 0.251804,
+      "dr_med_w": 0.003636,
+      "dr_med_h": 0.002568,
+      "ratio_w": 79.00027502750274,
+      "ratio_h": 98.05451713395638,
+      "oversized": true
+    },
+    {
+      "cid": 8,
+      "name": "tie",
+      "os_count": 5527,
+      "dr_count": 323,
+      "os_med_w": 0.309761,
+      "os_med_h": 0.25,
+      "dr_med_w": 0.040808,
+      "dr_med_h": 0.004281,
+      "ratio_w": 7.590693001372281,
+      "ratio_h": 58.3975706610605,
+      "oversized": true
+    },
+    {
+      "cid": 9,
+      "name": "clef_treble",
+      "os_count": 1908,
+      "dr_count": 577,
+      "os_med_w": 0.07551,
+      "os_med_h": 0.281468,
+      "dr_med_w": 0.022626,
+      "dr_med_h": 0.041952,
+      "ratio_w": 3.337311058074781,
+      "ratio_h": 6.709286803966437,
+      "oversized": true
+    },
+    {
+      "cid": 10,
+      "name": "clef_bass",
+      "os_count": 1387,
+      "dr_count": 97,
+      "os_med_w": 0.07602,
+      "os_med_h": 0.284993,
+      "dr_med_w": 0.023434,
+      "dr_med_h": 0.021404,
+      "ratio_w": 3.2440044379960744,
+      "ratio_h": 13.314941132498598,
+      "oversized": true
+    },
+    {
+      "cid": 11,
+      "name": "clef_alto",
+      "os_count": 563,
+      "dr_count": 17,
+      "os_med_w": 0.077041,
+      "os_med_h": 0.246321,
+      "dr_med_w": 0.023838,
+      "dr_med_h": 0.024258,
+      "ratio_w": 3.2318566993875324,
+      "ratio_h": 10.154217165471186,
+      "oversized": true
+    },
+    {
+      "cid": 12,
+      "name": "clef_tenor",
+      "os_count": 286,
+      "dr_count": 0,
+      "os_med_w": 0.078571,
+      "os_med_h": 0.255598,
+      "dr_med_w": null,
+      "dr_med_h": null,
+      "ratio_w": null,
+      "ratio_h": null,
+      "oversized": false
+    },
+    {
+      "cid": 13,
+      "name": "accidental_sharp",
+      "os_count": 4773,
+      "dr_count": 698,
+      "os_med_w": 0.112245,
+      "os_med_h": 0.257518,
+      "dr_med_w": 0.008485,
+      "dr_med_h": 0.016838,
+      "ratio_w": 13.228638774307603,
+      "ratio_h": 15.293859128162492,
+      "oversized": true
+    },
+    {
+      "cid": 14,
+      "name": "accidental_flat",
+      "os_count": 5436,
+      "dr_count": 599,
+      "os_med_w": 0.104082,
+      "os_med_h": 0.27891750000000004,
+      "dr_med_w": 0.007677,
+      "dr_med_h": 0.01484,
+      "ratio_w": 13.557639703008988,
+      "ratio_h": 18.79497978436658,
+      "oversized": true
+    },
+    {
+      "cid": 15,
+      "name": "accidental_natural",
+      "os_count": 2672,
+      "dr_count": 481,
+      "os_med_w": 0.275,
+      "os_med_h": 0.294306,
+      "dr_med_w": 0.005657,
+      "dr_med_h": 0.016267,
+      "ratio_w": 48.612338695421606,
+      "ratio_h": 18.092211225179813,
+      "oversized": true
+    },
+    {
+      "cid": 16,
+      "name": "accidental_double_sharp",
+      "os_count": 114,
+      "dr_count": 49,
+      "os_med_w": 0.35102,
+      "os_med_h": 0.254329,
+      "dr_med_w": 0.008485,
+      "dr_med_h": 0.005993,
+      "ratio_w": 41.36947554507955,
+      "ratio_h": 42.43767729017187,
+      "oversized": true
+    },
+    {
+      "cid": 17,
+      "name": "accidental_double_flat",
+      "os_count": 50,
+      "dr_count": 61,
+      "os_med_w": 0.20051,
+      "os_med_h": 0.184343,
+      "dr_med_w": 0.014141,
+      "dr_med_h": 0.014555,
+      "ratio_w": 14.179336680574215,
+      "ratio_h": 12.665269666781175,
+      "oversized": true
+    },
+    {
+      "cid": 18,
+      "name": "rest_whole",
+      "os_count": 2695,
+      "dr_count": 40,
+      "os_med_w": 0.303571,
+      "os_med_h": 0.289507,
+      "dr_med_w": 0.009697,
+      "dr_med_h": 0.003425,
+      "ratio_w": 31.305661544807666,
+      "ratio_h": 84.52759124087592,
+      "oversized": true
+    },
+    {
+      "cid": 19,
+      "name": "rest_half",
+      "os_count": 441,
+      "dr_count": 11,
+      "os_med_w": 0.312798,
+      "os_med_h": 0.251804,
+      "dr_med_w": 0.009697,
+      "dr_med_h": 0.003425,
+      "ratio_w": 32.25719294627204,
+      "ratio_h": 73.51941605839416,
+      "oversized": true
+    },
+    {
+      "cid": 20,
+      "name": "rest_quarter",
+      "os_count": 1932,
+      "dr_count": 162,
+      "os_med_w": 0.27449,
+      "os_med_h": 0.236546,
+      "dr_med_w": 0.009293,
+      "dr_med_h": 0.017979,
+      "ratio_w": 29.537286129344672,
+      "ratio_h": 13.156794037488183,
+      "oversized": true
+    },
+    {
+      "cid": 21,
+      "name": "rest_8th",
+      "os_count": 1982,
+      "dr_count": 1290,
+      "os_med_w": 0.303571,
+      "os_med_h": 0.262626,
+      "dr_med_w": 0.008485,
+      "dr_med_h": 0.010274,
+      "ratio_w": 35.77737183264585,
+      "ratio_h": 25.562195834144443,
+      "oversized": true
+    },
+    {
+      "cid": 22,
+      "name": "rest_16th",
+      "os_count": 631,
+      "dr_count": 3448,
+      "os_med_w": 0.305612,
+      "os_med_h": 0.272367,
+      "dr_med_w": 0.010909,
+      "dr_med_h": 0.016267,
+      "ratio_w": 28.014666788889905,
+      "ratio_h": 16.743529845699886,
+      "oversized": true
+    },
+    {
+      "cid": 23,
+      "name": "barline",
+      "os_count": 1899,
+      "dr_count": 1632,
+      "os_med_w": 0.01,
+      "os_med_h": 0.735462,
+      "dr_med_w": 0.015,
+      "dr_med_h": 0.024543,
+      "ratio_w": 0.6666666666666667,
+      "ratio_h": 29.966263292995965,
+      "oversized": true
+    },
+    {
+      "cid": 24,
+      "name": "barline_double",
+      "os_count": 2378,
+      "dr_count": 0,
+      "os_med_w": 0.01,
+      "os_med_h": 0.827822,
+      "dr_med_w": null,
+      "dr_med_h": null,
+      "ratio_w": null,
+      "ratio_h": null,
+      "oversized": false
+    },
+    {
+      "cid": 25,
+      "name": "barline_final",
+      "os_count": 5994,
+      "dr_count": 0,
+      "os_med_w": 0.234561,
+      "os_med_h": 0.208293,
+      "dr_med_w": null,
+      "dr_med_h": null,
+      "ratio_w": null,
+      "ratio_h": null,
+      "oversized": false
+    },
+    {
+      "cid": 26,
+      "name": "barline_repeat",
+      "os_count": 2004,
+      "dr_count": 0,
+      "os_med_w": 0.07551,
+      "os_med_h": 0.287157,
+      "dr_med_w": null,
+      "dr_med_h": null,
+      "ratio_w": null,
+      "ratio_h": null,
+      "oversized": false
+    },
+    {
+      "cid": 27,
+      "name": "time_signature",
+      "os_count": 3427,
+      "dr_count": 106,
+      "os_med_w": 0.272449,
+      "os_med_h": 0.274531,
+      "dr_med_w": 0.013737,
+      "dr_med_h": 0.011986,
+      "ratio_w": 19.83322413918614,
+      "ratio_h": 22.904305022526284,
+      "oversized": true
+    },
+    {
+      "cid": 28,
+      "name": "key_signature",
+      "os_count": 6988,
+      "dr_count": 0,
+      "os_med_w": 0.09898,
+      "os_med_h": 0.264833,
+      "dr_med_w": null,
+      "dr_med_h": null,
+      "ratio_w": null,
+      "ratio_h": null,
+      "oversized": false
+    },
+    {
+      "cid": 29,
+      "name": "fermata",
+      "os_count": 3641,
+      "dr_count": 0,
+      "os_med_w": 0.02,
+      "os_med_h": 0.02,
+      "dr_med_w": null,
+      "dr_med_h": null,
+      "ratio_w": null,
+      "ratio_h": null,
+      "oversized": false
+    },
+    {
+      "cid": 30,
+      "name": "dynamic_soft",
+      "os_count": 3299,
+      "dr_count": 49,
+      "os_med_w": 0.32,
+      "os_med_h": 0.266234,
+      "dr_med_w": 0.015354,
+      "dr_med_h": 0.009989,
+      "ratio_w": 20.841474534323304,
+      "ratio_h": 26.652717989788773,
+      "oversized": true
+    },
+    {
+      "cid": 31,
+      "name": "dynamic_loud",
+      "os_count": 84,
+      "dr_count": 67,
+      "os_med_w": 0.28804,
+      "os_med_h": 0.4,
+      "dr_med_w": 0.025051,
+      "dr_med_h": 0.014269,
+      "ratio_w": 11.498143786675183,
+      "ratio_h": 28.032798374097695,
+      "oversized": true
+    },
+    {
+      "cid": 32,
+      "name": "ledger_line",
+      "os_count": 27828,
+      "dr_count": 0,
+      "os_med_w": 0.295408,
+      "os_med_h": 0.2886,
+      "dr_med_w": null,
+      "dr_med_h": null,
+      "ratio_w": null,
+      "ratio_h": null,
+      "oversized": false
+    }
+  ],
+  "oversized_classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    27,
+    30,
+    31
+  ],
+  "sharing_results": {
+    "0": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 2434,
+      "total_os_annots": 63313,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt"
+      ]
+    },
+    "1": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 236,
+      "total_os_annots": 7281,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-120034259-aug-beethoven--page-6.txt"
+      ]
+    },
+    "2": {
+      "shared_with_notehead": 782,
+      "shared_with_any": 2670,
+      "total_os_annots": 58294,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt"
+      ]
+    },
+    "3": {
+      "shared_with_notehead": 63,
+      "shared_with_any": 711,
+      "total_os_annots": 18789,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt"
+      ]
+    },
+    "4": {
+      "shared_with_notehead": 18,
+      "shared_with_any": 782,
+      "total_os_annots": 3496,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt"
+      ]
+    },
+    "5": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 34,
+      "total_os_annots": 211,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-109555967-aug-emmentaler--page-4_oversample_12_2.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-109555967-aug-emmentaler--page-4_oversample_12_2.txt"
+      ]
+    },
+    "6": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 40,
+      "total_os_annots": 152,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-144423495-aug-beethoven--page-13_oversample_6_2.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-429081312993024944-aug-emmentaler-_oversample_6_2.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-429081312993024944-aug-emmentaler-_oversample_6_2.txt"
+      ]
+    },
+    "7": {
+      "shared_with_notehead": 1,
+      "shared_with_any": 5,
+      "total_os_annots": 4722,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-50270673-aug-gutenberg1939--page-1.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-50270673-aug-gutenberg1939--page-1.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-50270673-aug-gutenberg1939--page-1.txt"
+      ]
+    },
+    "8": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 3773,
+      "total_os_annots": 5527,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-117996848-aug-emmentaler--page-29.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-117996848-aug-emmentaler--page-29.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-117996848-aug-emmentaler--page-29.txt"
+      ]
+    },
+    "9": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 1908,
+      "total_os_annots": 1908,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt"
+      ]
+    },
+    "10": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 0,
+      "total_os_annots": 1387,
+      "example_files": []
+    },
+    "11": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 286,
+      "total_os_annots": 563,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-109555967-aug-beethoven--page-4_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-109555967-aug-beethoven--page-4_oversample_12_3.txt"
+      ]
+    },
+    "12": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 286,
+      "total_os_annots": 286,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-109555967-aug-beethoven--page-4_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-109555967-aug-beethoven--page-4_oversample_12_3.txt"
+      ]
+    },
+    "13": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 2888,
+      "total_os_annots": 4773,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102548668-aug-gutenberg1939--page-1.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102548668-aug-gutenberg1939--page-1.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102548668-aug-gutenberg1939--page-1.txt"
+      ]
+    },
+    "14": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 3838,
+      "total_os_annots": 5436,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt"
+      ]
+    },
+    "15": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 263,
+      "total_os_annots": 2672,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102548668-aug-gonville--page-4.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102548668-aug-gonville--page-4.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102548668-aug-gonville--page-4.txt"
+      ]
+    },
+    "16": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 0,
+      "total_os_annots": 114,
+      "example_files": []
+    },
+    "17": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 0,
+      "total_os_annots": 50,
+      "example_files": []
+    },
+    "18": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 0,
+      "total_os_annots": 2695,
+      "example_files": []
+    },
+    "19": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 0,
+      "total_os_annots": 441,
+      "example_files": []
+    },
+    "20": {
+      "shared_with_notehead": 1,
+      "shared_with_any": 3,
+      "total_os_annots": 1932,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-505588761689839126-aug-beethoven--page-1_oversample_12_2.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-505588761689839126-aug-beethoven--page-1_oversample_12_2.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-505588761689839126-aug-beethoven--page-1_oversample_12_2.txt"
+      ]
+    },
+    "21": {
+      "shared_with_notehead": 3,
+      "shared_with_any": 4,
+      "total_os_annots": 1982,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-10247684-aug-gonville--page-3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-66055864-aug-gutenberg1939-.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-66055864-aug-gutenberg1939-.txt"
+      ]
+    },
+    "22": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 1,
+      "total_os_annots": 631,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-66055864-aug-gutenberg1939-.txt"
+      ]
+    },
+    "23": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 14,
+      "total_os_annots": 1899,
+      "example_files": [
+        "lieder_openscore_00018_p0.txt",
+        "lieder_openscore_00300_p1.txt",
+        "lieder_openscore_00515_p8.txt"
+      ]
+    },
+    "24": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 177,
+      "total_os_annots": 2378,
+      "example_files": [
+        "lieder_openscore_00018_p0.txt",
+        "lieder_openscore_00083_p5.txt",
+        "lieder_openscore_00232_p1.txt"
+      ]
+    },
+    "25": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 3780,
+      "total_os_annots": 5994,
+      "example_files": [
+        "lieder_openscore_00083_p5.txt",
+        "lieder_openscore_00232_p1.txt",
+        "lieder_openscore_00300_p1.txt"
+      ]
+    },
+    "26": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 1910,
+      "total_os_annots": 2004,
+      "example_files": [
+        "lieder_openscore_00931_p1.txt",
+        "lieder_openscore_01261_p1.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt"
+      ]
+    },
+    "27": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 164,
+      "total_os_annots": 3427,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-210979928054054013-aug-beethoven--page-2_oversample_16_2.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-36905751-aug-gutenberg1939--page-2_oversample_24_1.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-36905751-aug-gutenberg1939--page-2_oversample_24_1.txt"
+      ]
+    },
+    "28": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 6988,
+      "total_os_annots": 6988,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt"
+      ]
+    },
+    "29": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 0,
+      "total_os_annots": 3641,
+      "example_files": []
+    },
+    "30": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 7,
+      "total_os_annots": 3299,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-50270673-aug-gutenberg1939--page-1.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-50270673-aug-gutenberg1939--page-1.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-50270673-aug-gutenberg1939--page-1.txt"
+      ]
+    },
+    "31": {
+      "shared_with_notehead": 0,
+      "shared_with_any": 0,
+      "total_os_annots": 84,
+      "example_files": []
+    },
+    "32": {
+      "shared_with_notehead": 1886,
+      "shared_with_any": 2336,
+      "total_os_annots": 27828,
+      "example_files": [
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt",
+        "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.txt"
+      ]
+    }
+  },
+  "position_results": {
+    "0": {
+      "n": 63313,
+      "dy_from_nh_top_median": 0.5,
+      "dy_from_nh_top_p25": 0.49999999999999994,
+      "dy_from_nh_top_p75": 0.5000000000000001,
+      "dy_from_nh_ctr_median": 0.0,
+      "dy_from_nh_bot_median": -0.5,
+      "dx_from_nh_ctr_median": 0.0
+    },
+    "1": {
+      "n": 7281,
+      "dy_from_nh_top_median": 0.5,
+      "dy_from_nh_top_p25": 0.49999999999999994,
+      "dy_from_nh_top_p75": 0.5000000000000001,
+      "dy_from_nh_ctr_median": 0.0,
+      "dy_from_nh_bot_median": -0.5,
+      "dx_from_nh_ctr_median": 0.0
+    },
+    "2": {
+      "n": 58294,
+      "dy_from_nh_top_median": 0.5069428402761733,
+      "dy_from_nh_top_p25": 0.4711728261419986,
+      "dy_from_nh_top_p75": 0.5328293935835839,
+      "dy_from_nh_ctr_median": 0.006942840276173428,
+      "dy_from_nh_bot_median": -0.49305715972382647,
+      "dx_from_nh_ctr_median": 0.0
+    },
+    "3": {
+      "n": 18789,
+      "dy_from_nh_top_median": 0.5312183468434089,
+      "dy_from_nh_top_p25": 0.4689286329538164,
+      "dy_from_nh_top_p75": 0.5831008318576781,
+      "dy_from_nh_ctr_median": 0.031218346843408865,
+      "dy_from_nh_bot_median": -0.468781653156591,
+      "dx_from_nh_ctr_median": 0.0005094803300633458
+    },
+    "4": {
+      "n": 3496,
+      "dy_from_nh_top_median": 0.5090570344048548,
+      "dy_from_nh_top_p25": 0.4604568215672476,
+      "dy_from_nh_top_p75": 0.5424676148201841,
+      "dy_from_nh_ctr_median": 0.009057034404855004,
+      "dy_from_nh_bot_median": -0.49094296559514494,
+      "dx_from_nh_ctr_median": 0.0032793598436448865
+    },
+    "5": {
+      "n": 211,
+      "dy_from_nh_top_median": 0.4823788725572003,
+      "dy_from_nh_top_p25": 0.4393339525777241,
+      "dy_from_nh_top_p75": 0.5349086063768216,
+      "dy_from_nh_ctr_median": -0.017621127442799627,
+      "dy_from_nh_bot_median": -0.5176211274427995,
+      "dx_from_nh_ctr_median": 0.003104342427230625
+    },
+    "6": {
+      "n": 152,
+      "dy_from_nh_top_median": 0.4588493013580344,
+      "dy_from_nh_top_p25": 0.4260482958034969,
+      "dy_from_nh_top_p75": 0.4751462553788134,
+      "dy_from_nh_ctr_median": -0.04115069864196558,
+      "dy_from_nh_bot_median": -0.5411506986419656,
+      "dx_from_nh_ctr_median": 0.019465372114803717
+    },
+    "7": {
+      "n": 4722,
+      "dy_from_nh_top_median": 0.5018695175053758,
+      "dy_from_nh_top_p25": 0.49317175944234765,
+      "dy_from_nh_top_p75": 0.5041470162895545,
+      "dy_from_nh_ctr_median": 0.0018695175053757265,
+      "dy_from_nh_bot_median": -0.4981304824946243,
+      "dx_from_nh_ctr_median": 0.0393615638693603
+    },
+    "8": {
+      "n": 5527,
+      "dy_from_nh_top_median": 0.4746043660474137,
+      "dy_from_nh_top_p25": 0.4415435548945788,
+      "dy_from_nh_top_p75": 0.4895622942011216,
+      "dy_from_nh_ctr_median": -0.025395633952586344,
+      "dy_from_nh_bot_median": -0.5253956339525864,
+      "dx_from_nh_ctr_median": 0.010720767188186429
+    },
+    "9": {
+      "n": 1908,
+      "dy_from_nh_top_median": 0.4801951256417931,
+      "dy_from_nh_top_p25": 0.4190167871898077,
+      "dy_from_nh_top_p75": 0.5212860213804323,
+      "dy_from_nh_ctr_median": -0.019804874358207065,
+      "dy_from_nh_bot_median": -0.5198048743582072,
+      "dx_from_nh_ctr_median": -0.6727957015468902
+    },
+    "10": {
+      "n": 1387,
+      "dy_from_nh_top_median": 0.486440762926389,
+      "dy_from_nh_top_p25": 0.4458585850155619,
+      "dy_from_nh_top_p75": 0.5287014072177941,
+      "dy_from_nh_ctr_median": -0.013559237073610932,
+      "dy_from_nh_bot_median": -0.5135592370736108,
+      "dx_from_nh_ctr_median": -0.6967788675880516
+    },
+    "11": {
+      "n": 563,
+      "dy_from_nh_top_median": 0.49858380539820074,
+      "dy_from_nh_top_p25": 0.46228311922276794,
+      "dy_from_nh_top_p75": 0.5235342145024477,
+      "dy_from_nh_ctr_median": -0.001416194601799165,
+      "dy_from_nh_bot_median": -0.5014161946017991,
+      "dx_from_nh_ctr_median": -0.6597565042005872
+    },
+    "13": {
+      "n": 4773,
+      "dy_from_nh_top_median": 0.48862023280022715,
+      "dy_from_nh_top_p25": 0.463734290843806,
+      "dy_from_nh_top_p75": 0.500302127393578,
+      "dy_from_nh_ctr_median": -0.011379767199772876,
+      "dy_from_nh_bot_median": -0.511379767199773,
+      "dx_from_nh_ctr_median": -0.3049597575723877
+    },
+    "14": {
+      "n": 5436,
+      "dy_from_nh_top_median": 0.4860558045513834,
+      "dy_from_nh_top_p25": 0.4586434559714038,
+      "dy_from_nh_top_p75": 0.5105935542487012,
+      "dy_from_nh_ctr_median": -0.013944195448616576,
+      "dy_from_nh_bot_median": -0.5139441954486166,
+      "dx_from_nh_ctr_median": -0.3277102419544279
+    },
+    "15": {
+      "n": 2672,
+      "dy_from_nh_top_median": 0.49088546824371965,
+      "dy_from_nh_top_p25": 0.48443686255906854,
+      "dy_from_nh_top_p75": 0.49374966682659016,
+      "dy_from_nh_ctr_median": -0.009114531756280343,
+      "dy_from_nh_bot_median": -0.5091145317562804,
+      "dx_from_nh_ctr_median": -0.03491657195994079
+    },
+    "16": {
+      "n": 114,
+      "dy_from_nh_top_median": 0.5,
+      "dy_from_nh_top_p25": 0.49999999999999956,
+      "dy_from_nh_top_p75": 0.5000000000000001,
+      "dy_from_nh_ctr_median": 0.0,
+      "dy_from_nh_bot_median": -0.5000000000000001,
+      "dx_from_nh_ctr_median": -0.03313103643705546
+    },
+    "17": {
+      "n": 50,
+      "dy_from_nh_top_median": 0.4790412535410764,
+      "dy_from_nh_top_p25": 0.41364511783762115,
+      "dy_from_nh_top_p75": 0.4838383612120667,
+      "dy_from_nh_ctr_median": -0.020958746458923587,
+      "dy_from_nh_bot_median": -0.5209587464589236,
+      "dx_from_nh_ctr_median": -0.11363796215975432
+    },
+    "18": {
+      "n": 2695,
+      "dy_from_nh_top_median": 0.48930141589074067,
+      "dy_from_nh_top_p25": 0.31972792364288144,
+      "dy_from_nh_top_p75": 0.6425525135382728,
+      "dy_from_nh_ctr_median": -0.01069858410925932,
+      "dy_from_nh_bot_median": -0.5106985841092594,
+      "dx_from_nh_ctr_median": 0.0017561449106915008
+    },
+    "19": {
+      "n": 441,
+      "dy_from_nh_top_median": 0.514360753698617,
+      "dy_from_nh_top_p25": 0.42666044820740945,
+      "dy_from_nh_top_p75": 0.5779299888636945,
+      "dy_from_nh_ctr_median": 0.01436075369861699,
+      "dy_from_nh_bot_median": -0.48563924630138305,
+      "dx_from_nh_ctr_median": 0.0022017619852122633
+    },
+    "20": {
+      "n": 1932,
+      "dy_from_nh_top_median": 0.48031311373221514,
+      "dy_from_nh_top_p25": 0.42323134518349115,
+      "dy_from_nh_top_p75": 0.5301049476071076,
+      "dy_from_nh_ctr_median": -0.019686886267784805,
+      "dy_from_nh_bot_median": -0.5196868862677848,
+      "dx_from_nh_ctr_median": -0.003822598400630447
+    },
+    "21": {
+      "n": 1982,
+      "dy_from_nh_top_median": 0.4974142346026981,
+      "dy_from_nh_top_p25": 0.4530133498090806,
+      "dy_from_nh_top_p75": 0.5283273337759744,
+      "dy_from_nh_ctr_median": -0.0025857653973017803,
+      "dy_from_nh_bot_median": -0.502585765397302,
+      "dx_from_nh_ctr_median": -0.0035430190359048933
+    },
+    "22": {
+      "n": 631,
+      "dy_from_nh_top_median": 0.48487973084747255,
+      "dy_from_nh_top_p25": 0.4291407166711798,
+      "dy_from_nh_top_p75": 0.5182340229696926,
+      "dy_from_nh_ctr_median": -0.01512026915252737,
+      "dy_from_nh_bot_median": -0.5151202691525273,
+      "dx_from_nh_ctr_median": -0.001201169279829944
+    },
+    "23": {
+      "n": 758,
+      "dy_from_nh_top_median": 0.49869414382352456,
+      "dy_from_nh_top_p25": 0.4167600002909746,
+      "dy_from_nh_top_p75": 0.5416206194632924,
+      "dy_from_nh_ctr_median": -0.0013058561764754393,
+      "dy_from_nh_bot_median": -0.5013058561764754,
+      "dx_from_nh_ctr_median": -0.01824567521452695
+    },
+    "27": {
+      "n": 3427,
+      "dy_from_nh_top_median": 0.4846933724484743,
+      "dy_from_nh_top_p25": 0.4268726252837296,
+      "dy_from_nh_top_p75": 0.549342105263158,
+      "dy_from_nh_ctr_median": -0.015306627551525566,
+      "dy_from_nh_bot_median": -0.5153066275515255,
+      "dx_from_nh_ctr_median": 0.0020880639446753287
+    },
+    "30": {
+      "n": 3299,
+      "dy_from_nh_top_median": 0.49295769997028116,
+      "dy_from_nh_top_p25": 0.4729876551910451,
+      "dy_from_nh_top_p75": 0.5216093966093966,
+      "dy_from_nh_ctr_median": -0.007042300029718884,
+      "dy_from_nh_bot_median": -0.507042300029719,
+      "dx_from_nh_ctr_median": 0.01592978682809196
+    },
+    "31": {
+      "n": 84,
+      "dy_from_nh_top_median": 0.4804807894516668,
+      "dy_from_nh_top_p25": 0.43548590110068447,
+      "dy_from_nh_top_p75": 0.48082700768196235,
+      "dy_from_nh_ctr_median": -0.019519210548333277,
+      "dy_from_nh_bot_median": -0.5195192105483334,
+      "dx_from_nh_ctr_median": 0.005374848456748535
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "deploy_maxdet300": {
+    "mAP50": 0.77204,
+    "mAP50_95": 0.7231,
+    "precision": 0.93929,
+    "recall": 0.57779
+  },
+  "deploy_maxdet1500": {
+    "mAP50": 0.79037,
+    "mAP50_95": 0.73139,
+    "precision": 0.9275,
+    "recall": 0.6198
+  },
+  "best_inference_maxdet1500": {
+    "mAP50": 0.81038,
+    "mAP50_95": 0.74308,
+    "precision": 0.87442,
+    "recall": 0.68216
+  },
+  "strict_maxdet1500": {
+    "mAP50": 0.83383,
+    "mAP50_95": 0.73598,
+    "precision": 0.87247,
+    "recall": 0.72838
+  }
+}
