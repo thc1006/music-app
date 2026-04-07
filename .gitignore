@@ -1,7 +1,9 @@
 training/datasets/CVC-MUSCIMA_StaffRemoval.zip
 training/datasets/deepscores_v2.zip
 kaggle.json
-training/datasets
+training/datasets/*
+# Phase D Bach chorale ground truth — small enough to commit
+!training/datasets/chorale_gt/
 .pyc
 __pycache__/
 *.pyc

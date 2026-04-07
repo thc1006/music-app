@@ -1,0 +1,94 @@
+{
+  "rows": [
+    {
+      "bwv": "269",
+      "image": "bwv269.png",
+      "staves": 4,
+      "expected_total_notes": 229,
+      "expected_per_voice": {
+        "Soprano": 46,
+        "Alto": 61,
+        "Tenor": 59,
+        "Bass": 63
+      },
+      "expected_measures": 24,
+      "detections": 69,
+      "noteheads": 65,
+      "chords": 3,
+      "violations": 5,
+      "notehead_recall_vs_total": 0.2838427947598253
+    },
+    {
+      "bwv": "267",
+      "image": "bwv267.png",
+      "staves": 4,
+      "expected_total_notes": 330,
+      "expected_per_voice": {
+        "Soprano": 78,
+        "Alto": 83,
+        "Tenor": 87,
+        "Bass": 82
+      },
+      "expected_measures": 20,
+      "detections": 78,
+      "noteheads": 75,
+      "chords": 6,
+      "violations": 17,
+      "notehead_recall_vs_total": 0.22727272727272727
+    },
+    {
+      "bwv": "270",
+      "image": "bwv270.png",
+      "staves": 4,
+      "expected_total_notes": 207,
+      "expected_per_voice": {
+        "Soprano": 43,
+        "Alto": 51,
+        "Tenor": 57,
+        "Bass": 56
+      },
+      "expected_measures": 15,
+      "detections": 74,
+      "noteheads": 69,
+      "chords": 9,
+      "violations": 25,
+      "notehead_recall_vs_total": 0.3333333333333333
+    },
+    {
+      "bwv": "354",
+      "image": "bwv354.png",
+      "staves": 4,
+      "expected_total_notes": 235,
+      "expected_per_voice": {
+        "Soprano": 50,
+        "Alto": 60,
+        "Tenor": 58,
+        "Bass": 67
+      },
+      "expected_measures": 12,
+      "detections": 70,
+      "noteheads": 64,
+      "chords": 5,
+      "violations": 26,
+      "notehead_recall_vs_total": 0.2723404255319149
+    },
+    {
+      "bwv": "377",
+      "image": "bwv377.png",
+      "staves": 4,
+      "expected_total_notes": 154,
+      "expected_per_voice": {
+        "Soprano": 33,
+        "Alto": 39,
+        "Tenor": 40,
+        "Bass": 42
+      },
+      "expected_measures": 10,
+      "detections": 73,
+      "noteheads": 69,
+      "chords": 7,
+      "violations": 28,
+      "notehead_recall_vs_total": 0.44805194805194803
+    }
+  ]
+}

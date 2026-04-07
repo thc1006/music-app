@@ -246,8 +246,22 @@ def build_chord_snapshots(
 # Full pipeline
 # ──────────────────────────────────────────────────────────────────────
 
-def run_pipeline(image_path: str) -> dict[str, Any]:
+def run_pipeline(
+    image_path: str,
+    imgsz: int = 1280,
+    conf: float = 0.25,
+    iou: float = 0.55,
+) -> dict[str, Any]:
     """Run the complete Phase 9 → harmony rules pipeline.
+
+    Args:
+        image_path: path to sheet music image
+        imgsz: YOLO inference size. Defaults match Phase 6 fixed val (1280).
+            For high-DPI Bach chorale renders (e.g. 3300×2550 from LilyPond
+            300 DPI), imgsz=1600 + conf=0.10 gives ~3× more noteheads —
+            see `training/datasets/chorale_gt/README.md`.
+        conf: detection confidence threshold
+        iou: NMS IoU threshold
 
     Returns:
         {
@@ -257,7 +271,7 @@ def run_pipeline(image_path: str) -> dict[str, Any]:
             "violations": list[RuleViolation],
         }
     """
-    detections = run_phase9_detection(image_path)
+    detections = run_phase9_detection(image_path, imgsz=imgsz, conf=conf, iou=iou)
     noteheads = [d for d in detections if d["class_id"] in (0, 1)]
     chords = build_chord_snapshots(detections, image_path=image_path)
 
