@@ -411,3 +411,49 @@ Matched: 8/8
 完全避開限制。每次 Read 都是小圖。
 
 未來 Phase C2-C5 視覺驗證都用此方法。
+
+### 11.7 C2: Per-stave clef detection (2026-04-07)
+
+**模組**：`training/clef_detector.py` — assign_clefs_to_staves(clefs, staves)
+**測試**：`training/test_clef_detector.py` — 20 tests passed
+
+#### Code review 發現的問題（已修正）
+1. **Dead code**: `_detect_clef_for_staff` deprecated wrapper（已刪除）
+2. **過時註解**：clef_detector.py docstring 數值與實作不符（已修正）
+3. **Magic numbers**：抽出為 CLEF_LEFT_ZONE_FRACTION (0.15)、CLEF_BBOX_PADDING_FACTOR (1.5)、CLEF_CENTERLINE_TOLERANCE_FACTOR (5.0)
+4. **CRITICAL: 同一 clef 被分配多個 staves**：實測 staff 6+7 共用同一 bass clef cy=1659
+   - **修正**：實作 greedy 1-to-1 matching（按 distance 排序，每 clef 只用一次）
+   - 5 個新 uniqueness tests 全部通過
+
+#### C2 對 violations/chord 的實測影響
+
+| | Phase B | After C2 | Δ |
+|---|---|---|---|
+| Total violations | 530 | **513** | **-17 (-3.2%)** |
+| Avg per chord | 5.35 | **5.18** | -0.17 |
+
+**Per-image breakdown**:
+| Image | Phase B | After C2 | Δ |
+|-------|---------|----------|---|
+| beethoven-1 | 127 | 127 | 0 |
+| gonville | 75 | **66** | -9 (-12%) |
+| gutenberg | 99 | **86** | -13 (-13%) |
+| emmentaler | 171 | **161** | -10 (-6%) |
+| beethoven-2 | 58 | **73** | **+15 (+26%)** |
+
+#### beethoven-2 退步分析（重要發現）
+
+beethoven-2 變糟的原因不在 C2 本身，而是 **C2 暴露了下游其他問題**：
+- Phase 9 偵測 9 clefs 給 10 staves
+- 其中 1 個 bass clef cy=2647 位於 staff 9 結束 (y=2391) **之下** — 可能是 staff_detector 漏掉一個 staff
+- 舊版本（無 1-to-1 約束）會把這個 bass 分配給某個 staff，誤導性地降低 violation count
+- 新版本拒絕這個 mis-positioned clef，回到 default treble，其他位置的 fake errors 暴露出來
+
+**結論**：C2 是正確修正（fixes silent duplicate assignment bug），但只能解決一個面向。
+真正的瓶頸還在 voice_binder（C4）和 staff_detector 的可靠性。
+
+#### 後續
+
+整體 -3.2% 改善符合預期（C2 只修 clef，pitch 仍可能因其他問題錯）。
+應該繼續 C3 (false staff filter) → C4 (voice binding) → C5 (accidentals) → C6 (re-validate)。
+最後 C6 才是真正的綜合驗證。

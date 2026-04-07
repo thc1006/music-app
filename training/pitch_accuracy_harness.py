@@ -250,21 +250,28 @@ def run_baseline(image_path: str) -> dict[str, Any]:
     # (chord snapshot only has midi + voice; we need to back-trace position)
     # Easier: re-run pitch estimation directly on noteheads with staves
     from staff_detector import detect_staves
+    from clef_detector import assign_clefs_to_staves
     from pitch_estimator import estimate_pitch
 
     staves = detect_staves(image_path)
     if staves:
+        # C2: per-stave clef detection
+        clef_classes = {8, 9, 10, 11}
+        clefs = [d for d in detections if d.get("class_id") in clef_classes]
+        staff_clefs = assign_clefs_to_staves(clefs, staves)
+
         for d in detections:
             if d.get("class_id") not in (0, 1):
                 continue
             # Find nearest staff
             nh_cy = d["cy"]
-            staff = min(
-                staves,
-                key=lambda s: abs(nh_cy - (s.line_ys[0] + s.line_ys[-1]) / 2),
+            staff_idx = min(
+                range(len(staves)),
+                key=lambda i: abs(nh_cy - (staves[i].line_ys[0] + staves[i].line_ys[-1]) / 2),
             )
-            # Default to treble (per-stave clef detection is C2)
-            midi = estimate_pitch(nh_cy, staff, "treble")
+            staff = staves[staff_idx]
+            clef = staff_clefs[staff_idx]
+            midi = estimate_pitch(nh_cy, staff, clef)
             predictions.append({
                 "cx": d["cx"],
                 "cy": d["cy"],

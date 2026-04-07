@@ -113,25 +113,6 @@ def run_phase9_detection(
 # Symbol assembly layer
 # ──────────────────────────────────────────────────────────────────────
 
-def _detect_clef_for_staff(detections: list[dict], staff) -> str:
-    """Pick the clef class inside (or nearest to) the given staff."""
-    clef_map = {
-        8: "treble", 9: "bass", 10: "alto", 11: "tenor",
-    }
-    staff_mid_y = (staff.line_ys[0] + staff.line_ys[-1]) / 2
-    candidates = [
-        d for d in detections
-        if d.get("class_id") in clef_map
-        and abs(d["cy"] - staff_mid_y) < staff.spacing * 6
-    ]
-    if not candidates:
-        # Default: top staff = treble, bottom = bass (basic SATB layout)
-        return "treble"
-    # Nearest clef to staff centerline
-    candidates.sort(key=lambda d: abs(d["cy"] - staff_mid_y))
-    return clef_map[candidates[0]["class_id"]]
-
-
 def _find_accidental_for_notehead(
     notehead: dict,
     detections: list[dict],
@@ -163,15 +144,17 @@ def build_chord_snapshots(
     detections: list[dict],
     image_path: str | None = None,
 ) -> list[ChordSnapshot]:
-    """Assemble detections into ChordSnapshot using the full B1-B4 pipeline.
+    """Assemble detections into ChordSnapshot using the full B1-B4 + C2 pipeline.
 
     Pipeline:
       1. staff_detector: find staff lines
-      2. measure_detector: segment by barlines
-      3. voice_binder: group noteheads into SATB chords
-      4. pitch_estimator: compute MIDI pitches from staff position + clef + accidentals
+      2. clef_detector: assign one clef per staff (C2)
+      3. measure_detector: segment by barlines
+      4. voice_binder: group noteheads into SATB chords
+      5. pitch_estimator: compute MIDI from staff position + clef + accidentals
     """
     from staff_detector import detect_staves
+    from clef_detector import assign_clefs_to_staves
     from voice_binder import bind_voices
     from measure_detector import segment_measures
     from pitch_estimator import estimate_pitch
@@ -182,6 +165,11 @@ def build_chord_snapshots(
     staves = detect_staves(image_path)
     if not staves:
         return []
+
+    # C2: assign clef per staff using dedicated module
+    clef_classes = {8, 9, 10, 11}
+    clef_detections = [d for d in detections if d.get("class_id") in clef_classes]
+    staff_clefs = assign_clefs_to_staves(clef_detections, staves)
 
     # Segment into measures
     measures = segment_measures(detections)
@@ -208,13 +196,12 @@ def build_chord_snapshots(
 
                 # Find which staff this notehead belongs to
                 nh_cy = nh["cy"]
-                staff = min(
-                    staves,
-                    key=lambda s: abs(nh_cy - (s.line_ys[0] + s.line_ys[-1]) / 2),
+                staff_idx = min(
+                    range(len(staves)),
+                    key=lambda i: abs(nh_cy - (staves[i].line_ys[0] + staves[i].line_ys[-1]) / 2),
                 )
-
-                # Detect clef for this staff
-                clef = _detect_clef_for_staff(detections, staff)
+                staff = staves[staff_idx]
+                clef = staff_clefs[staff_idx]
 
                 # Find accidental near this notehead
                 accidental = _find_accidental_for_notehead(nh, detections)
