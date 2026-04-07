@@ -1,7 +1,7 @@
 # ADR-003: Phase 7 — Universal OpenScore Bbox Fix for All 30 Classes
 
-**Status**: Approved
-**Date**: 2026-02-27
+**Status**: FAILED — see Postmortem below
+**Date**: 2026-02-27 (Failed: 2026-04-02)
 **Author**: Claude + User
 **Supersedes**: ADR-001 (notehead-only fix), extends ADR-002 (Phase 6 strategy)
 
@@ -196,3 +196,35 @@ Same ADR-002 strategy: reset cv2 bbox regression head, two-stage training.
 | Evaluate | 1 hour | Training complete |
 
 **Total: ~26-30 hours (mostly GPU training)**
+
+---
+
+## POSTMORTEM (2026-04-02)
+
+### Result: FAILED
+
+Phase 7 training reached mAP50=0.543 at Stage 2 ep67, a massive regression from Phase 6's 0.813.
+26/32 classes got worse. Only notehead_filled (+0.165), notehead_hollow (+0.406), barline (+0.027) improved.
+
+### Root Causes
+
+1. **NMS ceiling ≠ position correctness**: The TOP/CENTER rules were validated only for NMS ceiling (100%). This only proves boxes don't suppress each other, NOT that boxes are at correct positions. A small box in the wrong position is worse than a large noisy box that contains the correct symbol.
+
+2. **Shared glyph-group problem**: Multiple annotations within the same glyph-group share identical (cx, cy, w, h). After applying the TOP rule, ALL annotations within a group map to the SAME new position. But in reality, different symbols are at different positions within the group (e.g., beam at bottom, notehead at top, ledger_line at various staff positions).
+
+3. **Reference size mismatch**: DoReMi reference sizes may not match the actual appearance in OpenScore images. Shrinking annotations to tiny DoReMi-scale boxes placed at wrong positions gives the model worse training signal than the original oversized glyph-group boxes.
+
+4. **The model already tolerates noisy bboxes**: Phase 6 achieved beam=0.751, rest_quarter=0.869, clef_treble=0.948 WITH unfixed glyph-group bboxes. The model can learn despite annotation noise. Fixing with wrong positions removes this tolerance.
+
+### Lessons Learned
+
+- **不確定正確位置就不要改** — wrong fix is worse than no fix
+- **NMS ceiling is a necessary but not sufficient validation** — must also verify with visual inspection on actual images
+- **Validate one class at a time** — never batch-fix 30 classes simultaneously
+- **The notehead TOP-edge rule worked because it was rigorously validated** (visual inspection, spacing analysis, cross-referencing with stem positions). Other classes did not receive this level of validation.
+
+### Correct Path Forward
+
+Resume Phase 6 Stage 2 (only noteheads fixed, proven safe) and let it fully converge.
+Only after convergence, evaluate per-class performance and decide if any additional fixes are warranted.
+Each fix must be individually validated with visual inspection before applying.
