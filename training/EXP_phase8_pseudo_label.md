@@ -336,3 +336,78 @@ Violation 分佈：
 - 2 譜表 grand staff：treble=S/A, bass=T/B 是正確的
 - 但多 staff orchestral 樂譜：每 staff 是樂器不是聲部
 - 需要 layout 識別區分這兩種情境
+
+---
+
+## 11. Phase C: Pitch Accuracy Iteration (2026-04-07)
+
+**動機**：Phase B 揭示真實圖上每個 chord 平均 5.35 fake violations。需要量化 pitch
+accuracy 並逐步改善，目標 ≥80%。
+
+### 11.1 Phase C sub-tasks (12 個 task TDD 規劃)
+
+| Sub | 內容 | 狀態 |
+|-----|------|------|
+| C1-Red | pitch accuracy harness 測試 (11) | ✅ |
+| C1-Green | 實作 `pitch_accuracy_harness.py` | ✅ |
+| C2-Red/Green | per-stave clef detection | 📋 |
+| C3-Red/Green | false staff filter | 📋 |
+| C4-Red/Green | grand staff vs orchestral layout | 📋 |
+| C5-Red/Green | measure-scoped accidentals | 📋 |
+| C6 | re-validate on 5 real images | 📋 |
+| C7 | Phase C 最終決策 | 📋 |
+
+### 11.2 C1 完成記錄 (2026-04-07)
+
+**新模組**：
+- `training/pitch_accuracy_harness.py` — 量化 pitch 準確度
+  - `load_ground_truth()` — 從 JSON 載入人工標註（過濾 `_` 開頭的元資料 key）
+  - `save_notehead_crops()` — 存 80x80 小 crop（避開圖片尺寸限制）
+  - `measure_pitch_accuracy()` — exact + lenient 比對
+  - `run_baseline()` — 完整 Phase 9 → pitch → 比對 pipeline
+- `training/test_pitch_accuracy.py` — 11 TDD 測試
+- `training/pitch_ground_truth.json` — 8 個人工標註（Beethoven 影像 staff 0）
+
+### 11.3 C1 重大發現：pitch_estimator 數學是對的
+
+**100% exact accuracy on 8 ground-truth treble noteheads**（Beethoven test image staff 0）。
+
+```
+Image: phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.png
+Predictions: 177
+Ground truth entries: 8
+Exact accuracy:   100.0%
+Lenient (±1):     100.0%
+Matched: 8/8
+```
+
+### 11.4 C1 戰略意義
+
+這證實了：
+1. **pitch_estimator.py 的數學沒 bug** — staff position → MIDI 是對的（前提是 clef 對）
+2. **staff_detector.py 找的 staves 位置正確** — 否則 step 計算會錯
+3. **5.35 fake violations/chord 不是 pitch math 的鍋**
+
+問題定位到：
+- **C2**: 其他 staves 不是 treble 卻被當 treble → 音高全錯
+- **C3**: 可能有 false staff 偵測（但 C1 證明真 staves 偵測沒問題）
+- **C4**: voice_binder 把不同 staves 的音符當作同一個 chord
+- **C5**: accidentals 沒有 measure-scope tracking
+
+### 11.5 Test count milestone
+
+| 模組類別 | tests |
+|---------|-------|
+| Phase B 6 modules | 70 |
+| notehead detector | 19 |
+| **Phase C1 pitch harness** | **11** |
+| **Total** | **100 passing** |
+
+### 11.6 避開圖片尺寸限制的策略
+
+問題：之前直接 Read 完整 OpenScore 圖片（>2000px）會觸發 dimension limit。
+
+解決：`save_notehead_crops()` 切 80x80 小 crop，可組成 contact sheet（346x524px），
+完全避開限制。每次 Read 都是小圖。
+
+未來 Phase C2-C5 視覺驗證都用此方法。

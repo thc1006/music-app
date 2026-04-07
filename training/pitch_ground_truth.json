@@ -1,0 +1,14 @@
+{
+  "_README": "Hand-curated pitch ground truth for Phase C pitch accuracy iteration. Each entry maps a notehead position (cx, cy) to its expected MIDI pitch based on visual inspection of small crops + music theory + assumed clef.",
+  "_clef_assumption": "Staff 0 of Beethoven orchestral score appears to be treble clef (Vln 1). Verified visually from contact sheet that noteheads at top of staff = F5 (top line) and notes below progress as expected diatonic steps.",
+  "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.png": [
+    {"idx": 0, "cx": 1217, "cy": 113, "midi": 81, "letter": "A5", "note": "ledger line above treble staff 0"},
+    {"idx": 1, "cx": 1265, "cy": 119, "midi": 79, "letter": "G5", "note": "top space above treble staff 0"},
+    {"idx": 2, "cx": 1473, "cy": 127, "midi": 77, "letter": "F5", "note": "top line of treble staff 0"},
+    {"idx": 3, "cx": 445,  "cy": 129, "midi": 77, "letter": "F5", "note": "top line of treble staff 0"},
+    {"idx": 4, "cx": 541,  "cy": 130, "midi": 77, "letter": "F5", "note": "top line of treble staff 0"},
+    {"idx": 5, "cx": 399,  "cy": 136, "midi": 76, "letter": "E5", "note": "top space of treble staff 0"},
+    {"idx": 6, "cx": 658,  "cy": 146, "midi": 74, "letter": "D5", "note": "2nd line of treble staff 0"},
+    {"idx": 9, "cx": 847,  "cy": 153, "midi": 72, "letter": "C5", "note": "2nd space of treble staff 0"}
+  ]
+}
