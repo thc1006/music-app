@@ -1,0 +1,110 @@
+{
+  "phase_b_total": {
+    "det": 878,
+    "nh": 781,
+    "chords": 99,
+    "viol": 530
+  },
+  "phase_c_total": {
+    "det": 878,
+    "nh": 781,
+    "chords": 0,
+    "viol": 0,
+    "staves": 60
+  },
+  "phase_b_vc": 5.353535353535354,
+  "phase_c_vc": 0.0,
+  "rule_breakdown": {},
+  "rows": [
+    {
+      "label": "Beethoven p2",
+      "image": "phase7_phase6_base_p4_p3_p2_lg-102414375-aug-beethoven--page-2_oversample_12_3.png",
+      "staves": 12,
+      "phase_b": {
+        "label": "Beethoven p2",
+        "det": 203,
+        "nh": 177,
+        "chords": 22,
+        "viol": 127
+      },
+      "phase_c": {
+        "det": 203,
+        "nh": 177,
+        "chords": 0,
+        "viol": 0
+      }
+    },
+    {
+      "label": "Gonville p1",
+      "image": "phase7_phase6_base_p4_p3_p2_lg-102548668-aug-gonville--page-1.png",
+      "staves": 12,
+      "phase_b": {
+        "label": "Gonville p1",
+        "det": 142,
+        "nh": 129,
+        "chords": 15,
+        "viol": 75
+      },
+      "phase_c": {
+        "det": 142,
+        "nh": 129,
+        "chords": 0,
+        "viol": 0
+      }
+    },
+    {
+      "label": "Gutenberg p1",
+      "image": "phase7_phase6_base_p4_p3_p2_lg-102548668-aug-gutenberg1939--page-1.png",
+      "staves": 12,
+      "phase_b": {
+        "label": "Gutenberg p1",
+        "det": 154,
+        "nh": 133,
+        "chords": 18,
+        "viol": 99
+      },
+      "phase_c": {
+        "det": 154,
+        "nh": 133,
+        "chords": 0,
+        "viol": 0
+      }
+    },
+    {
+      "label": "Emmentaler p1",
+      "image": "phase7_phase6_base_p4_p3_p2_lg-105569450-aug-emmentaler--page-1_oversample_6_1.png",
+      "staves": 14,
+      "phase_b": {
+        "label": "Emmentaler p1",
+        "det": 236,
+        "nh": 219,
+        "chords": 29,
+        "viol": 171
+      },
+      "phase_c": {
+        "det": 236,
+        "nh": 219,
+        "chords": 0,
+        "viol": 0
+      }
+    },
+    {
+      "label": "Beethoven p2'",
+      "image": "phase7_phase6_base_p4_p3_p2_lg-11466156-aug-beethoven--page-2.png",
+      "staves": 10,
+      "phase_b": {
+        "label": "Beethoven p2'",
+        "det": 143,
+        "nh": 123,
+        "chords": 15,
+        "viol": 58
+      },
+      "phase_c": {
+        "det": 143,
+        "nh": 123,
+        "chords": 0,
+        "viol": 0
+      }
+    }
+  ]
+}

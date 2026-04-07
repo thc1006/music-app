@@ -1,0 +1,57 @@
+{
+  "total": {
+    "det": 749,
+    "nh": 334,
+    "chords": 32,
+    "viol": 62,
+    "staves_total": 20
+  },
+  "violations_per_chord": 1.9375,
+  "rule_breakdown": {
+    "M1": 30,
+    "V1": 25,
+    "P1": 7
+  },
+  "rows": [
+    {
+      "image": "phase7_phase6_base_p4_p3_doremi_doremi_Bartok - String Quartet 5 mvt 3-008.png",
+      "staves": 4,
+      "det": 102,
+      "nh": 42,
+      "chords": 0,
+      "viol": 0
+    },
+    {
+      "image": "phase7_phase6_base_p4_p3_doremi_doremi_Bartok - String Quartet 5 mvt 3-010.png",
+      "staves": 4,
+      "det": 193,
+      "nh": 79,
+      "chords": 6,
+      "viol": 16
+    },
+    {
+      "image": "phase7_phase6_base_p4_p3_doremi_doremi_Bartok - String Quartet 5 mvt 3-012.png",
+      "staves": 4,
+      "det": 178,
+      "nh": 92,
+      "chords": 11,
+      "viol": 30
+    },
+    {
+      "image": "phase7_phase6_base_p4_p3_doremi_doremi_Bartok - String Quartet 5 mvt 3-013.png",
+      "staves": 4,
+      "det": 186,
+      "nh": 85,
+      "chords": 15,
+      "viol": 16
+    },
+    {
+      "image": "phase7_phase6_base_p4_p3_doremi_doremi_Bartok - String Quartet 5 mvt 3-025.png",
+      "staves": 4,
+      "det": 90,
+      "nh": 36,
+      "chords": 0,
+      "viol": 0
+    }
+  ]
+}
