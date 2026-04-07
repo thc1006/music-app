@@ -150,14 +150,16 @@ def build_chord_snapshots(
       1. staff_detector: find staff lines
       2. clef_detector: assign one clef per staff (C2)
       3. measure_detector: segment by barlines
-      4. voice_binder: group noteheads into SATB chords
-      5. pitch_estimator: compute MIDI from staff position + clef + accidentals
+      4. voice_binder: group noteheads into SATB chords (C4 layout-aware)
+      5. accidental_resolver: in-measure accidental persistence (C5)
+      6. pitch_estimator: compute MIDI from staff position + clef + accidentals
     """
     from staff_detector import detect_staves
     from clef_detector import assign_clefs_to_staves
     from voice_binder import bind_voices
     from measure_detector import segment_measures
     from pitch_estimator import estimate_pitch
+    from accidental_resolver import resolve_measure_accidentals
 
     if image_path is None:
         return []
@@ -179,10 +181,28 @@ def build_chord_snapshots(
     chords: list[ChordSnapshot] = []
     chord_index = 0
 
+    def _staff_centerline(s):
+        return (s.line_ys[0] + s.line_ys[-1]) / 2
+
     for measure in measures:
         measure_nh = measure["noteheads"]
         if not measure_nh:
             continue
+
+        # C5: pre-annotate noteheads with staff_idx, step, explicit_accidental
+        # so accidental_resolver can track in-measure state
+        for nh in measure_nh:
+            nh_cy = nh["cy"]
+            staff_idx = min(
+                range(len(staves)),
+                key=lambda i: abs(nh_cy - _staff_centerline(staves[i])),
+            )
+            nh["staff_idx"] = staff_idx
+            nh["step"] = staves[staff_idx].y_to_step(nh_cy)
+            nh["explicit_accidental"] = _find_accidental_for_notehead(nh, detections)
+
+        # C5: resolve in-measure accidental persistence
+        resolve_measure_accidentals(measure_nh)
 
         # Bind voices within this measure
         voice_chords = bind_voices(measure_nh, staves)
@@ -194,20 +214,14 @@ def build_chord_snapshots(
                 if nh is None:
                     continue
 
-                # Find which staff this notehead belongs to
-                nh_cy = nh["cy"]
-                staff_idx = min(
-                    range(len(staves)),
-                    key=lambda i: abs(nh_cy - (staves[i].line_ys[0] + staves[i].line_ys[-1]) / 2),
-                )
+                staff_idx = nh["staff_idx"]
                 staff = staves[staff_idx]
                 clef = staff_clefs[staff_idx]
-
-                # Find accidental near this notehead
-                accidental = _find_accidental_for_notehead(nh, detections)
+                # C5: use resolved accidental (not raw explicit detection)
+                accidental = nh.get("resolved_accidental")
 
                 # Estimate pitch
-                midi = estimate_pitch(nh_cy, staff, clef, accidental)
+                midi = estimate_pitch(nh["cy"], staff, clef, accidental)
 
                 notes[voice_name] = NoteEvent(
                     voice=voice_name,
