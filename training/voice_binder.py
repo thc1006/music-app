@@ -63,12 +63,74 @@ def _cluster_by_x(
     return clusters
 
 
+def _staff_centerline(staff: Staff) -> float:
+    return (staff.line_ys[0] + staff.line_ys[-1]) / 2
+
+
+def _bind_grand_staff(cluster: list[dict], staves: list[Staff]) -> dict | None:
+    """2-stave grand staff: top staff = S/A, bottom = T/B.
+
+    Returns None if cluster doesn't have 2 noteheads on each staff.
+    """
+    staves_sorted = sorted(staves, key=lambda s: s.line_ys[0])
+    top_staff, bot_staff = staves_sorted[0], staves_sorted[1]
+    boundary = (_staff_centerline(top_staff) + _staff_centerline(bot_staff)) / 2
+
+    on_top = sorted([n for n in cluster if n["cy"] < boundary], key=lambda n: n["cy"])
+    on_bot = sorted([n for n in cluster if n["cy"] >= boundary], key=lambda n: n["cy"])
+
+    if len(on_top) >= 2 and len(on_bot) >= 2:
+        return {
+            "S": on_top[0],
+            "A": on_top[1],
+            "T": on_bot[0],
+            "B": on_bot[1],
+        }
+    return None
+
+
+def _bind_quartet(cluster: list[dict], staves: list[Staff]) -> dict | None:
+    """4-stave quartet: each staff = one voice (S, A, T, B from top).
+
+    For each staff, find the closest notehead in the cluster and assign it
+    to that voice. Returns None if any staff has no notehead in this cluster.
+    """
+    staves_sorted = sorted(staves, key=lambda s: s.line_ys[0])
+    voice_names = ["S", "A", "T", "B"]
+
+    # For each notehead in cluster, find which staff it belongs to (closest centerline)
+    nh_to_staff: dict[int, list[dict]] = {i: [] for i in range(4)}
+    for nh in cluster:
+        staff_idx = min(
+            range(4),
+            key=lambda i: abs(nh["cy"] - _staff_centerline(staves_sorted[i])),
+        )
+        nh_to_staff[staff_idx].append(nh)
+
+    # Each staff must have at least one notehead in this cluster
+    if any(len(nh_to_staff[i]) == 0 for i in range(4)):
+        return None
+
+    # Take the topmost notehead per staff (most likely the actual voice)
+    chord = {}
+    for i, voice in enumerate(voice_names):
+        # If multiple noteheads on same staff at this beat, take the highest
+        chord[voice] = sorted(nh_to_staff[i], key=lambda n: n["cy"])[0]
+    return chord
+
+
 def bind_voices(
     noteheads: list[dict],
     staves: list[Staff],
     x_tolerance: float = 20.0,
 ) -> list[dict[str, dict]]:
-    """Group notehead detections into SATB chords.
+    """Group notehead detections into SATB chords with layout-aware dispatch.
+
+    Layout dispatch (Phase C4):
+      - 2 staves → grand staff (piano/keyboard chorale): top=S/A, bottom=T/B
+      - 4 staves → quartet (string quartet, hymn): each staff = one voice
+      - Other counts → return [] (not 4-part harmony content; rule engine
+        does not apply meaningfully)
 
     Args:
         noteheads: detection dicts (from downstream_eval.run_phase9_detection)
@@ -76,12 +138,15 @@ def bind_voices(
         x_tolerance: max horizontal distance to consider as simultaneous
 
     Returns:
-        List of chord dicts. Each chord has keys "S", "A", "T", "B" mapping
-        to the corresponding notehead detection dict.
-        Chords with fewer than 4 noteheads are skipped.
-        List is sorted by average x-coordinate.
+        List of chord dicts (S/A/T/B → notehead). Empty list if layout
+        unsupported or no full chord can be assembled.
     """
-    if not noteheads:
+    if not noteheads or not staves:
+        return []
+
+    # C4: layout-aware dispatch
+    if len(staves) not in (2, 4):
+        # Not a 4-part harmony layout — skip silently
         return []
 
     # Filter to notehead classes only (0 = filled, 1 = hollow)
@@ -97,54 +162,12 @@ def bind_voices(
         if len(cluster) < 4:
             continue  # not a full 4-voice chord
 
-        if len(staves) >= 2:
-            # Multi-staff: assign each notehead to its staff
-            # Top staff (smallest y) takes S, A
-            # Bottom staff takes T, B
-            staves_sorted = sorted(staves, key=lambda s: s.line_ys[0])
-            top_staff = staves_sorted[0]
-            bot_staff = staves_sorted[-1]
+        if len(staves) == 2:
+            chord = _bind_grand_staff(cluster, staves)
+        else:  # len(staves) == 4
+            chord = _bind_quartet(cluster, staves)
 
-            top_mid = (top_staff.line_ys[0] + top_staff.line_ys[-1]) / 2
-            bot_mid = (bot_staff.line_ys[0] + bot_staff.line_ys[-1]) / 2
-            boundary = (top_mid + bot_mid) / 2
-
-            on_top = sorted(
-                [n for n in cluster if n["cy"] < boundary],
-                key=lambda n: n["cy"],
-            )
-            on_bot = sorted(
-                [n for n in cluster if n["cy"] >= boundary],
-                key=lambda n: n["cy"],
-            )
-
-            if len(on_top) >= 2 and len(on_bot) >= 2:
-                chord = {
-                    "S": on_top[0],
-                    "A": on_top[1],
-                    "T": on_bot[0],
-                    "B": on_bot[1],
-                }
-                chords.append(chord)
-            elif len(cluster) >= 4:
-                # Fallback: pure y ordering
-                sorted_by_y = sorted(cluster, key=lambda n: n["cy"])[:4]
-                chord = {
-                    "S": sorted_by_y[0],
-                    "A": sorted_by_y[1],
-                    "T": sorted_by_y[2],
-                    "B": sorted_by_y[3],
-                }
-                chords.append(chord)
-        else:
-            # Single-staff: top 4 by y = S, A, T, B
-            sorted_by_y = sorted(cluster, key=lambda n: n["cy"])[:4]
-            chord = {
-                "S": sorted_by_y[0],
-                "A": sorted_by_y[1],
-                "T": sorted_by_y[2],
-                "B": sorted_by_y[3],
-            }
+        if chord is not None:
             chords.append(chord)
 
     return chords

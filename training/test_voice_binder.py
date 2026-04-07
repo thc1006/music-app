@@ -44,24 +44,24 @@ def _make_notehead(x, y, w=20, h=25):
 
 
 class TestSingleStaffBinding:
-    """Single staff with 4 simultaneous noteheads."""
+    """Single staff: NOT supported by C4-Lite (not 4-part harmony content).
 
-    def test_four_noteheads_at_same_x_bind_to_SATB(self):
-        """Top = S, next = A, next = T, bottom = B within one staff."""
+    The C4 layout dispatcher returns [] for 1-stave layouts because they
+    are not 4-part harmony. This test documents the intentional behavior.
+    """
+
+    def test_single_staff_returns_empty(self):
+        """1-stave should return [] (not 4-part harmony)."""
         from voice_binder import bind_voices
         staff = _make_staff(top_y=100)
         noteheads = [
-            _make_notehead(x=200, y=95),   # highest
+            _make_notehead(x=200, y=95),
             _make_notehead(x=200, y=110),
             _make_notehead(x=200, y=125),
-            _make_notehead(x=200, y=140),  # lowest
+            _make_notehead(x=200, y=140),
         ]
         chords = bind_voices(noteheads, [staff])
-        assert len(chords) == 1, f"Expected 1 chord, got {len(chords)}"
-        chord = chords[0]
-        assert "S" in chord and "A" in chord and "T" in chord and "B" in chord
-        # S should have the smallest y (highest pitch)
-        assert chord["S"]["cy"] < chord["A"]["cy"] < chord["T"]["cy"] < chord["B"]["cy"]
+        assert chords == [], "1-stave should return [] in C4-Lite layout dispatcher"
 
 
 class TestMultiStaffBinding:
@@ -93,53 +93,57 @@ class TestInsufficientNoteheads:
 
     def test_three_noteheads_skipped(self):
         from voice_binder import bind_voices
-        staff = _make_staff(top_y=100)
+        staves = [
+            _make_staff(top_y=100, spacing=10),
+            _make_staff(top_y=200, spacing=10),
+        ]
         noteheads = [
             _make_notehead(x=200, y=95),
             _make_notehead(x=200, y=115),
             _make_notehead(x=200, y=135),
         ]
-        chords = bind_voices(noteheads, [staff])
+        chords = bind_voices(noteheads, staves)
         assert len(chords) == 0
 
     def test_no_noteheads_returns_empty(self):
         from voice_binder import bind_voices
-        staff = _make_staff(top_y=100)
-        chords = bind_voices([], [staff])
+        staves = [
+            _make_staff(top_y=100, spacing=10),
+            _make_staff(top_y=200, spacing=10),
+        ]
+        chords = bind_voices([], staves)
         assert chords == []
 
 
 class TestHorizontalClustering:
-    """Noteheads within x-tolerance are treated as simultaneous."""
+    """Noteheads within x-tolerance are treated as simultaneous.
+
+    Uses 2-stave grand staff layout (supported by C4-Lite).
+    """
 
     def test_noteheads_within_tolerance_are_chord(self):
         from voice_binder import bind_voices
-        staff = _make_staff(top_y=100)
+        top = _make_staff(top_y=100, spacing=10)
+        bot = _make_staff(top_y=200, spacing=10)
         noteheads = [
-            _make_notehead(x=200, y=95),
-            _make_notehead(x=205, y=110),  # slightly different x
-            _make_notehead(x=195, y=125),
-            _make_notehead(x=202, y=140),
+            _make_notehead(x=300, y=110),  # top staff
+            _make_notehead(x=305, y=130),  # top staff (slightly different x)
+            _make_notehead(x=295, y=210),  # bot staff
+            _make_notehead(x=302, y=230),  # bot staff
         ]
-        chords = bind_voices(noteheads, [staff])
+        chords = bind_voices(noteheads, [top, bot])
         assert len(chords) == 1
 
     def test_noteheads_at_different_beats_are_separate_chords(self):
         from voice_binder import bind_voices
-        staff = _make_staff(top_y=100)
-        # Chord 1 at x=200
-        # Chord 2 at x=400
-        noteheads = [
-            _make_notehead(x=200, y=95),
-            _make_notehead(x=200, y=110),
-            _make_notehead(x=200, y=125),
-            _make_notehead(x=200, y=140),
-            _make_notehead(x=400, y=95),
-            _make_notehead(x=400, y=110),
-            _make_notehead(x=400, y=125),
-            _make_notehead(x=400, y=140),
-        ]
-        chords = bind_voices(noteheads, [staff])
+        top = _make_staff(top_y=100, spacing=10)
+        bot = _make_staff(top_y=200, spacing=10)
+        # Chord 1 at x=200, chord 2 at x=400
+        noteheads = []
+        for x in [200, 400]:
+            for y in [110, 130, 210, 230]:
+                noteheads.append(_make_notehead(x=x, y=y))
+        chords = bind_voices(noteheads, [top, bot])
         assert len(chords) == 2
 
 
@@ -148,16 +152,14 @@ class TestChordOrdering:
 
     def test_chords_sorted_by_x(self):
         from voice_binder import bind_voices
-        staff = _make_staff(top_y=100)
-        # Intentionally out-of-order input
+        top = _make_staff(top_y=100, spacing=10)
+        bot = _make_staff(top_y=200, spacing=10)
         noteheads = []
         for x in [400, 200, 600]:
-            for dy in [0, 15, 30, 45]:
-                noteheads.append(_make_notehead(x=x, y=95 + dy))
-        chords = bind_voices(noteheads, [staff])
+            for y in [110, 130, 210, 230]:
+                noteheads.append(_make_notehead(x=x, y=y))
+        chords = bind_voices(noteheads, [top, bot])
         assert len(chords) == 3
-        # Chords should be in ascending x order
-        # Each chord's average x should be ascending
         avg_xs = [
             sum(c[v]["cx"] for v in ("S", "A", "T", "B")) / 4
             for c in chords
